@@ -22,7 +22,7 @@ const path = Astro.url.pathname;
       <img src="/wp-content/uploads/cropped-cropped-LOGO.png" alt="SENO 赛鸽基因检测中心 LOGO" class="h-9 w-9 rounded" width="512" height="512" />
       <span class="text-lg">赛鸽基因检测中心</span>
     </a>
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="主导航">
+    <nav class="hidden items-center gap-1 xl:flex" aria-label="主导航">
       {nav.map((item) => (
         <a
           href={item.href}
@@ -38,14 +38,14 @@ const path = Astro.url.pathname;
       ))}
     </nav>
     <a href="/lianxi/" class="btn-primary hidden sm:inline-flex">立即检测</a>
-    <button id="menu-toggle" class="lg:hidden text-gray-600" aria-label="打开菜单" aria-expanded="false" aria-controls="mobile-menu">
+    <button id="menu-toggle" class="xl:hidden text-gray-600" aria-label="打开菜单" aria-expanded="false" aria-controls="mobile-menu">
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
   </div>
   <!-- mobile menu -->
-  <div id="mobile-menu" class="hidden border-t border-gray-100 lg:hidden">
+  <div id="mobile-menu" class="hidden border-t border-gray-100 xl:hidden">
     <nav class="container-x flex flex-col gap-1 py-3" aria-label="移动端导航">
       {nav.map((item) => (
         <a

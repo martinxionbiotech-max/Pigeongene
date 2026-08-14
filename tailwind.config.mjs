@@ -23,7 +23,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+        sans: ['-apple-system', 'PingFang SC', 'Microsoft YaHei', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

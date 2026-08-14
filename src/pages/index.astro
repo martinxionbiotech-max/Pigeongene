@@ -6,7 +6,7 @@ import { geneMarkers } from '../data/genes';
 import { virusTests } from '../data/viruses';
 
 const title = 'SENO 赛鸽基因检测中心 | 飞行能力基因检测 · 病毒检测 · DNA 身份证';
-const description = '张家口森诺生物科技有限公司，国家高新技术企业，专注赛鸽飞行能力基因检测（8 大核心基因位点）、赛鸽病毒检测（11 项病原）与 DNA 身份证/亲缘鉴定，24-48 小时出具电子报告。';
+const description = '张家口森诺生物科技有限公司，国家高新技术企业，专注赛鸽飞行能力基因检测（8 大核心基因位点）、赛鸽病毒检测（12 项病原）与 DNA 身份证/亲缘鉴定，病毒检测 2-3 个工作日、基因检测 7-14 个工作日出具电子报告。';
 
 const siteUrl = 'https://pigeongene.com';
 const serviceJsonLd = [
@@ -79,19 +79,20 @@ const serviceJsonLd = [
           我们专注于赛鸽飞行能力 DNA 检测、病毒检测与 DNA 身份证/亲缘鉴定，利用高精度分子诊断技术，为全球鸽友、育种者与研究者提供可靠、数据驱动的育种与健康管理依据。
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="/jiyin-jiance/" class="btn-accent">飞行能力基因检测</a>
-          <a href="/bingdu-jiance/" class="btn-outline !border-white !text-white hover:!bg-white/10">赛鸽病毒检测</a>
-          <a href="/dna-shenfenzheng/" class="btn-outline !border-white !text-white hover:!bg-white/10">DNA 身份证</a>
+          <a href="/jiyin-jiance/" class="btn-primary">飞行能力基因检测</a>
+          <a href="/bingdu-jiance/" class="btn-outline-light">赛鸽病毒检测</a>
+          <a href="/dna-shenfenzheng/" class="btn-outline-light">DNA 身份证</a>
         </div>
       </div>
       <div class="relative">
         <img
           src="/wp-content/uploads/Racing-Pigeon-Performance-DNA-Testing-scaled.jpg"
           alt="赛鸽飞行能力 DNA 检测"
-          class="w-full rounded-2xl shadow-2xl"
+          class="h-72 w-full rounded-2xl object-cover object-center shadow-2xl sm:h-96 lg:h-full lg:max-h-[480px]"
           width="1536"
           height="2048"
           decoding="async"
+          fetchpriority="high"
         />
       </div>
     </div>
@@ -182,7 +183,7 @@ const serviceJsonLd = [
   </section>
 
   <!-- 病毒检测概览 -->
-  <section class="bg-gray-50 py-20">
+  <section class="container-x py-20">
     <div class="container-x">
       <div class="text-center">
         <h2 class="section-title">12 项病毒检测项目</h2>
@@ -249,7 +250,7 @@ const serviceJsonLd = [
         <div class="text-center">
           <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-3xl">⚡</div>
           <h3 class="mt-4 text-lg font-semibold">快速出报告</h3>
-          <p class="mt-2 text-sm text-brand-100">样本到达后 24-48 小时即可获取完整电子报告。</p>
+          <p class="mt-2 text-sm text-brand-100">病毒检测 2-3 个工作日、基因检测 7-14 个工作日出具完整电子报告。</p>
         </div>
       </div>
     </div>
