@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://pigeongene.com/sitemap-index.xml

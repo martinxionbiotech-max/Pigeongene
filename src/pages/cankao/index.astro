@@ -6,6 +6,8 @@ import Footer from '../../components/Footer.astro';
 const title = '科学参考 | 赛鸽基因检测科研文献';
 const description = '赛鸽性能相关基因标记的科研文献汇总，涵盖 MSTN、DRD4、LDHA、CRY1 等关键基因的科学研究，为基因检测提供科学依据。';
 
+const siteUrl = 'https://pigeongene.com';
+
 const refs = [
   {
     title: 'A. Dybus 等（2013）',
@@ -49,9 +51,29 @@ const refs = [
     summary: '遗传学原理、遗传力与数量性状分析的基础著作，为育种中解读遗传标记提供理论背景。',
   },
 ];
+
+const scholarlyJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: '赛鸽基因检测科研文献',
+    itemListElement: refs.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'ScholarlyArticle',
+        headline: r.title,
+        name: r.name,
+        description: r.summary,
+        ...(r.doi ? { sameAs: r.doi } : {}),
+        ...(r.pubmed ? { sameAs: r.pubmed } : {}),
+      },
+    })),
+  },
+];
 ---
 
-<BaseLayout {title} {description} canonical="/cankao/">
+<BaseLayout {title} {description} canonical="/cankao/" jsonLd={scholarlyJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">

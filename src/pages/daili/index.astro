@@ -6,6 +6,18 @@ import Footer from '../../components/Footer.astro';
 const title = '代理商合作 | 赛鸽基因检测合作伙伴';
 const description = '诚邀全球合作伙伴加入赛鸽基因检测与分子诊断事业，提供区域代理、营销合作与实验室建设技术支持，共享科学育种与健康检测市场机遇。';
 
+const siteUrl = 'https://pigeongene.com';
+const breadcrumbJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '代理商合作', item: `${siteUrl}/daili/` },
+    ],
+  },
+];
+
 const opportunities = [
   {
     icon: '🤝',
@@ -44,7 +56,7 @@ const steps = [
 ];
 ---
 
-<BaseLayout {title} {description} canonical="/daili/">
+<BaseLayout {title} {description} canonical="/daili/" jsonLd={breadcrumbJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">

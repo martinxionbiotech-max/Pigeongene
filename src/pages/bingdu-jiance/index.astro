@@ -7,6 +7,28 @@ import { virusTests } from '../../data/viruses';
 const title = '赛鸽病毒检测 | 12 项常见病原 qPCR 检测';
 const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒、腺病毒、鸽痘、轮状病毒、新城疫、多瘤病毒、沙门氏菌、白色念珠菌、毛滴虫、鹦鹉热衣原体、支原体 12 项病原，实时荧光 PCR 精准检测，可早于临床症状 7-14 天发现病原。';
 
+const siteUrl = 'https://pigeongene.com';
+const serviceJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: '赛鸽病毒检测',
+    url: `${siteUrl}/bingdu-jiance/`,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    areaServed: 'Worldwide',
+    serviceType: '实时荧光 qPCR 病原检测',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '赛鸽病毒检测', item: `${siteUrl}/bingdu-jiance/` },
+    ],
+  },
+];
+
 const scenarios = [
   { icon: '🏁', title: '赛前健康筛查', desc: '赛前系统排查病原，确保赛鸽以最佳健康状态参赛，避免带病集鸽造成成绩下滑与群体交叉感染。' },
   { icon: '🐣', title: '引种检疫', desc: '新引进种鸽、幼鸽入棚前全面检测，防止将病原带入鸽群，保障鸽场生物安全。' },
@@ -31,7 +53,7 @@ const qc = [
 ];
 ---
 
-<BaseLayout {title} {description} canonical="/bingdu-jiance/">
+<BaseLayout {title} {description} canonical="/bingdu-jiance/" jsonLd={serviceJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">

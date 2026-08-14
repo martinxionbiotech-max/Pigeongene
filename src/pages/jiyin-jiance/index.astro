@@ -6,9 +6,38 @@ import { geneMarkers } from '../../data/genes';
 
 const title = '赛鸽飞行能力基因检测 | 8 大核心性能基因位点';
 const description = '赛鸽飞行能力 DNA 检测，精准解析 LDHA、DRD4、CRY1、MSTN、LRP8、GSR、CASK、F-KER 8 大核心基因位点，科学解读速度、耐力、归巢能力与适应性。';
+
+const siteUrl = 'https://pigeongene.com';
+const serviceJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: '赛鸽飞行能力基因检测',
+    url: `${siteUrl}/jiyin-jiance/`,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    areaServed: 'Worldwide',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: '赛鸽基因检测价格表',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRY1 隐花色素 1 检测' }, price: '98', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'DRD4 多巴胺受体 D4 检测' }, price: '84', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LDHA 乳酸脱氢酶 A 检测' }, price: '70', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'MSTN 肌肉生长抑制素检测' }, price: '70', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LRP8 脂蛋白受体相关蛋白 8 检测' }, price: '70', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'GSR 谷胱甘肽还原酶检测' }, price: '70', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CASK 钙/钙调蛋白依赖性丝氨酸蛋白激酶检测' }, price: '70', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'F-KER 羽角蛋白基因检测' }, price: '70', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '组合 A（CRY1+DRD4+LDHA）' }, price: '210', priceCurrency: 'CNY' },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '组合 B（全 8 项）' }, price: '525', priceCurrency: 'CNY' },
+      ],
+    },
+  },
+];
 ---
 
-<BaseLayout {title} {description} canonical="/jiyin-jiance/">
+<BaseLayout {title} {description} canonical="/jiyin-jiance/" jsonLd={serviceJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
@@ -81,6 +110,16 @@ const description = '赛鸽飞行能力 DNA 检测，精准解析 LDHA、DRD4、
       <div class="mt-8 text-center">
         <a href="/lianxi/" class="btn-primary">联系我们获取报价</a>
       </div>
+    </div>
+  </section>
+
+  <!-- 科学边界说明 -->
+  <section class="container-x py-12">
+    <div class="mx-auto max-w-3xl rounded-xl border border-brand-100 bg-brand-50/50 p-8">
+      <h2 class="text-lg font-bold text-gray-900">基因检测的科学边界</h2>
+      <p class="mt-3 text-sm leading-relaxed text-gray-600">
+        基因标记仅提示赛鸽在速度、耐力、归巢能力等性状上的<b>遗传倾向</b>，而非决定性因素。赛鸽的比赛成绩是多基因、训练、环境、营养与健康等多因素共同作用的结果。我们基于现有科学文献与实验室数据提供基因型解读，但不保证基因结果能够预测或确保特定比赛成绩。检测报告仅用于禽类基因研究与科学育种参考，不构成兽医诊断。
+      </p>
     </div>
   </section>
 

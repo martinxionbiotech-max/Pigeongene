@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '报告解读 | 如何读懂赛鸽基因检测报告';
+const description = '手把手教您解读赛鸽基因检测报告：基因型含义、检测结果判读、阳性与阴性、育种建议应用，让数据真正服务于科学育种。';
+
+const siteUrl = 'https://pigeongene.com';
+const pageUrl = `${siteUrl}/zhishi/baogao-jiedu/`;
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: '如何读懂赛鸽基因检测报告',
+    url: pageUrl,
+    description,
+    author: { '@type': 'Organization', name: '张家口森诺生物科技有限公司' },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'zh-CN',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '知识中心', item: `${siteUrl}/zhishi/` },
+      { '@type': 'ListItem', position: 3, name: '报告解读', item: pageUrl },
+    ],
+  },
+];
+
+const sections = [
+  {
+    title: '基因检测报告解读',
+    desc: '飞行能力基因检测报告展示每个基因位点的基因型（如 AA、AG、GG），并标注该基因型对应的性能倾向。需要强调的是，基因仅提示"倾向"而非"决定"，赛鸽成绩是基因、训练、环境、营养与健康多因素共同作用的结果。',
+    points: [
+      '基因型反映遗传倾向，不直接等同于比赛成绩',
+      '单一位点的贡献有限，需结合多个位点综合评估',
+      '基因检测为育种配对提供科学参考，而非唯一决策依据',
+    ],
+  },
+  {
+    title: '病毒检测报告解读',
+    desc: '病毒检测报告显示每个检测病原的检出结果，通常以"阳性（检出）"或"阴性（未检出）"表示。qPCR 通过 Ct 值反映病原载量高低，Ct 值越低，病原载量越高。',
+    points: [
+      '阴性：未检出目标病原核酸，鸽群该病原风险较低',
+      '阳性：检出目标病原，需结合症状评估感染状态',
+      '弱阳性：病原载量低，可能是早期感染或携带状态',
+      '结果需结合临床症状、流行病学与饲养管理综合判断',
+    ],
+  },
+  {
+    title: 'DNA 身份证与亲缘鉴定解读',
+    desc: 'DNA 身份证报告包含每只赛鸽的 STR 位点基因分型数据，构成独一无二的 DNA 指纹图谱。亲缘鉴定通过比对子代与候选亲本的基因型，计算亲缘关系概率。',
+    points: [
+      'DNA 指纹终身不变，可用于身份核验与防伪',
+      '亲缘鉴定基于孟德尔遗传定律，比对多个 STR 位点',
+      '排除亲子关系需多个位点不匹配，确认需满足累计概率阈值',
+    ],
+  },
+];
+
+const tips = [
+  '将基因报告与训练记录结合，制定个性化训练方案',
+  '配对时综合双方基因型，优化目标性状的遗传组合',
+  '阳性病毒结果及时隔离病鸽，防止群体扩散',
+  '定期复检，动态监测鸽群健康状况',
+];
+---
+
+<BaseLayout {title} {description} canonical="/zhishi/baogao-jiedu/" jsonLd={articleJsonLd} type="article">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <a href="/zhishi/" class="hover:text-white">知识中心</a> /
+        <span class="text-white">报告解读</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">如何读懂赛鸽基因检测报告</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        让检测数据真正服务于科学育种与健康管理。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl space-y-10">
+      {sections.map((s) => (
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">{s.title}</h2>
+          <p class="mt-4 leading-relaxed text-gray-700">{s.desc}</p>
+          <ul class="mt-4 space-y-2">
+            {s.points.map((p) => (
+              <li class="flex items-start gap-2 text-gray-700">
+                <span class="mt-1 text-brand-500">•</span> {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">实用建议</h2>
+      <div class="mx-auto mt-10 max-w-3xl space-y-3">
+        {tips.map((t) => (
+          <div class="flex items-start gap-3 rounded-lg bg-white p-4 text-gray-700 shadow-sm">
+            <span class="mt-0.5 text-accent-500">💡</span>
+            <span class="text-sm leading-relaxed">{t}</span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/faq/" class="btn-outline">查看常见问题</a>
+        <a href="/lianxi/" class="btn-primary ml-4">咨询报告解读</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

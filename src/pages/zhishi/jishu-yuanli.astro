@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '基因检测技术原理 | PCR 与 qPCR 分子诊断';
+const description = '深入了解赛鸽基因检测背后的技术原理：PCR 聚合酶链式反应、实时荧光定量 PCR（qPCR）、STR 微卫星分型、SNP 分型等分子诊断技术如何工作。';
+
+const siteUrl = 'https://pigeongene.com';
+const pageUrl = `${siteUrl}/zhishi/jishu-yuanli/`;
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: '赛鸽基因检测技术原理：PCR 与 qPCR 分子诊断',
+    url: pageUrl,
+    description,
+    author: { '@type': 'Organization', name: '张家口森诺生物科技有限公司' },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'zh-CN',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '知识中心', item: `${siteUrl}/zhishi/` },
+      { '@type': 'ListItem', position: 3, name: '基因检测技术原理', item: pageUrl },
+    ],
+  },
+];
+
+const techs = [
+  {
+    name: 'PCR 聚合酶链式反应',
+    en: 'Polymerase Chain Reaction',
+    desc: '在体外快速扩增特定 DNA 片段的核心技术。通过变性、退火、延伸三个温度循环，将微量 DNA 目标片段指数级放大数百万倍，使极微量的遗传物质也能被检测到。',
+    use: '用于基因位点检测、病原核酸检测的基础技术。',
+  },
+  {
+    name: '实时荧光定量 PCR（qPCR）',
+    en: 'Real-time Quantitative PCR',
+    desc: '在 PCR 反应中加入荧光探针，实时监测扩增过程。通过荧光信号的变化曲线（Ct 值）定量分析目标核酸的初始含量，灵敏度高、特异性强，可检测极低拷贝数的病原核酸。',
+    use: '用于病毒检测、病原定量，可早于临床症状 7-14 天发现病原。',
+  },
+  {
+    name: 'STR 微卫星分型',
+    en: 'Short Tandem Repeat',
+    desc: 'STR 是基因组中重复出现 2-6 个碱基的短序列，不同个体间重复次数高度变异。通过检测多个 STR 位点的重复次数组合，可构建每只赛鸽独一无二的 DNA 指纹图谱。',
+    use: '用于 DNA 身份证建立与亲缘关系鉴定。',
+  },
+  {
+    name: 'SNP 分型',
+    en: 'Single Nucleotide Polymorphism',
+    desc: 'SNP 是基因组中单个碱基的变异，是生物性状差异的重要遗传基础。通过检测与赛鸽性能相关的 SNP 位点基因型，评估速度、耐力、归巢能力等性状倾向。',
+    use: '用于飞行能力相关基因位点的基因型分析。',
+  },
+];
+
+const workflow = [
+  { n: '①', t: 'DNA 提取', d: '从羽毛羽囊、血卡或拭子样本中提取高质量基因组 DNA。' },
+  { n: '②', t: '目标扩增', d: '通过 PCR/qPCR 对目标基因位点或病原核酸进行特异性扩增。' },
+  { n: '③', t: '信号检测', d: '检测荧光信号或电泳条带，获取基因型或病原检出结果。' },
+  { n: '④', t: '数据分析', d: '结合参考数据库与质控标准，进行基因型判读与结果解读。' },
+];
+---
+
+<BaseLayout {title} {description} canonical="/zhishi/jishu-yuanli/" jsonLd={articleJsonLd} type="article">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <a href="/zhishi/" class="hover:text-white">知识中心</a> /
+        <span class="text-white">基因检测技术原理</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">基因检测技术原理</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        了解 PCR、qPCR、STR 分型等分子诊断技术，理解赛鸽基因检测的科学基础。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl space-y-8">
+      {techs.map((t) => (
+        <div class="card">
+          <h2 class="text-xl font-bold text-gray-900">{t.name}</h2>
+          <p class="mt-1 text-sm text-gray-500">{t.en}</p>
+          <p class="mt-3 leading-relaxed text-gray-700">{t.desc}</p>
+          <p class="mt-3 rounded-lg bg-brand-50 px-4 py-2 text-sm text-brand-700">
+            <strong>应用：</strong>{t.use}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">检测工作流程</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-4">
+        {workflow.map((s) => (
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-brand-600">{s.n}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{s.t}</h3>
+            <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/jiyin-jiance/" class="btn-primary">了解基因检测服务</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

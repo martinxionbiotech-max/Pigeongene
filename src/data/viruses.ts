@@ -12,6 +12,7 @@ export interface VirusTest {
   detectValue: string;
   symptoms: string[];
   prevention: string;
+  differential: string;
 }
 
 export const virusTests: VirusTest[] = [
@@ -29,6 +30,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '早期筛查鸽群免疫状态，及时识别隐形感染鸽，为免疫接种和隔离淘汰提供依据，防止继发感染造成的连锁损失。',
     symptoms: ['精神萎靡、食欲减退', '羽毛蓬松、生长迟缓', '继发感染、消瘦', '育雏期死亡率升高'],
     prevention: '加强鸽舍卫生管理，定期消毒，做好免疫监测，早发现早隔离。',
+    differential: '需与鸽多瘤病毒、腺病毒等免疫抑制性病原鉴别；圆环病毒以幼鸽免疫抑制、继发感染为特征，确诊依赖 PCR 检测。',
   },
   {
     slug: 'ge-paozhen-bingdu',
@@ -44,6 +46,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '区分疱疹病毒感染与其他呼吸道病原，指导抗病毒与对症治疗，评估鸽群携带率，减少密集饲养下的群体暴发。',
     symptoms: ['打喷嚏、流鼻涕', '眼结膜炎、流泪', '呼吸困难', '精神沉郁'],
     prevention: '保持鸽舍通风，控制饲养密度，隔离病鸽，定期消毒。',
+    differential: '需与支原体、新城疫等呼吸道病原鉴别；疱疹病毒以结膜炎、上呼吸道症状为主，潜伏感染后应激再激活是其特点。',
   },
   {
     slug: 'ge-xian-bingdu',
@@ -59,6 +62,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '快速确诊腺病毒感染，与新城疫、轮状病毒等腹泻病因鉴别，指导补液与支持治疗，缩短停赛恢复期。',
     symptoms: ['呕吐、甩食', '水样腹泻、绿便', '食欲废绝', '体重骤降'],
     prevention: '减少运输与集鸽应激，加强营养与免疫支持，病鸽及时隔离。',
+    differential: '需与新城疫、轮状病毒等引起腹泻的病原鉴别；腺病毒以集鸽应激后呕吐、水样腹泻为典型特征。',
   },
   {
     slug: 'ge-dou-bingdu',
@@ -74,6 +78,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '早期确认痘病毒感染，与毛滴虫、念珠菌等口腔病变鉴别，指导疫苗免疫与伤口护理，控制蚊媒季节的扩散。',
     symptoms: ['皮肤痘疹、结痂', '口腔黏膜白斑', '采食困难', '生长受阻'],
     prevention: '防蚊灭虫，减少体表伤口，接种疫苗，隔离病鸽。',
+    differential: '需与毛滴虫、念珠菌等口腔病变鉴别；鸽痘以皮肤型/黏膜型痘疹为特征，多见于蚊虫季节。',
   },
   {
     slug: 'ge-lunzhuang-bingdu',
@@ -89,6 +94,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '明确幼鸽腹泻的病毒性病因，与沙门氏菌、腺病毒等鉴别，指导补液、肠道调理与饲养管理改进。',
     symptoms: ['水样腹泻', '脱水、消瘦', '精神萎靡', '幼鸽生长迟缓'],
     prevention: '保持饮水和饲料卫生，及时清理粪便，加强幼鸽护理。',
+    differential: '需与沙门氏菌、腺病毒等引起幼鸽腹泻的病原鉴别；轮状病毒主要侵害幼鸽，引起水样腹泻与脱水。',
   },
   {
     slug: 'xinchengyi-bingdu',
@@ -104,6 +110,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '快速确诊新城疫，与腺病毒、副黏病毒等鉴别，指导紧急免疫与生物安全隔离，是鸽场防疫与引种检疫的核心项目。',
     symptoms: ['神经症状、歪脖', '呼吸困难', '绿色稀便', '产蛋下降、死亡率高'],
     prevention: '按时接种疫苗，加强生物安全，发现疫情及时上报并隔离。',
+    differential: '需与腺病毒、副黏病毒等鉴别；新城疫以神经症状、呼吸困难、绿色稀便及高致死率为特征，属法定报告疫病。',
   },
   {
     slug: 'shamen-shijun',
@@ -119,6 +126,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '筛查带菌种鸽与污染源，指导抗菌治疗与消毒灭鼠，保障鸽群健康与饲养人员安全，是引种检疫的必检项目。',
     symptoms: ['关节肿大、跛行', '翅膀下垂', '腹泻、消瘦', '神经症状'],
     prevention: '保持鸽舍干燥清洁，防止鼠患污染饲料，定期检测种鸽。',
+    differential: '需与副伤寒、大肠杆菌病等细菌性感染鉴别；沙门氏菌以关节肿大、翅膀下垂、消瘦及人畜共患为特征。',
   },
   {
     slug: 'baise-nianzhujun',
@@ -134,6 +142,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '确诊念珠菌感染，与毛滴虫、鸽痘等口腔病变鉴别，指导抗真菌治疗与停用滥用抗生素，恢复肠道菌群平衡。',
     symptoms: ['口腔白斑、假膜', '嗉囊胀大、内容物酸臭', '食欲减退', '消瘦、呕吐'],
     prevention: '合理使用抗生素，保持饲料饮水新鲜，增强鸽体免疫力。',
+    differential: '需与毛滴虫、鸽痘等口腔病变鉴别；念珠菌以口腔白色假膜、嗉囊酸臭为特征，多与滥用抗生素相关。',
   },
   {
     slug: 'ge-maodichong',
@@ -149,6 +158,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '快速确诊毛滴虫感染并评估感染强度，与念珠菌、鸽痘鉴别，指导针对性驱虫用药，保障比赛状态与育雏成活率。',
     symptoms: ['口腔黄白色干酪样物', '吞咽困难', '消瘦、精神差', '呼吸困难'],
     prevention: '定期检疫，保持饮水卫生，避免种鸽与病鸽混群，及时驱虫。',
+    differential: '需与念珠菌、鸽痘等口腔病变鉴别；毛滴虫以口腔黄白色干酪样坏死物（鸽口黄）为典型特征。',
   },
   {
     slug: 'yingwure-yiyuanti',
@@ -164,6 +174,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '确诊衣原体感染并评估人畜共患风险，指导抗菌治疗与个人防护，是引种检疫和规模化鸽场健康管理的重要项目。',
     symptoms: ['结膜炎、流泪', '呼吸困难、流鼻液', '腹泻、消瘦', '精神沉郁'],
     prevention: '控制饲养密度，加强通风，注意个人防护，及时隔离病鸽。',
+    differential: '需与支原体、新城疫等呼吸道病原鉴别；鹦鹉热衣原体以眼炎、呼吸道症状及人畜共患风险为特征。',
   },
   {
     slug: 'ge-duoliu-bingdu',
@@ -179,6 +190,7 @@ export const virusTests: VirusTest[] = [
     detectValue: '早期识别多瘤病毒携带与感染状态，与圆环病毒等其他免疫抑制病原鉴别，指导隔离与饲养管理，降低幼鸽期损失。',
     symptoms: ['精神萎靡、食欲减退', '羽毛蓬松、生长迟缓', '消瘦、腹泻', '继发感染、死亡率升高'],
     prevention: '加强鸽舍卫生与消毒，控制饲养密度，隔离病鸽，做好免疫监测。',
+    differential: '需与鸽圆环病毒等免疫抑制病原鉴别；多瘤病毒以多器官侵害、幼鸽全身性感染为特征，需 PCR 确诊。',
   },
   {
     slug: 'zhiyuanti',
@@ -194,5 +206,6 @@ export const virusTests: VirusTest[] = [
     detectValue: '确诊支原体感染并区分与其他呼吸道病原，指导敏感抗菌药物治疗，改善饲养管理，减少慢性感染对竞技表现的影响。',
     symptoms: ['打喷嚏、流鼻涕', '呼吸啰音', '眼部分泌物增多', '飞行耐力下降'],
     prevention: '保持鸽舍通风与卫生，控制密度，早期诊断并及时用药。',
+    differential: '需与疱疹病毒、鹦鹉热衣原体等呼吸道病原鉴别；支原体以慢性呼吸道症状、呼吸啰音为特征，常混合感染。',
   },
 ];

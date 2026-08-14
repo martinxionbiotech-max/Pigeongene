@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '知识中心 | 赛鸽基因检测技术百科';
+const description = '赛鸽基因检测知识中心，系统讲解飞行能力基因检测、病毒检测、DNA 身份证/亲缘鉴定的技术原理、样本采集与结果解读，为鸽友与育种者提供权威专业参考。';
+
+const siteUrl = 'https://pigeongene.com';
+const hubJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: '赛鸽基因检测知识中心',
+    url: `${siteUrl}/zhishi/`,
+    inLanguage: 'zh-CN',
+  },
+];
+
+const categories = [
+  {
+    icon: '🧬',
+    title: '基因检测原理',
+    desc: '了解 PCR、qPCR、STR 分型等分子检测技术的原理与应用。',
+    href: '/zhishi/jishu-yuanli/',
+    count: '6 篇',
+  },
+  {
+    icon: '🦠',
+    title: '病毒与病原',
+    desc: '认识 12 项赛鸽常见病原的传播、危害与防控要点。',
+    href: '/bingdu-jiance/',
+    count: '12 项',
+  },
+  {
+    icon: '📝',
+    title: '采样与寄送',
+    desc: '规范采样与样本寄送流程，确保检测结果准确可靠。',
+    href: '/caiyang/',
+    count: '5 步',
+  },
+  {
+    icon: '📊',
+    title: '报告解读',
+    desc: '如何读懂基因检测报告，理解基因型与性状的关系。',
+    href: '/zhishi/baogao-jiedu/',
+    count: '指南',
+  },
+  {
+    icon: '📚',
+    title: '科学文献',
+    desc: '支撑检测项目的科研文献汇总，保持科学透明。',
+    href: '/cankao/',
+    count: '6 篇',
+  },
+  {
+    icon: '❓',
+    title: '常见问题',
+    desc: '关于检测服务、样本、周期与报告的常见疑问解答。',
+    href: '/faq/',
+    count: '11 问',
+  },
+];
+---
+
+<BaseLayout {title} {description} canonical="/zhishi/" jsonLd={hubJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <span class="text-white">知识中心</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">赛鸽基因检测知识中心</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        系统、权威、透明的赛鸽基因检测技术百科，帮助鸽友与育种者深入理解检测原理、方法与结果。
+      </p>
+    </div>
+  </section>
+
+  <!-- 分类导航 -->
+  <section class="container-x py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((c) => (
+        <a href={c.href} class="card group hover:border-brand-300">
+          <div class="flex items-center justify-between">
+            <div class="text-3xl">{c.icon}</div>
+            <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{c.count}</span>
+          </div>
+          <h2 class="mt-4 text-lg font-bold text-gray-900">{c.title}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">{c.desc}</p>
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600 group-hover:gap-2">
+            进入阅读 <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 为什么建立知识中心 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">为什么建立知识中心？</h2>
+      <div class="mx-auto mt-10 grid max-w-5xl gap-6 md:grid-cols-3">
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">📖 科学透明</h3>
+          <p class="mt-2 text-sm text-gray-600">公开检测技术原理与科学依据，让每一项检测都有据可循，避免"黑箱"操作。</p>
+        </div>
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">🎓 专业科普</h3>
+          <p class="mt-2 text-sm text-gray-600">以通俗语言讲解专业基因检测知识，帮助鸽友从"凭经验"走向"用数据"科学育种。</p>
+        </div>
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">🤝 行业共建</h3>
+          <p class="mt-2 text-sm text-gray-600">持续沉淀赛鸽基因检测领域的专业知识，推动行业标准建立与技术普及。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

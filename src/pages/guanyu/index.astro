@@ -5,9 +5,60 @@ import Footer from '../../components/Footer.astro';
 
 const title = '关于我们 | 张家口森诺生物科技有限公司';
 const description = '张家口森诺生物科技有限公司，国家高新技术企业、张家口市重点基因检测实验室，专注赛鸽飞行能力基因检测与病毒检测。';
+
+const siteUrl = 'https://pigeongene.com';
+const aboutJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: '关于我们',
+    url: `${siteUrl}/guanyu/`,
+    inLanguage: 'zh-CN',
+  },
+];
+
+const certifications = [
+  { icon: '🏆', name: '国家高新技术企业', desc: '经科技部、财政部、税务总局联合认定，具备核心自主知识产权与持续研发能力。' },
+  { icon: '🔬', name: '市级重点基因检测实验室', desc: '2021 年被认定为张家口市重点实验室，承担区域基因检测技术研发与应用。' },
+  { icon: '📋', name: 'ISO 9001 质量管理体系', desc: '实验室检测流程严格遵循 ISO 9001 质量管理标准，确保报告准确可靠。' },
+  { icon: '🧬', name: '20+ 自主专利', desc: '在生物检测与试剂研发领域拥有 20 余项专利，彰显自主创新能力。' },
+];
+
+const team = [
+  {
+    name: '张一雯 博士',
+    role: '首席科学专家',
+    bio: '毕业于河北农业大学遗传学专业，获博士学位。长期从事禽类遗传学与分子诊断研究，2024 年获相关领域荣誉，持续推动赛鸽遗传学与性能诊断研究。',
+  },
+  {
+    name: '研发团队',
+    role: '分子诊断研发',
+    bio: '由 2 名博士、2 名硕士领衔，15 人专业团队，半数以上拥有五年以上实验室经验，专注 PCR/qPCR 检测体系开发与验证。',
+  },
+  {
+    name: '质控团队',
+    role: '质量控制与审核',
+    bio: '独立质控人员对每一份检测报告进行双人复核，严格执行 MIQE 指南与内部质控标准，确保结果可追溯、可复现。',
+  },
+];
+
+const qcStandards = [
+  '遵循 MIQE 指南，保证 qPCR 实验的可重复性、准确性与透明度',
+  '每个反应内置内扩增对照，验证提取效率与样本完整性',
+  '采用 dUTP/UNG 系统消除气溶胶污染，防止假阳性',
+  '扩增效率监控维持在 95%-105%，确保低载量样本可靠检出',
+  '双人复核机制，检测报告经独立质控人员审核后签发',
+];
+
+const milestones = [
+  { year: '2014', event: '公司成立，专注生物技术领域基因检测与试剂研发。' },
+  { year: '2020', event: '受邀入驻张家口市桥东区北硅谷园区，确立为区域重点科技企业。' },
+  { year: '2021', event: '获国家高新技术企业认定，被认定为张家口市重点基因检测实验室。' },
+  { year: '至今', event: '持续服务全球鸽友，累计完成大量赛鸽基因检测与病毒检测样本。' },
+];
 ---
 
-<BaseLayout {title} {description} canonical="/guanyu/">
+<BaseLayout {title} {description} canonical="/guanyu/" jsonLd={aboutJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
@@ -17,6 +68,7 @@ const description = '张家口森诺生物科技有限公司，国家高新技�
     </div>
   </section>
 
+  <!-- 公司简介 -->
   <section class="container-x py-16">
     <div class="grid items-center gap-10 lg:grid-cols-2">
       <div>
@@ -27,13 +79,25 @@ const description = '张家口森诺生物科技有限公司，国家高新技�
         <p class="mt-4 leading-relaxed text-gray-700">
           2020 年，公司受邀入驻张家口市桥东区北硅谷园区，确立为区域重点科技企业。公司先后获得国家高新技术企业、科技型中小企业认定，并于 2021 年被认定为张家口市重点基因检测实验室。
         </p>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          我们聚焦赛鸽飞行能力基因检测、病毒检测与 DNA 身份证/亲缘鉴定三大核心业务，以高精度分子诊断技术为全球鸽友、育种者与研究者提供科学、权威的检测服务。
+        </p>
       </div>
       <div>
-        <img src="/wp-content/uploads/SENO-Location.jpg" alt="森诺生物实验室位置" class="w-full rounded-2xl shadow-lg" />
+        <img
+          src="/wp-content/uploads/SENO-Location.jpg"
+          alt="森诺生物实验室位置"
+          class="w-full rounded-2xl shadow-lg"
+          width="1576"
+          height="1032"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   </section>
 
+  <!-- 科研基础设施 -->
   <section class="bg-gray-50 py-16">
     <div class="container-x">
       <h2 class="section-title text-center">科研基础设施与团队</h2>
@@ -62,18 +126,67 @@ const description = '张家口森诺生物科技有限公司，国家高新技�
     </div>
   </section>
 
+  <!-- 资质认证 -->
   <section class="container-x py-16">
-    <h2 class="section-title text-center">专家团队</h2>
-    <div class="mx-auto mt-10 max-w-3xl">
-      <div class="card">
-        <h3 class="text-xl font-bold text-gray-900">首席科学专家 — 张一雯博士</h3>
-        <p class="mt-3 leading-relaxed text-gray-700">
-          张一雯博士毕业于河北农业大学遗传学专业，获博士学位，现任张家口森诺生物科技有限公司首席科学专家。2024 年，张博士荣获相关领域荣誉，持续推动赛鸽遗传学与性能诊断研究。
-        </p>
+    <h2 class="section-title text-center">资质与认证</h2>
+    <p class="mt-4 text-center text-gray-600">权威资质背书，专业能力可证</p>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {certifications.map((c) => (
+        <div class="card text-center">
+          <div class="text-3xl">{c.icon}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{c.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 专家团队 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">专家团队</h2>
+      <p class="mt-4 text-center text-gray-600">专业人才，为每一份报告负责</p>
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
+        {team.map((t) => (
+          <div class="card">
+            <h3 class="text-lg font-bold text-gray-900">{t.name}</h3>
+            <p class="mt-1 text-sm font-semibold text-brand-700">{t.role}</p>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600">{t.bio}</p>
+          </div>
+        ))}
       </div>
     </div>
-    <div class="mt-10 text-center">
-      <a href="/lianxi/" class="btn-primary">联系我们</a>
+  </section>
+
+  <!-- 质控标准 -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">质量控制标准</h2>
+    <p class="mt-4 text-center text-gray-600">多维度质控体系，确保检测结果准确可靠</p>
+    <div class="mx-auto mt-10 max-w-3xl space-y-3">
+      {qcStandards.map((q) => (
+        <div class="flex items-start gap-3 rounded-lg bg-brand-50 p-4 text-gray-700">
+          <span class="mt-0.5 text-brand-600">✓</span>
+          <span class="text-sm leading-relaxed">{q}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 发展历程 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">发展历程</h2>
+      <div class="mx-auto mt-12 max-w-2xl space-y-6">
+        {milestones.map((m) => (
+          <div class="flex gap-4">
+            <div class="shrink-0 rounded-lg bg-brand-600 px-3 py-1 text-sm font-bold text-white">{m.year}</div>
+            <p class="text-gray-700">{m.event}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/lianxi/" class="btn-primary">联系我们</a>
+      </div>
     </div>
   </section>
 

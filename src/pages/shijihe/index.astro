@@ -7,10 +7,39 @@ import { dnaKits, kitTech } from '../../data/kits';
 const title = '禽类分子诊断试剂盒 | PCR 检测方案';
 const description = '禽类与赛鸽分子诊断试剂盒，涵盖性别鉴定与病原核酸检测（鸽疱疹病毒、圆环病毒、腺病毒、副黏病毒、衣原体、沙门氏菌、毛滴虫等），基于 PCR/RT-PCR 荧光探针技术，含 UNG 防污染系统。';
 
+const siteUrl = 'https://pigeongene.com';
+const productJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '检测试剂盒', item: `${siteUrl}/shijihe/` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: '禽类分子诊断试剂盒',
+    itemListElement: dnaKits.map((k, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: k.name,
+        alternateName: k.en,
+        category: k.category,
+        description: `检测目标：${k.target}；技术：${k.tech}`,
+        brand: { '@type': 'Brand', name: 'SENO' },
+      },
+    })),
+  },
+];
+
 const categories = ['性别鉴定', '病原检测'];
 ---
 
-<BaseLayout {title} {description} canonical="/shijihe/">
+<BaseLayout {title} {description} canonical="/shijihe/" jsonLd={productJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
