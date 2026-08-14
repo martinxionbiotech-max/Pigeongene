@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { virusTests } from '../../data/viruses';
+
+export function getStaticPaths() {
+  return virusTests.map((v) => ({
+    params: { slug: v.slug },
+    props: { virus: v, others: virusTests.filter((x) => x.slug !== v.slug) },
+  }));
+}
+
+const { virus, others } = Astro.props;
+const title = `${virus.name}检测 | 赛鸽病毒检测`;
+const description = virus.desc;
+---
+
+<BaseLayout {title} {description} canonical={`/bingdu-jiance/${virus.slug}/`}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-white/80">
+        <a href="/" class="hover:text-white">首页</a> /
+        <a href="/bingdu-jiance/" class="hover:text-white">赛鸽病毒检测</a> /
+        <span class="text-white">{virus.name}</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">{virus.name}检测</h1>
+      <p class="mt-2 text-white/80">{virus.en}</p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-bold text-gray-900">病原概述</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{virus.desc}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">常见症状</h2>
+        <ul class="mt-4 space-y-2">
+          {virus.symptoms.map((s) => (
+            <li class="flex items-start gap-2 text-gray-700">
+              <span class="mt-1 text-accent-500">◆</span> {s}
+            </li>
+          ))}
+        </ul>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">预防建议</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{virus.prevention}</p>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="card bg-brand-50/50">
+          <h3 class="text-lg font-semibold text-gray-900">检测信息</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div>
+              <dt class="font-medium text-gray-500">病原类型</dt>
+              <dd class="mt-1 font-semibold text-gray-900">{virus.type}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">样本类型</dt>
+              <dd class="mt-1 text-gray-700">{virus.sample}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">检测方法</dt>
+              <dd class="mt-1 text-gray-700">{virus.method}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">报告周期</dt>
+              <dd class="mt-1 text-gray-700">{virus.turnaround}</dd>
+            </div>
+          </dl>
+          <a href="/lianxi/" class="btn-primary mt-6 w-full">咨询检测</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="text-2xl font-bold text-gray-900">其他检测项目</h2>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {others.map((v) => (
+          <a href={`/bingdu-jiance/${v.slug}/`} class="card flex items-center gap-3 hover:border-brand-300">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-lg">🔬</div>
+            <div>
+              <h3 class="font-semibold text-gray-900">{v.name}</h3>
+              <p class="text-xs text-gray-500">{v.en}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

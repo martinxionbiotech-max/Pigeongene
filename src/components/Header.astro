@@ -1,0 +1,66 @@
+---
+const nav = [
+  { label: '首页', href: '/' },
+  { label: '飞行能力基因检测', href: '/jiyin-jiance/' },
+  { label: '赛鸽病毒检测', href: '/bingdu-jiance/' },
+  { label: '关于我们', href: '/guanyu/' },
+  { label: '科学参考', href: '/cankao/' },
+  { label: '常见问题', href: '/faq/' },
+  { label: '联系我们', href: '/lianxi/' },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
+  <div class="container-x flex h-16 items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-bold text-brand-800">
+      <img src="/wp-content/uploads/cropped-cropped-LOGO.png" alt="SENO 赛鸽基因检测中心 LOGO" class="h-9 w-9 rounded" />
+      <span class="text-lg">赛鸽基因检测中心</span>
+    </a>
+    <nav class="hidden items-center gap-1 lg:flex">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'rounded-md px-3 py-2 text-sm font-medium transition',
+            path === item.href
+              ? 'bg-brand-50 text-brand-700'
+              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <a href="/lianxi/" class="btn-primary hidden sm:inline-flex">立即检测</a>
+    <button id="menu-toggle" class="lg:hidden text-gray-600" aria-label="打开菜单">
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobile-menu" class="hidden border-t border-gray-100 lg:hidden">
+    <nav class="container-x flex flex-col gap-1 py-3">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'rounded-md px-3 py-2 text-sm font-medium',
+            path === item.href ? 'bg-brand-50 text-brand-700' : 'text-gray-600 hover:bg-gray-50',
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

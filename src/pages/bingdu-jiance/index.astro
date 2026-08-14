@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { virusTests } from '../../data/viruses';
+
+const title = '赛鸽病毒检测 | 11 项常见病原检测';
+const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒、腺病毒、鸽痘、轮状病毒、新城疫、沙门氏菌、白色念珠菌、毛滴虫、鹦鹉热衣原体、支原体 11 项病原，实时荧光 PCR 精准检测。';
+---
+
+<BaseLayout {title} {description} canonical="/bingdu-jiance/">
+  <Header />
+
+  <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">赛鸽病毒检测</h1>
+      <p class="mt-4 max-w-2xl text-lg text-white/90">
+        覆盖 11 项常见病原（病毒、细菌、真菌、寄生虫），采用实时荧光 PCR 技术精准检测，为赛鸽健康管理与防疫提供科学依据。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {virusTests.map((v) => (
+        <a href={`/bingdu-jiance/${v.slug}/`} class="card hover:border-brand-300">
+          <div class="flex items-center justify-between">
+            <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{v.type}</span>
+          </div>
+          <h2 class="mt-4 text-xl font-bold text-gray-900">{v.name}</h2>
+          <p class="mt-1 text-xs text-gray-500">{v.en}</p>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">{v.desc}</p>
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
+            查看详情 <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x text-center">
+      <h2 class="section-title">检测技术与流程</h2>
+      <div class="mx-auto mt-10 grid max-w-4xl gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">检测方法</h3>
+          <p class="mt-2 text-sm text-gray-600">实时荧光 PCR（qPCR / RT-qPCR），高灵敏度检测病原遗传物质。</p>
+        </div>
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">样本类型</h3>
+          <p class="mt-2 text-sm text-gray-600">泄殖腔拭子、喉拭子、粪便、口腔拭子、嗉囊液、病变组织等。</p>
+        </div>
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">报告周期</h3>
+          <p class="mt-2 text-sm text-gray-600">样本到达后 2-3 个工作日出具电子报告。</p>
+        </div>
+      </div>
+      <div class="mt-10">
+        <a href="/lianxi/" class="btn-primary">咨询检测服务</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { geneMarkers } from '../../data/genes';
+
+const title = '赛鸽飞行能力基因检测 | 8 大核心性能基因位点';
+const description = '赛鸽飞行能力 DNA 检测，精准解析 LDHA、DRD4、CRY1、MSTN、LRP8、GSR、CASK、F-KER 8 大核心基因位点，科学解读速度、耐力、归巢能力与适应性。';
+---
+
+<BaseLayout {title} {description} canonical="/jiyin-jiance/">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">赛鸽飞行能力基因检测</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        精准解析影响速度、耐力、归巢能力与身体适应性的 8 大核心基因位点，为科学育种与训练提供可靠依据。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {geneMarkers.map((g) => (
+        <div class="card">
+          <div class="flex items-center gap-2">
+            <span class="rounded-md bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">{g.code}</span>
+            <span class="text-xs text-gray-500">{g.en}</span>
+          </div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">{g.name}</h3>
+          <p class="mt-2 text-sm font-medium text-brand-700">功能：</p>
+          <p class="text-sm text-gray-600">{g.function}</p>
+          <p class="mt-3 text-sm font-medium text-brand-700">育种价值：</p>
+          <p class="text-sm text-gray-600">{g.benefit}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 价格表 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">基因检测价格表（人民币）</h2>
+      <p class="mt-3 text-center text-gray-600">单项检测与套餐组合，价格透明</p>
+
+      <div class="mx-auto mt-10 max-w-4xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-brand-600 text-white">
+            <tr>
+              <th class="px-5 py-3 font-semibold">检测项目</th>
+              <th class="px-5 py-3 font-semibold">检测位点</th>
+              <th class="px-5 py-3 text-right font-semibold">价格（元）</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr class="bg-brand-50/50">
+              <td class="px-5 py-3" colspan="2"><strong>单项检测</strong></td>
+              <td class="px-5 py-3 text-right"></td>
+            </tr>
+            <tr><td class="px-5 py-3">CRY1（隐花色素 1）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">98</td></tr>
+            <tr><td class="px-5 py-3">DRD4（多巴胺受体 D4）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">84</td></tr>
+            <tr><td class="px-5 py-3">LDHA（乳酸脱氢酶 A）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
+            <tr><td class="px-5 py-3">MSTN（肌肉生长抑制素）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
+            <tr><td class="px-5 py-3">LRP8</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
+            <tr><td class="px-5 py-3">GSR（谷胱甘肽还原酶）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
+            <tr><td class="px-5 py-3">CASK</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
+            <tr><td class="px-5 py-3">F-KER（羽角蛋白基因）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
+            <tr class="bg-brand-50/50">
+              <td class="px-5 py-3" colspan="2"><strong>套餐组合</strong></td>
+              <td class="px-5 py-3 text-right"></td>
+            </tr>
+            <tr><td class="px-5 py-3">组合 A</td><td class="px-5 py-3 text-gray-500">CRY1 + DRD4 + LDHA</td><td class="px-5 py-3 text-right font-semibold">210</td></tr>
+            <tr><td class="px-5 py-3">组合 B（全 8 项）</td><td class="px-5 py-3 text-gray-500">CRY1、DRD4、LDHA、MSTN、LRP8、GSR、CASK、F-KER</td><td class="px-5 py-3 text-right font-semibold">525</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 text-center text-sm text-gray-500">
+        附加费用：报关手续费 280 元（一次性收取），累计检测超过 40 个位点可免除。成为大客户或代理商可享专属优惠价格。
+      </p>
+      <div class="mt-8 text-center">
+        <a href="/lianxi/" class="btn-primary">联系我们获取报价</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 采样流程 -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">采样流程</h2>
+    <div class="mt-12 grid gap-8 md:grid-cols-4">
+      {[
+        { n: '①', t: '便捷采样', d: '采集带完整羽根的羽毛或血卡样本。' },
+        { n: '②', t: '安全寄送', d: '通过 DHL、FedEx 等快递寄送样本与提交表。' },
+        { n: '③', t: '快速分析', d: '实验室收到后立即进行高精度 PCR 分析。' },
+        { n: '④', t: '电子报告', d: '通过邮件或安全平台获取含基因解读的报告。' },
+      ].map((s) => (
+        <div class="card text-center">
+          <div class="text-4xl font-bold text-brand-600">{s.n}</div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/lianxi/" class="btn-primary">立即开始检测</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
