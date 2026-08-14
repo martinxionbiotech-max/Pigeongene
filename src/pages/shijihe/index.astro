@@ -62,14 +62,15 @@ const categories = ['性别鉴定', '病原检测'];
         <h2 class="text-2xl font-bold text-gray-900">{cat}试剂盒</h2>
         <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {dnaKits.filter((k) => k.category === cat).map((k) => (
-            <div class="card">
+            <a href={`/shijihe/${k.slug}/`} class="card hover:border-brand-300">
               <h3 class="font-semibold text-gray-900">{k.name}</h3>
               <p class="mt-1 text-xs text-gray-500">{k.en}</p>
               <div class="mt-4 space-y-2 text-sm text-gray-600">
                 <p><span class="font-medium text-gray-700">检测目标：</span>{k.target}</p>
                 <p><span class="font-medium text-gray-700">技术：</span>{k.tech}</p>
               </div>
-            </div>
+              <span class="mt-4 inline-block text-sm font-semibold text-brand-600">查看详情 →</span>
+            </a>
           ))}
         </div>
       </div>

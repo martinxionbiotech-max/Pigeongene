@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { geneMarkers } from '../../data/genes';
+
+export function getStaticPaths() {
+  return geneMarkers.map((g) => ({
+    params: { slug: g.code.toLowerCase() },
+    props: { gene: g },
+  }));
+}
+
+const { gene } = Astro.props;
+
+const siteUrl = 'https://pigeongene.com';
+const pageUrl = `${siteUrl}/jiyin-jiance/${gene.code.toLowerCase()}/`;
+
+const title = `${gene.name}（${gene.code}）基因位点 | 赛鸽基因检测`;
+const description = `${gene.name}（${gene.code}，${gene.en}）：${gene.function} ${gene.association}`;
+
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${gene.name}（${gene.code}）基因位点解读`,
+    description,
+    url: pageUrl,
+    author: { '@id': `${siteUrl}/#organization` },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'zh-CN',
+    mainEntityOfPage: pageUrl,
+    about: { '@type': 'Thing', name: gene.name, alternateName: gene.en },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: gene.name,
+    alternateName: gene.en,
+    description: gene.function,
+    url: pageUrl,
+    inDefinedTermSet: { '@id': `${siteUrl}/jiyin-jiance/#genes` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '赛鸽飞行能力基因检测', item: `${siteUrl}/jiyin-jiance/` },
+      { '@type': 'ListItem', position: 3, name: `${gene.name}（${gene.code}）`, item: pageUrl },
+    ],
+  },
+];
+
+const related = geneMarkers.filter((g) => g.code !== gene.code);
+---
+
+<BaseLayout {title} {description} canonical={`/jiyin-jiance/${gene.code.toLowerCase()}/`} jsonLd={articleJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <a href="/jiyin-jiance/" class="hover:text-white">飞行能力基因检测</a> /
+        <span class="text-white">{gene.code}</span>
+      </nav>
+      <h1 class="mt-4 text-3xl font-bold md:text-4xl">{gene.name}</h1>
+      <p class="mt-3 text-sm text-brand-200">{gene.en}</p>
+      <span class="mt-4 inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">{gene.code} 基因位点</span>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-bold text-gray-900">生物学功能</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{gene.function}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">育种价值</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{gene.benefit}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">科学关联证据</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{gene.association}</p>
+
+        <div class="mt-10 rounded-lg bg-accent-500/10 p-6">
+          <h2 class="text-xl font-bold text-gray-900">⚠️ 科学边界</h2>
+          <p class="mt-3 leading-relaxed text-gray-700">
+            基因检测提供的是<b>遗传倾向的概率性信息</b>，而非成绩预测。赛鸽的实际表现受基因、训练、营养、健康与环境等多因素共同作用。单一位点的效应有限，请结合多个性能基因位点与赛绩、血统综合评估。
+          </p>
+        </div>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="card bg-brand-50/50">
+          <h3 class="text-lg font-semibold text-gray-900">位点信息</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div>
+              <dt class="font-medium text-gray-500">基因编码</dt>
+              <dd class="mt-1 font-semibold text-gray-900">{gene.code}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">英文名称</dt>
+              <dd class="mt-1 text-gray-700">{gene.en}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">标记类型</dt>
+              <dd class="mt-1 text-gray-700">{gene.markerType}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">文献来源</dt>
+              <dd class="mt-1 text-gray-700">{gene.reference}</dd>
+            </div>
+          </dl>
+          <a href="/lianxi/" class="btn-primary mt-6 w-full">咨询检测</a>
+        </div>
+
+        <div class="card bg-accent-500/10">
+          <h3 class="text-lg font-semibold text-gray-900">检测提示</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">
+            单个基因位点的检测结果仅供参考，建议进行 8 大核心位点的组合检测，以获得更全面的遗传信息。样本采集请参考
+            <a href="/caiyang/" class="font-semibold text-brand-600 hover:underline">采样指南</a>。
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="text-2xl font-bold text-gray-900">其他基因位点</h2>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {related.map((g) => (
+          <a href={`/jiyin-jiance/${g.code.toLowerCase()}/`} class="card flex items-center gap-3 hover:border-brand-300">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-sm font-bold text-brand-600">{g.code}</div>
+            <div>
+              <h3 class="font-semibold text-gray-900">{g.name}</h3>
+              <p class="text-xs text-gray-500">{g.en}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

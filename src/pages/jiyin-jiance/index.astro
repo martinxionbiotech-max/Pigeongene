@@ -34,6 +34,20 @@ const serviceJsonLd = [
       ],
     },
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    '@id': `${siteUrl}/jiyin-jiance/#genes`,
+    name: '赛鸽 8 大核心性能基因位点',
+    description: '影响赛鸽速度、耐力、归巢能力与适应性的 8 大核心基因位点。',
+    hasDefinedTerm: geneMarkers.map((g) => ({
+      '@type': 'DefinedTerm',
+      name: g.name,
+      alternateName: g.code,
+      description: g.function,
+      url: `${siteUrl}/jiyin-jiance/${g.code.toLowerCase()}/`,
+    })),
+  },
 ];
 ---
 
@@ -52,7 +66,7 @@ const serviceJsonLd = [
   <section class="container-x py-16">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {geneMarkers.map((g) => (
-        <div class="card">
+        <a href={`/jiyin-jiance/${g.code.toLowerCase()}/`} class="card hover:border-brand-300">
           <div class="flex items-center gap-2">
             <span class="rounded-md bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">{g.code}</span>
             <span class="text-xs text-gray-500">{g.en}</span>
@@ -68,7 +82,8 @@ const serviceJsonLd = [
             <p><span class="font-medium text-gray-600">标记类型：</span>{g.markerType}</p>
             <p class="mt-1"><span class="font-medium text-gray-600">文献来源：</span>{g.reference}</p>
           </div>
-        </div>
+          <span class="mt-4 inline-block text-sm font-semibold text-brand-600">查看详情 →</span>
+        </a>
       ))}
     </div>
   </section>
