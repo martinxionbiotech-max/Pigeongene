@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { dnaKits, kitTech } from '../../data/kits';
+
+const title = '禽类分子诊断试剂盒 | PCR 检测方案';
+const description = '禽类与赛鸽分子诊断试剂盒，涵盖性别鉴定与病原核酸检测（鸽疱疹病毒、圆环病毒、腺病毒、副黏病毒、衣原体、沙门氏菌、毛滴虫等），基于 PCR/RT-PCR 荧光探针技术，含 UNG 防污染系统。';
+
+const categories = ['性别鉴定', '病原检测'];
+---
+
+<BaseLayout {title} {description} canonical="/shijihe/">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <span class="text-white">检测试剂盒</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">禽类分子诊断试剂盒</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        基于 PCR / RT-PCR 荧光探针技术的分子诊断与基因检测试剂盒，覆盖性别鉴定与多种禽类病原核酸检测。
+      </p>
+    </div>
+  </section>
+
+  <!-- 产品列表 -->
+  <section class="container-x py-16">
+    {categories.map((cat) => (
+      <div class="mb-12">
+        <h2 class="text-2xl font-bold text-gray-900">{cat}试剂盒</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {dnaKits.filter((k) => k.category === cat).map((k) => (
+            <div class="card">
+              <h3 class="font-semibold text-gray-900">{k.name}</h3>
+              <p class="mt-1 text-xs text-gray-500">{k.en}</p>
+              <div class="mt-4 space-y-2 text-sm text-gray-600">
+                <p><span class="font-medium text-gray-700">检测目标：</span>{k.target}</p>
+                <p><span class="font-medium text-gray-700">技术：</span>{k.tech}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- 技术平台 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">技术平台</h2>
+      <p class="mt-4 text-center text-gray-600">
+        所有试剂盒均采用实时 PCR 或 RT-PCR 荧光探针技术，结合 UNG 防污染系统，降低假阳性风险，提升分析可靠性。
+      </p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {kitTech.map((t) => (
+          <div class="card text-center">
+            <div class="text-3xl">{t.icon}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{t.title}</h3>
+            <p class="mt-2 text-sm text-gray-600">{t.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+      <h2 class="text-xl font-bold text-gray-900">重要提示</h2>
+      <p class="mt-3 leading-relaxed text-gray-600">
+        以上试剂盒产品仅用于实验室研究与分子检测用途，不适用于兽医临床诊断或治疗决策。请根据实验室流程规范使用，并遵循相应质控要求。
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <a href="/lianxi/" class="btn-primary">咨询采购</a>
+        <a href="/bingdu-jiance/" class="btn-outline">了解检测服务</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

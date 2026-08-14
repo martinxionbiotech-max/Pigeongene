@@ -4,8 +4,8 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { virusTests } from '../../data/viruses';
 
-const title = '赛鸽病毒检测 | 11 项常见病原检测';
-const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒、腺病毒、鸽痘、轮状病毒、新城疫、沙门氏菌、白色念珠菌、毛滴虫、鹦鹉热衣原体、支原体 11 项病原，实时荧光 PCR 精准检测。';
+const title = '赛鸽病毒检测 | 12 项常见病原 qPCR 检测';
+const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒、腺病毒、鸽痘、轮状病毒、新城疫、多瘤病毒、沙门氏菌、白色念珠菌、毛滴虫、鹦鹉热衣原体、支原体 12 项病原，实时荧光 PCR 精准检测，可早于临床症状 7-14 天发现病原。';
 
 const scenarios = [
   { icon: '🏁', title: '赛前健康筛查', desc: '赛前系统排查病原，确保赛鸽以最佳健康状态参赛，避免带病集鸽造成成绩下滑与群体交叉感染。' },
@@ -17,10 +17,17 @@ const scenarios = [
 ];
 
 const advantages = [
-  { icon: '🎯', title: '高灵敏度', desc: '实时荧光 PCR 技术可检测极低拷贝数的病原核酸，灵敏度远高于传统方法。' },
+  { icon: '🎯', title: '高灵敏度', desc: '实时荧光 PCR 可检测极低拷贝数病原核酸，灵敏度远高于传统方法。' },
   { icon: '⚡', title: '快速准确', desc: '2-3 个工作日出具报告，减少等待时间，为决策提供及时依据。' },
   { icon: '🧬', title: '特异性强', desc: '针对各病原特异基因设计引物探针，有效避免交叉反应与假阳性。' },
   { icon: '📋', title: '报告规范', desc: '出具含检测方法、结果与解读的规范电子报告，满足检疫与管理需求。' },
+];
+
+const qc = [
+  { icon: '📐', title: 'MIQE 合规', desc: '全部 qPCR 检测遵循 MIQE 指南，确保实验可重复、结果准确、过程透明。' },
+  { icon: '🧪', title: '内参质控', desc: '每个反应均含内扩增对照，验证提取效率、检测 PCR 抑制、确认样本完整性。' },
+  { icon: '🛡️', title: 'UNG 防污染', desc: 'dUTP/UNG 系统消除气溶胶残留污染，有效防止假阳性结果。' },
+  { icon: '📈', title: '扩增效率监控', desc: '扩增效率维持在 95%-105%，确保低病毒载量与早期感染可靠检出。' },
 ];
 ---
 
@@ -31,7 +38,7 @@ const advantages = [
     <div class="container-x">
       <h1 class="text-4xl font-bold">赛鸽病毒检测</h1>
       <p class="mt-4 max-w-2xl text-lg text-white/90">
-        覆盖 11 项常见病原（病毒、细菌、真菌、寄生虫），采用实时荧光 PCR 技术精准检测，为赛鸽健康管理与防疫提供科学依据。
+        覆盖 12 项常见病原（病毒、细菌、真菌、寄生虫），采用实时荧光 qPCR 技术精准检测，可早于临床症状 7-14 天发现病原，为赛鸽健康管理与防疫提供科学依据。
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="/caiyang/" class="btn-accent">查看采样指南</a>
@@ -42,7 +49,7 @@ const advantages = [
 
   <!-- 病原项目 -->
   <section class="container-x py-16">
-    <h2 class="section-title text-center">11 项病原检测项目</h2>
+    <h2 class="section-title text-center">12 项病原检测项目</h2>
     <p class="mt-4 text-center text-gray-600">涵盖病毒、细菌、真菌、寄生虫四大类</p>
     <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {virusTests.map((v) => (
@@ -61,6 +68,55 @@ const advantages = [
     </div>
   </section>
 
+  <!-- qPCR 金标准 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">为什么 qPCR 是禽病检测的金标准？</h2>
+      <p class="mt-4 text-center text-gray-600">从"发病后治疗"到"预测性防控"的转变</p>
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+        <div class="card">
+          <div class="text-3xl">⏱️</div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">早发现窗口</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            qPCR 可在潜伏期检出病原核酸，此时赛鸽临床正常但已具传染性。相较抗原快检需要高病原载量，qPCR 能检测低拷贝病毒 DNA/RNA，实现传播扩增前的早期干预。
+          </p>
+          <p class="mt-3 rounded-lg bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-700">
+            早于临床症状 7-14 天
+          </p>
+        </div>
+        <div class="card">
+          <div class="text-3xl">🧫</div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">qPCR + ELISA 双轨</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            qPCR 追踪活跃感染与无症状携带者，ELISA 抗体检测评估疫苗免疫应答强度。两者结合，同时掌握"感染"与"免疫"全貌，精准锁定免疫薄弱个体，避免盲目用药。
+          </p>
+        </div>
+        <div class="card">
+          <div class="text-3xl">🏭</div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">环境监测</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            除个体检测外，还可对鸽舍空气粉尘、饮水系统、饲养设备表面及人员接触区进行环境采样，量化环境病原载量，绘制传播路径，实现系统性生物安全防控。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 质控体系 -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">质量控制体系</h2>
+    <p class="mt-4 text-center text-gray-600">多维度质控，确保每一份报告可靠</p>
+    <div class="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {qc.map((q) => (
+        <div class="card text-center">
+          <div class="text-3xl">{q.icon}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{q.title}</h3>
+          <p class="mt-2 text-sm text-gray-600">{q.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- 检测技术 -->
   <section class="bg-gray-50 py-16">
     <div class="container-x">
@@ -72,7 +128,7 @@ const advantages = [
         </div>
         <div class="card">
           <h3 class="font-semibold text-gray-900">样本类型</h3>
-          <p class="mt-2 text-sm text-gray-600">泄殖腔拭子、喉拭子、粪便、口腔拭子、嗉囊液、病变组织等。</p>
+          <p class="mt-2 text-sm text-gray-600">泄殖腔拭子、喉拭子、粪便、口腔拭子、嗉囊液、病变组织、环境样本等。</p>
         </div>
         <div class="card">
           <h3 class="font-semibold text-gray-900">报告周期</h3>

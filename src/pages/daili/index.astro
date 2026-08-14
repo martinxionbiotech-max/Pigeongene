@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '代理商合作 | 赛鸽基因检测合作伙伴';
+const description = '诚邀全球合作伙伴加入赛鸽基因检测与分子诊断事业，提供区域代理、营销合作与实验室建设技术支持，共享科学育种与健康检测市场机遇。';
+
+const opportunities = [
+  {
+    icon: '🤝',
+    title: '区域业务代理',
+    desc: '招募区域代表与市场代理，推广鸟类 DNA 检测与 PCR 诊断服务，发展本地客户网络。',
+    items: ['鸟类 DNA 性别鉴定服务', '赛鸽基因检测', '禽类病毒 PCR 检测', '实验室试剂分销', '样本采集与寄送支持'],
+  },
+  {
+    icon: '📣',
+    title: '推广与营销合作',
+    desc: '欢迎线上平台、鸽友社群、育种者、赛鸽俱乐部、兽医渠道与数字营销伙伴合作。',
+    items: ['品牌推广合作', '转介绍合作', '联合教育项目', '技术内容合作', '区域市场拓展'],
+  },
+  {
+    icon: '🔬',
+    title: '实验室建设与技术合作',
+    desc: '支持有意在当地建立禽类分子检测实验室的合作伙伴。',
+    items: ['PCR 实验室流程设计', '设备选型指导', '试剂体系推荐', '检测方案优化', '技术培训协助', '实验室启动咨询'],
+  },
+];
+
+const advantages = [
+  { icon: '💰', title: '有竞争力的利润结构', desc: '为长期伙伴与区域合作者提供强有力的商业支持与有竞争力的价格政策。' },
+  { icon: '🛡️', title: '区域独家保护', desc: '对合格的一级区域伙伴提供严格的市场独家协议，本地商机直接导入您的网络。' },
+  { icon: '⚡', title: '优先检测服务', desc: '合作者与代理商享受检测服务与样本处理的优先处理支持，提升周转效率。' },
+  { icon: '🎓', title: '技术培训支持', desc: '持续提供鸟类 DNA 检测流程、PCR/qPCR 系统、采样流程、实验室运营与报告解读支持。' },
+  { icon: '🧪', title: '产品与试剂支持', desc: '提供鸟类性别鉴定、赛鸽病原检测、鹦鹉疾病筛查等分子诊断试剂与 PCR 检测试剂盒。' },
+  { icon: '✈️', title: '合规与冷链支持', desc: '出口部门提供 COA、SDS/MSDS 与出口合规文件，保障国际清关顺畅。' },
+];
+
+const steps = [
+  { n: '①', t: '了解合作', d: '了解我们的业务与合作模式，确定合作意向。' },
+  { n: '②', t: '提交申请', d: '提交公司/个人资料、市场重心与销售潜力评估。' },
+  { n: '③', t: '洽谈签约', d: '双方沟通合作细节，签署合作协议。' },
+  { n: '④', t: '启动合作', d: '获得培训与支持，正式开展本地业务。' },
+];
+---
+
+<BaseLayout {title} {description} canonical="/daili/">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <span class="text-white">代理商合作</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">成为我们的合作伙伴</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        诚邀全球鸟类分子诊断、DNA 检测与 PCR 检测服务领域的合作伙伴，共同开拓市场。
+      </p>
+    </div>
+  </section>
+
+  <!-- 合作机会 -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">合作机会</h2>
+    <p class="mt-4 text-center text-gray-600">多元合作模式，共谋发展</p>
+    <div class="mt-12 grid gap-8 lg:grid-cols-3">
+      {opportunities.map((o) => (
+        <div class="card">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-100 text-3xl">{o.icon}</div>
+          <h3 class="mt-5 text-xl font-bold text-gray-900">{o.title}</h3>
+          <p class="mt-3 text-sm text-gray-600">{o.desc}</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            {o.items.map((it) => (
+              <li class="flex items-start gap-2">
+                <span class="mt-0.5 text-brand-500">•</span> {it}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 合作优势 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">与我们合作的优势</h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {advantages.map((a) => (
+          <div class="card">
+            <div class="text-3xl">{a.icon}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{a.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 申请流程 -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">如何申请</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-4">
+      {steps.map((s) => (
+        <div class="card text-center">
+          <div class="text-4xl font-bold text-brand-600">{s.n}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <p class="text-gray-600">准备好开拓您所在区域的市场了吗？请联系我们并提交您的合作意向。</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href="/lianxi/" class="btn-primary">立即联系我们</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
