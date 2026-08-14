@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '实验室建设指南 | 禽类基因检测实验室搭建方案';
+const description = '从设备清单、场地规划到检测工作流程，森诺生物科技提供禽类基因检测实验室建设的完整解决方案，助力合作伙伴快速落地。';
+
+const siteUrl = 'https://pigeongene.com';
+const pageUrl = `${siteUrl}/shiyanshi/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: '禽类基因检测实验室建设',
+    url: pageUrl,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    serviceType: '实验室建设服务',
+    areaServed: 'CN',
+    inLanguage: 'zh-CN',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '实验室建设指南', item: pageUrl },
+    ],
+  },
+];
+
+const areas = [
+  {
+    name: '试剂准备区',
+    en: 'Reagent Preparation',
+    desc: '配制 PCR 反应体系，需保持高度洁净，避免核酸污染。配备超净工作台、移液器、低温冰箱等。',
+  },
+  {
+    name: '样本处理区',
+    en: 'Sample Processing',
+    desc: '接收样本、提取核酸。配备生物安全柜、核酸提取仪、离心机等，注意样本间的交叉污染防控。',
+  },
+  {
+    name: '扩增区',
+    en: 'Amplification',
+    desc: '进行 PCR/qPCR 扩增反应。配备实时荧光定量 PCR 仪、普通 PCR 仪，严格控制气溶胶污染。',
+  },
+  {
+    name: '产物分析区',
+    en: 'Analysis',
+    desc: '进行电泳、分型与结果分析。配备电泳仪、凝胶成像系统、基因分析仪及数据分析工作站。',
+  },
+];
+
+const equipment = [
+  { name: '实时荧光定量 PCR 仪', cat: '扩增', note: 'qPCR 检测核心设备' },
+  { name: '普通 PCR 仪', cat: '扩增', note: '目标片段扩增' },
+  { name: '核酸提取仪', cat: '样本处理', note: '自动化提取 DNA/RNA' },
+  { name: '生物安全柜', cat: '样本处理', note: '样本操作防护' },
+  { name: '超净工作台', cat: '试剂准备', note: '无菌试剂配制' },
+  { name: '高速冷冻离心机', cat: '样本处理', note: '核酸纯化' },
+  { name: '凝胶电泳仪', cat: '分析', note: '片段分离' },
+  { name: '凝胶成像系统', cat: '分析', note: '结果可视化' },
+  { name: '微量移液器组', cat: '通用', note: '精准加样' },
+  { name: '-20℃/-80℃ 冰箱', cat: '通用', note: '试剂与样本保存' },
+  { name: '高压灭菌器', cat: '通用', note: '耗材灭菌' },
+  { name: '数据分析工作站', cat: '分析', note: '基因型判读' },
+];
+
+const workflow = [
+  { n: '①', t: '需求评估', d: '明确检测项目、样本类型与通量需求。' },
+  { n: '②', t: '场地规划', d: '按分区原则规划实验室布局与气流方向。' },
+  { n: '③', t: '设备配置', d: '根据检测项目配置核心设备与耗材。' },
+  { n: '④', t: '体系建设', d: '建立 SOP、质控体系与生物安全规范。' },
+  { n: '⑤', t: '人员培训', d: '操作培训、考核上岗，确保规范执行。' },
+  { n: '⑥', t: '验收运行', d: '试运行、方法验证、正式投产。' },
+];
+---
+
+<BaseLayout {title} {description} canonical="/shiyanshi/" jsonLd={jsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <span class="text-white">实验室建设指南</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">实验室建设指南</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        从场地规划到设备配置，森诺生物科技提供禽类基因检测实验室建设的完整解决方案。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">实验室功能分区</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-gray-600">
+      分子检测实验室必须遵循"单向流动"原则，避免扩增产物回流污染试剂与样本。
+    </p>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {areas.map((a, i) => (
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-lg font-bold text-white">{i + 1}</span>
+            <div>
+              <h3 class="font-bold text-gray-900">{a.name}</h3>
+              <p class="text-xs text-gray-500">{a.en}</p>
+            </div>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">{a.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">核心设备清单</h2>
+      <div class="mx-auto mt-12 max-w-4xl overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+        <table class="w-full min-w-[560px] text-left text-sm">
+          <thead class="border-b border-gray-200 bg-gray-50">
+            <tr>
+              <th class="px-5 py-3 font-semibold text-gray-900">设备名称</th>
+              <th class="px-5 py-3 font-semibold text-gray-900">用途分类</th>
+              <th class="px-5 py-3 font-semibold text-gray-900">说明</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {equipment.map((e) => (
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">{e.name}</td>
+                <td class="px-5 py-3"><span class="rounded-full bg-brand-50 px-2 py-0.5 text-xs text-brand-700">{e.cat}</span></td>
+                <td class="px-5 py-3 text-gray-500">{e.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">建设工作流程</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {workflow.map((s) => (
+        <div class="card text-center">
+          <div class="text-3xl font-bold text-brand-600">{s.n}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x text-center">
+      <h2 class="text-3xl font-bold">需要实验室建设支持？</h2>
+      <p class="mt-4 text-brand-100">森诺生物科技提供设备选型、体系建设与人员培训的一站式支持。</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/lianxi/" class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-50">联系我们</a>
+        <a href="/daili/" class="btn-outline-light">了解代理商合作</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
