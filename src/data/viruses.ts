@@ -13,6 +13,9 @@ export interface VirusTest {
   symptoms: string[];
   prevention: string;
   differential: string;
+  incubation: string;
+  diagnosis: string;
+  treatment: string;
 }
 
 export const virusTests: VirusTest[] = [
@@ -31,6 +34,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['精神萎靡、食欲减退', '羽毛蓬松、生长迟缓', '继发感染、消瘦', '育雏期死亡率升高'],
     prevention: '加强鸽舍卫生管理，定期消毒，做好免疫监测，早发现早隔离。',
     differential: '需与鸽多瘤病毒、腺病毒等免疫抑制性病原鉴别；圆环病毒以幼鸽免疫抑制、继发感染为特征，确诊依赖 PCR 检测。',
+    incubation: '潜伏期不固定，免疫抑制往往在应激或继发感染后才显现，隐性感染可长期存在。',
+    diagnosis: '以实时荧光 PCR（qPCR）检测泄殖腔拭子、喉拭子或粪便中的病毒核酸为确诊依据，结合免疫抑制的临床表现综合判断。',
+    treatment: '目前无特效抗病毒药物，以隔离病鸽、加强营养、控制继发感染和改善饲养环境为主，需在兽医指导下处理。',
   },
   {
     slug: 'ge-paozhen-bingdu',
@@ -47,6 +53,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['打喷嚏、流鼻涕', '眼结膜炎、流泪', '呼吸困难', '精神沉郁'],
     prevention: '保持鸽舍通风，控制饲养密度，隔离病鸽，定期消毒。',
     differential: '需与支原体、新城疫等呼吸道病原鉴别；疱疹病毒以结膜炎、上呼吸道症状为主，潜伏感染后应激再激活是其特点。',
+    incubation: '潜伏期 2-7 天，潜伏感染鸽在运输、比赛等应激后可再激活排毒。',
+    diagnosis: '采集喉拭子、结膜拭子行 qPCR 检测病毒核酸确诊，结合上呼吸道症状与结膜炎表现综合判断。',
+    treatment: '以对症支持治疗为主，控制继发细菌感染，减少应激，隔离病鸽，具体用药需兽医根据病情制定。',
   },
   {
     slug: 'ge-xian-bingdu',
@@ -63,6 +72,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['呕吐、甩食', '水样腹泻、绿便', '食欲废绝', '体重骤降'],
     prevention: '减少运输与集鸽应激，加强营养与免疫支持，病鸽及时隔离。',
     differential: '需与新城疫、轮状病毒等引起腹泻的病原鉴别；腺病毒以集鸽应激后呕吐、水样腹泻为典型特征。',
+    incubation: '潜伏期短，常 1-3 天，集鸽运输等应激后高发，传播迅速。',
+    diagnosis: '采集泄殖腔拭子或粪便行 qPCR 检测腺病毒核酸确诊，结合呕吐、腹泻等典型症状综合判断。',
+    treatment: '以补液、止泻、控制继发感染等支持治疗为主，比赛期注意减少应激，用药需兽医指导。',
   },
   {
     slug: 'ge-dou-bingdu',
@@ -79,6 +91,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['皮肤痘疹、结痂', '口腔黏膜白斑', '采食困难', '生长受阻'],
     prevention: '防蚊灭虫，减少体表伤口，接种疫苗，隔离病鸽。',
     differential: '需与毛滴虫、念珠菌等口腔病变鉴别；鸽痘以皮肤型/黏膜型痘疹为特征，多见于蚊虫季节。',
+    incubation: '潜伏期 4-10 天，蚊虫叮咬或皮肤破损可促进感染。',
+    diagnosis: '根据皮肤或黏膜典型痘疹病变结合 qPCR 检测确诊，需与皮肤真菌感染等鉴别。',
+    treatment: '以隔离、消毒、防止继发感染为主，痘疹部位对症护理，疫苗免疫是主要预防手段。',
   },
   {
     slug: 'ge-lunzhuang-bingdu',
@@ -95,6 +110,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['水样腹泻', '脱水、消瘦', '精神萎靡', '幼鸽生长迟缓'],
     prevention: '保持饮水和饲料卫生，及时清理粪便，加强幼鸽护理。',
     differential: '需与沙门氏菌、腺病毒等引起幼鸽腹泻的病原鉴别；轮状病毒主要侵害幼鸽，引起水样腹泻与脱水。',
+    incubation: '潜伏期 1-2 天，主要通过粪-口途径传播，幼鸽易感。',
+    diagnosis: '采集粪便行 qPCR 检测轮状病毒核酸确诊，结合水样腹泻症状综合判断。',
+    treatment: '以补液、维持电解质平衡、控制继发感染为主，无特效抗病毒药，需兽医指导。',
   },
   {
     slug: 'xinchengyi-bingdu',
@@ -111,6 +129,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['神经症状、歪脖', '呼吸困难', '绿色稀便', '产蛋下降、死亡率高'],
     prevention: '按时接种疫苗，加强生物安全，发现疫情及时上报并隔离。',
     differential: '需与腺病毒、副黏病毒等鉴别；新城疫以神经症状、呼吸困难、绿色稀便及高致死率为特征，属法定报告疫病。',
+    incubation: '潜伏期 2-15 天，通常 5-6 天，毒株毒力不同病程差异大。',
+    diagnosis: '采集喉拭子、泄殖腔拭子行 qPCR 检测病毒核酸确诊，结合神经症状与呼吸道症状综合判断。',
+    treatment: '无特效治疗药物，以隔离、扑杀高危个体、疫苗免疫和生物安全控制为主，需兽医及官方指导。',
   },
   {
     slug: 'shamen-shijun',
@@ -127,6 +148,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['关节肿大、跛行', '翅膀下垂', '腹泻、消瘦', '神经症状'],
     prevention: '保持鸽舍干燥清洁，防止鼠患污染饲料，定期检测种鸽。',
     differential: '需与副伤寒、大肠杆菌病等细菌性感染鉴别；沙门氏菌以关节肿大、翅膀下垂、消瘦及人畜共患为特征。',
+    incubation: '潜伏期 1-3 天，经粪-口途径或垂直传播，应激后易暴发。',
+    diagnosis: '采集粪便、泄殖腔拭子行 qPCR 或细菌培养确诊，结合关节肿胀、腹泻等症状综合判断。',
+    treatment: '根据药敏试验选用敏感抗生素，配合隔离、消毒与改善卫生，用药需兽医处方。',
   },
   {
     slug: 'baise-nianzhujun',
@@ -143,6 +167,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['口腔白斑、假膜', '嗉囊胀大、内容物酸臭', '食欲减退', '消瘦、呕吐'],
     prevention: '合理使用抗生素，保持饲料饮水新鲜，增强鸽体免疫力。',
     differential: '需与毛滴虫、鸽痘等口腔病变鉴别；念珠菌以口腔白色假膜、嗉囊酸臭为特征，多与滥用抗生素相关。',
+    incubation: '为机会性致病菌，常在免疫抑制、长期用药或营养不良后发病。',
+    diagnosis: '采集嗉囊、口腔拭子行镜检或培养确诊，结合白色假膜样病变综合判断。',
+    treatment: '使用抗真菌药物，同时改善饲养、增强免疫、避免滥用抗生素，需兽医指导。',
   },
   {
     slug: 'ge-maodichong',
@@ -159,6 +186,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['口腔黄白色干酪样物', '吞咽困难', '消瘦、精神差', '呼吸困难'],
     prevention: '定期检疫，保持饮水卫生，避免种鸽与病鸽混群，及时驱虫。',
     differential: '需与念珠菌、鸽痘等口腔病变鉴别；毛滴虫以口腔黄白色干酪样坏死物（鸽口黄）为典型特征。',
+    incubation: '潜伏期 5-14 天，经口传播，幼鸽易感，饮水污染可造成群发。',
+    diagnosis: '采集口腔、嗉囊黏液行湿片镜检或 qPCR 确诊，结合口腔黄色干酪样物综合判断。',
+    treatment: '使用抗原虫药物（如硝基咪唑类），配合环境消毒与饮水卫生管理，需兽医指导用药剂量。',
   },
   {
     slug: 'yingwure-yiyuanti',
@@ -175,6 +205,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['结膜炎、流泪', '呼吸困难、流鼻液', '腹泻、消瘦', '精神沉郁'],
     prevention: '控制饲养密度，加强通风，注意个人防护，及时隔离病鸽。',
     differential: '需与支原体、新城疫等呼吸道病原鉴别；鹦鹉热衣原体以眼炎、呼吸道症状及人畜共患风险为特征。',
+    incubation: '潜伏期 5-14 天，可经呼吸道、消化道传播，为人兽共患病。',
+    diagnosis: '采集喉拭子、粪便或血液行 qPCR 或血清学检测确诊，需注意人感染防护。',
+    treatment: '使用敏感抗生素（如四环素类），配合隔离与消毒，注意人兽共患防护，需兽医指导。',
   },
   {
     slug: 'ge-duoliu-bingdu',
@@ -191,6 +224,9 @@ export const virusTests: VirusTest[] = [
     symptoms: ['精神萎靡、食欲减退', '羽毛蓬松、生长迟缓', '消瘦、腹泻', '继发感染、死亡率升高'],
     prevention: '加强鸽舍卫生与消毒，控制饲养密度，隔离病鸽，做好免疫监测。',
     differential: '需与鸽圆环病毒等免疫抑制病原鉴别；多瘤病毒以多器官侵害、幼鸽全身性感染为特征，需 PCR 确诊。',
+    incubation: '潜伏期不固定，主要侵害幼鸽，可致急性死亡与免疫抑制。',
+    diagnosis: '采集组织、泄殖腔拭子行 qPCR 检测病毒核酸确诊，结合幼鸽高死亡率综合判断。',
+    treatment: '无特效抗病毒药物，以生物安全、隔离淘汰、改善饲养与防止继发感染为主。',
   },
   {
     slug: 'zhiyuanti',
@@ -207,5 +243,8 @@ export const virusTests: VirusTest[] = [
     symptoms: ['打喷嚏、流鼻涕', '呼吸啰音', '眼部分泌物增多', '飞行耐力下降'],
     prevention: '保持鸽舍通风与卫生，控制密度，早期诊断并及时用药。',
     differential: '需与疱疹病毒、鹦鹉热衣原体等呼吸道病原鉴别；支原体以慢性呼吸道症状、呼吸啰音为特征，常混合感染。',
+    incubation: '潜伏期数天至数周，为慢性呼吸道疾病（CRD）常见病原，应激后加重。',
+    diagnosis: '采集喉拭子、鼻拭子行 qPCR 或培养确诊，结合呼吸道症状与气囊炎病变综合判断。',
+    treatment: '使用敏感抗生素（如大环内酯类、四环素类），配合改善通风、降低密度，需兽医指导。',
   },
 ];

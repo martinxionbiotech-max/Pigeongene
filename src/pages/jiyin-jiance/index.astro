@@ -62,6 +62,12 @@ const serviceJsonLd = [
           <p class="text-sm text-gray-600">{g.function}</p>
           <p class="mt-3 text-sm font-medium text-brand-700">育种价值：</p>
           <p class="text-sm text-gray-600">{g.benefit}</p>
+          <p class="mt-3 text-sm font-medium text-brand-700">科学关联：</p>
+          <p class="text-sm text-gray-600">{g.association}</p>
+          <div class="mt-3 border-t border-gray-100 pt-3 text-xs text-gray-500">
+            <p><span class="font-medium text-gray-600">标记类型：</span>{g.markerType}</p>
+            <p class="mt-1"><span class="font-medium text-gray-600">文献来源：</span>{g.reference}</p>
+          </div>
         </div>
       ))}
     </div>
