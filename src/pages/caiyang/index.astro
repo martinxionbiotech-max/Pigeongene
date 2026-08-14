@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '采样指南 | 赛鸽病毒检测样本采集';
+const description = '赛鸽病毒检测样本采集指南，涵盖采样前准备、各类样本采集方法、样本保存与寄送、注意事项，确保检测结果准确可靠。';
+
+const steps = [
+  {
+    icon: '🧤',
+    title: '采样前准备',
+    items: [
+      '准备一次性无菌手套、无菌拭子、密封袋、记号笔等用品',
+      '佩戴干净的一次性乳胶或丁腈手套后再接触任何材料或赛鸽',
+      '处理每只赛鸽前后，用 75% 酒精对手套进行全面消毒，待完全干燥后再继续',
+    ],
+  },
+  {
+    icon: '🏷️',
+    title: '样本标记',
+    items: [
+      '用记号笔在干净的密封袋上提前标注赛鸽信息（鸽主姓名、足环号、品种等）',
+      '严格做到"一鸽一袋"，每只赛鸽单独密封，防止样本间交叉污染',
+    ],
+  },
+  {
+    icon: '🦢',
+    title: '采集方法（按检测项目选择）',
+    items: [
+      '咽/喉拭子：用无菌拭子轻柔刮取咽喉部黏膜分泌物',
+      '泄殖腔拭子：用无菌拭子插入泄殖腔，旋转采集黏膜分泌物',
+      '粪便样本：采集新鲜粪便，避免接触地面污染物',
+      '口腔拭子：采集口腔、嗉囊部病变或分泌物（毛滴虫、念珠菌检测）',
+      '病变组织：采集痘疹、溃疡等病变部位组织',
+      '眼/鼻分泌物：采集结膜或鼻腔分泌物（呼吸道病原检测）',
+    ],
+  },
+  {
+    icon: '📦',
+    title: '样本保存与寄送',
+    items: [
+      '采集后立即将样本放入预先标注的密封袋，确保样本不与袋外接触',
+      '短期（7 天内）：室温保存并尽快寄送',
+      '长期（超过 7 天）：-20℃ 或更低温度冷冻保存',
+      '寄送时将各密封袋放入外包装袋，再装入结实的纸箱',
+      '外箱清晰注明寄件人姓名与实验室地址',
+    ],
+  },
+  {
+    icon: '✅',
+    title: '最后确认',
+    items: [
+      '核对样本编号/标签与内部记录（袋上标签与赛鸽足环号一致）',
+      '填写并随附样本提交表（含联系方式、赛鸽编号、检测项目）',
+      '通过 DHL、FedEx、UPS 等可靠快递寄出',
+      '实验室收到样本后会与您联系确认，再启动检测',
+    ],
+  },
+];
+
+const precautions = [
+  '务必避免不同赛鸽样本间的交叉污染',
+  '使用带完整羽根的新鲜羽毛（基因检测）或规范采集的拭子（病毒检测）',
+  '样本保持干燥、单独存放',
+  '确保样本数量充足',
+  '清晰标注每份样本及对应信息',
+  '采集样本时避免接触样本的检测关键部位',
+];
+---
+
+<BaseLayout {title} {description} canonical="/caiyang/">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/" class="hover:text-white">首页</a> /
+        <a href="/bingdu-jiance/" class="hover:text-white">赛鸽病毒检测</a> /
+        <span class="text-white">采样指南</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">采样指南</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        规范的样本采集是确保检测结果准确可靠的第一步。请遵循以下实验室认可的采样规范。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-4xl space-y-8">
+      {steps.map((s, i) => (
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-lg font-bold text-white">{i + 1}</span>
+            <div class="text-2xl">{s.icon}</div>
+            <h2 class="text-xl font-bold text-gray-900">{s.title}</h2>
+          </div>
+          <ul class="mt-4 space-y-2">
+            {s.items.map((it) => (
+              <li class="flex items-start gap-2 text-gray-700">
+                <span class="mt-1 text-brand-500">•</span> {it}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900">关键注意事项</h2>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          {precautions.map((p) => (
+            <div class="flex items-start gap-2 rounded-lg bg-white p-4 text-sm text-gray-700 shadow-sm">
+              <span class="mt-0.5 text-accent-500">⚠️</span> {p}
+            </div>
+          ))}
+        </div>
+        <div class="mt-8 rounded-xl bg-brand-50 p-6 text-center">
+          <p class="text-gray-700">采样过程中如有任何疑问，欢迎联系我们的技术支持团队。</p>
+          <div class="mt-4 flex flex-wrap justify-center gap-4">
+            <a href="/lianxi/" class="btn-primary">联系技术支持</a>
+            <a href="/bingdu-jiance/" class="btn-outline">返回病毒检测</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -6,6 +6,22 @@ import { virusTests } from '../../data/viruses';
 
 const title = '赛鸽病毒检测 | 11 项常见病原检测';
 const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒、腺病毒、鸽痘、轮状病毒、新城疫、沙门氏菌、白色念珠菌、毛滴虫、鹦鹉热衣原体、支原体 11 项病原，实时荧光 PCR 精准检测。';
+
+const scenarios = [
+  { icon: '🏁', title: '赛前健康筛查', desc: '赛前系统排查病原，确保赛鸽以最佳健康状态参赛，避免带病集鸽造成成绩下滑与群体交叉感染。' },
+  { icon: '🐣', title: '引种检疫', desc: '新引进种鸽、幼鸽入棚前全面检测，防止将病原带入鸽群，保障鸽场生物安全。' },
+  { icon: '🚑', title: '疾病诊断', desc: '出现腹泻、呼吸道症状、神经症状、消瘦等异常时，快速锁定病原，指导精准治疗。' },
+  { icon: '🛡️', title: '育雏期监控', desc: '育雏期重点监测幼鸽常见病原，降低雏鸽死亡率，提高育雏成活率。' },
+  { icon: '📦', title: '疫情排查', desc: '鸽群出现集中发病或死亡时，系统排查病原，明确疫病性质，指导隔离与防控。' },
+  { icon: '🌍', title: '出口/运输检疫', desc: '满足赛鸽跨区域运输、参展、出口等场景的检疫要求，出具规范检测报告。' },
+];
+
+const advantages = [
+  { icon: '🎯', title: '高灵敏度', desc: '实时荧光 PCR 技术可检测极低拷贝数的病原核酸，灵敏度远高于传统方法。' },
+  { icon: '⚡', title: '快速准确', desc: '2-3 个工作日出具报告，减少等待时间，为决策提供及时依据。' },
+  { icon: '🧬', title: '特异性强', desc: '针对各病原特异基因设计引物探针，有效避免交叉反应与假阳性。' },
+  { icon: '📋', title: '报告规范', desc: '出具含检测方法、结果与解读的规范电子报告，满足检疫与管理需求。' },
+];
 ---
 
 <BaseLayout {title} {description} canonical="/bingdu-jiance/">
@@ -17,17 +33,24 @@ const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒�
       <p class="mt-4 max-w-2xl text-lg text-white/90">
         覆盖 11 项常见病原（病毒、细菌、真菌、寄生虫），采用实时荧光 PCR 技术精准检测，为赛鸽健康管理与防疫提供科学依据。
       </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/caiyang/" class="btn-accent">查看采样指南</a>
+        <a href="/lianxi/" class="btn-outline !border-white !text-white hover:!bg-white/10">咨询检测服务</a>
+      </div>
     </div>
   </section>
 
+  <!-- 病原项目 -->
   <section class="container-x py-16">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <h2 class="section-title text-center">11 项病原检测项目</h2>
+    <p class="mt-4 text-center text-gray-600">涵盖病毒、细菌、真菌、寄生虫四大类</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {virusTests.map((v) => (
         <a href={`/bingdu-jiance/${v.slug}/`} class="card hover:border-brand-300">
           <div class="flex items-center justify-between">
             <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{v.type}</span>
           </div>
-          <h2 class="mt-4 text-xl font-bold text-gray-900">{v.name}</h2>
+          <h3 class="mt-4 text-xl font-bold text-gray-900">{v.name}</h3>
           <p class="mt-1 text-xs text-gray-500">{v.en}</p>
           <p class="mt-3 text-sm leading-relaxed text-gray-600">{v.desc}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">
@@ -38,10 +61,11 @@ const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒�
     </div>
   </section>
 
+  <!-- 检测技术 -->
   <section class="bg-gray-50 py-16">
-    <div class="container-x text-center">
-      <h2 class="section-title">检测技术与流程</h2>
-      <div class="mx-auto mt-10 grid max-w-4xl gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
+    <div class="container-x">
+      <h2 class="section-title text-center">检测技术与流程</h2>
+      <div class="mx-auto mt-10 grid max-w-5xl gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
         <div class="card">
           <h3 class="font-semibold text-gray-900">检测方法</h3>
           <p class="mt-2 text-sm text-gray-600">实时荧光 PCR（qPCR / RT-qPCR），高灵敏度检测病原遗传物质。</p>
@@ -55,8 +79,43 @@ const description = '赛鸽病毒检测，覆盖鸽圆环病毒、疱疹病毒�
           <p class="mt-2 text-sm text-gray-600">样本到达后 2-3 个工作日出具电子报告。</p>
         </div>
       </div>
-      <div class="mt-10">
-        <a href="/lianxi/" class="btn-primary">咨询检测服务</a>
+
+      <h2 class="mt-16 text-center text-2xl font-bold text-gray-900">技术优势</h2>
+      <div class="mx-auto mt-8 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {advantages.map((a) => (
+          <div class="card text-center">
+            <div class="text-3xl">{a.icon}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{a.title}</h3>
+            <p class="mt-2 text-sm text-gray-600">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 应用场景 -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">应用场景</h2>
+    <p class="mt-4 text-center text-gray-600">覆盖赛鸽全生命周期与多元场景的健康检测需求</p>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {scenarios.map((s) => (
+        <div class="card">
+          <div class="text-3xl">{s.icon}</div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900">{s.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
+    <div class="container-x text-center">
+      <h2 class="text-3xl font-bold">守护赛鸽健康，从精准检测开始</h2>
+      <p class="mt-4 text-white/90">提交样本，2-3 个工作日获取权威检测报告</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/caiyang/" class="btn-accent">了解采样方法</a>
+        <a href="/lianxi/" class="btn-outline !border-white !text-white hover:!bg-white/10">联系专家顾问</a>
       </div>
     </div>
   </section>

@@ -37,6 +37,15 @@ const description = virus.desc;
         <h2 class="text-2xl font-bold text-gray-900">病原概述</h2>
         <p class="mt-4 leading-relaxed text-gray-700">{virus.desc}</p>
 
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">传播途径</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{virus.transmission}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">主要危害</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{virus.harm}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">检测意义</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{virus.detectValue}</p>
+
         <h2 class="mt-10 text-2xl font-bold text-gray-900">常见症状</h2>
         <ul class="mt-4 space-y-2">
           {virus.symptoms.map((s) => (
@@ -72,6 +81,14 @@ const description = virus.desc;
             </div>
           </dl>
           <a href="/lianxi/" class="btn-primary mt-6 w-full">咨询检测</a>
+        </div>
+
+        <div class="card bg-accent-500/10">
+          <h3 class="text-lg font-semibold text-gray-900">采样提示</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">
+            请使用无菌拭子规范采集样本，避免交叉污染；样本需单独密封、清晰标注赛鸽编号，并尽快寄送至实验室。详见
+            <a href="/caiyang/" class="font-semibold text-brand-600 hover:underline">采样指南</a>。
+          </p>
         </div>
       </aside>
     </div>
