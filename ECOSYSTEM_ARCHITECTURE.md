@@ -5,7 +5,7 @@
 
 ## 一、当前现状扫描
 
-### 1. 线上站点（https://pigeongene.com）
+### 1. 线上站点（https://senopigeon.com）
 - **现状**：英文 WordPress 原版，标题 "Racing Pigeon DNA Test | Performance Genetics Lab"
 - **定位**：商业检测主站（英文），尚未中文转化
 - **注意**：本地 Astro 中文版尚未部署到该域名（Cloudflare 绑定待用户操作）
@@ -17,7 +17,7 @@
 - **Schema 已覆盖**：Organization/WebSite/Service/Product/MedicalWebPage/FAQPage/BlogPosting/ScholarlyArticle/TechArticle/BreadcrumbList 等 20+ 类型
 
 ### 3. 已存在的子站雏形（pigeongene-docs）
-- MkDocs Material 知识子站（`docs.pigeongene.com`），28 页，**已搁置等指令**
+- MkDocs Material 知识子站（`docs.senopigeon.com`），28 页，**已搁置等指令**
 - 该雏形与新四站计划中的 genetics/health 有内容重叠，需决策整合
 
 ---
@@ -59,7 +59,7 @@
 
 ## 四、四站建议信息架构
 
-### 1. genetics.pigeongene.com — 遗传学知识库
+### 1. genetics.senopigeon.com — 遗传学知识库
 ```
 /（首页：遗传学 Pillar）
 /genes/（Gene Encyclopedia 入口）
@@ -77,7 +77,7 @@
 /faq/
 ```
 
-### 2. health.pigeongene.com — 健康/疾病知识库
+### 2. health.senopigeon.com — 健康/疾病知识库
 ```
 /（首页：健康 Pillar）
 /diseases/（疾病百科入口）
@@ -93,7 +93,7 @@
 /glossary/ /faq/
 ```
 
-### 3. research.pigeongene.com — 科研中心
+### 3. research.senopigeon.com — 科研中心
 ```
 /（首页：Research Pillar）
 /research/（研究方向）
@@ -104,7 +104,7 @@
 /glossary/ /research-notes/
 ```
 
-### 4. tools.pigeongene.com — 在线工具
+### 4. tools.senopigeon.com — 在线工具
 ```
 /（首页：工具总览）
 /gene-lookup/（基因查询）

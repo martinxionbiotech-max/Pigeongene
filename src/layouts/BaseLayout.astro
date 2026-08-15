@@ -23,7 +23,7 @@ const {
   jsonLd = [],
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://pigeongene.com');
+const site = Astro.site ?? new URL('https://senopigeon.com');
 const siteUrl = site.toString().replace(/\/$/, '');
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
@@ -83,10 +83,10 @@ const orgSchema = {
   },
   sameAs: [
     siteUrl,
-    'https://genetics.pigeongene.com',
-    'https://health.pigeongene.com',
-    'https://research.pigeongene.com',
-    'https://tools.pigeongene.com',
+    'https://genetics.senopigeon.com',
+    'https://health.senopigeon.com',
+    'https://research.senopigeon.com',
+    'https://tools.senopigeon.com',
   ],
 };
 

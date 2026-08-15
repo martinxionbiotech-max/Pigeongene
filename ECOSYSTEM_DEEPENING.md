@@ -7,7 +7,7 @@
 ### 5 站技术形态
 | 站 | 技术栈 | 页面 | schema 现状 |
 |---|---|---|---|
-| 主站 pigeonGene.com | Astro | 37 | ✅ Organization/WebSite/Service/FAQ/MedicalWebPage/Breadcrumb/ScholarlyArticle/AboutPage/Product/BlogPosting/CollectionPage/TechArticle |
+| 主站 senopigeon.com | Astro | 37 | ✅ Organization/WebSite/Service/FAQ/MedicalWebPage/Breadcrumb/ScholarlyArticle/AboutPage/Product/BlogPosting/CollectionPage/TechArticle |
 | genetics | MkDocs | 22 | ⚠️ 仅 Organization+WebSite（无页面级 schema） |
 | health | MkDocs | 27 | ⚠️ 仅 Organization+WebSite（无 MedicalCondition 等） |
 | research | MkDocs | 19 | ⚠️ 仅 Organization+WebSite（丢 ScholarlyArticle） |
