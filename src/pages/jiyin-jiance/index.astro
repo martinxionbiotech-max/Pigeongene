@@ -17,21 +17,11 @@ const serviceJsonLd = [
     description,
     provider: { '@id': `${siteUrl}/#organization` },
     areaServed: 'Worldwide',
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: '赛鸽基因检测价格表',
-      itemListElement: [
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CRY1 隐花色素 1 检测' }, price: '98', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'DRD4 多巴胺受体 D4 检测' }, price: '84', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LDHA 乳酸脱氢酶 A 检测' }, price: '70', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'MSTN 肌肉生长抑制素检测' }, price: '70', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LRP8 脂蛋白受体相关蛋白 8 检测' }, price: '70', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'GSR 谷胱甘肽还原酶检测' }, price: '70', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CASK 钙/钙调蛋白依赖性丝氨酸蛋白激酶检测' }, price: '70', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'F-KER 羽角蛋白基因检测' }, price: '70', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '组合 A（CRY1+DRD4+LDHA）' }, price: '210', priceCurrency: 'CNY' },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '组合 B（全 8 项）' }, price: '525', priceCurrency: 'CNY' },
-      ],
+    offers: {
+      '@type': 'Offer',
+      description: '检测价格与优惠方案请咨询获取最新报价',
+      priceCurrency: 'CNY',
+      availability: 'https://schema.org/InStock',
     },
   },
   {
@@ -88,48 +78,19 @@ const serviceJsonLd = [
     </div>
   </section>
 
-  <!-- 价格表 -->
+  <!-- 价格咨询 -->
   <section class="bg-gray-50 py-16">
     <div class="container-x">
-      <h2 class="section-title text-center">基因检测价格表（人民币）</h2>
-      <p class="mt-3 text-center text-gray-600">单项检测与套餐组合，价格透明</p>
-
-      <div class="mx-auto mt-10 max-w-4xl overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
-        <table class="w-full min-w-[560px] text-left text-sm">
-          <thead class="bg-brand-600 text-white">
-            <tr>
-              <th class="px-5 py-3 font-semibold">检测项目</th>
-              <th class="px-5 py-3 font-semibold">检测位点</th>
-              <th class="px-5 py-3 text-right font-semibold">价格（元）</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-100">
-            <tr class="bg-brand-50/50">
-              <td class="px-5 py-3" colspan="2"><strong>单项检测</strong></td>
-              <td class="px-5 py-3 text-right"></td>
-            </tr>
-            <tr><td class="px-5 py-3">CRY1（隐花色素 1）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">98</td></tr>
-            <tr><td class="px-5 py-3">DRD4（多巴胺受体 D4）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">84</td></tr>
-            <tr><td class="px-5 py-3">LDHA（乳酸脱氢酶 A）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
-            <tr><td class="px-5 py-3">MSTN（肌肉生长抑制素）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
-            <tr><td class="px-5 py-3">LRP8</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
-            <tr><td class="px-5 py-3">GSR（谷胱甘肽还原酶）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
-            <tr><td class="px-5 py-3">CASK</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
-            <tr><td class="px-5 py-3">F-KER（羽角蛋白基因）</td><td class="px-5 py-3 text-gray-500">单一位点</td><td class="px-5 py-3 text-right font-semibold">70</td></tr>
-            <tr class="bg-brand-50/50">
-              <td class="px-5 py-3" colspan="2"><strong>套餐组合</strong></td>
-              <td class="px-5 py-3 text-right"></td>
-            </tr>
-            <tr><td class="px-5 py-3">组合 A</td><td class="px-5 py-3 text-gray-500">CRY1 + DRD4 + LDHA</td><td class="px-5 py-3 text-right font-semibold">210</td></tr>
-            <tr><td class="px-5 py-3">组合 B（全 8 项）</td><td class="px-5 py-3 text-gray-500">CRY1、DRD4、LDHA、MSTN、LRP8、GSR、CASK、F-KER</td><td class="px-5 py-3 text-right font-semibold">525</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-6 text-center text-sm text-gray-500">
-        附加费用：报关手续费 280 元（一次性收取），累计检测超过 40 个位点可免除。成为大客户或代理商可享专属优惠价格。
-      </p>
-      <div class="mt-8 text-center">
-        <a href="/lianxi/" class="btn-primary">联系我们获取报价</a>
+      <div class="mx-auto max-w-3xl rounded-2xl border border-brand-100 bg-white p-10 text-center shadow-sm">
+        <div class="text-4xl">💰</div>
+        <h2 class="mt-4 text-2xl font-bold text-gray-900">咨询最新价格与优惠</h2>
+        <p class="mt-3 text-gray-600">
+          基因检测价格与优惠方案会根据检测位点、样本数量与业务类型动态调整，请直接联系我们获取最新报价与专属优惠。
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="/lianxi/" class="btn-primary">咨询最新价格</a>
+          <a href="/daili/" class="btn-outline">了解大客户/代理商优惠</a>
+        </div>
       </div>
     </div>
   </section>

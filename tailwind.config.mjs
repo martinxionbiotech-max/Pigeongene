@@ -20,6 +20,7 @@ export default {
         accent: {
           500: '#e8a33d',
           600: '#d68a1f',
+          700: '#b87315',
         },
       },
       fontFamily: {
