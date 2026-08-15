@@ -4,7 +4,7 @@ description: '一套科学的赛鸽病毒监测计划是鸽舍健康管理的基
 pubDate: 2026-08-07
 category: '病毒检测'
 tags: ['病毒监测', '防疫体系', '健康管理', '生物安全']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 

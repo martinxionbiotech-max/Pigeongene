@@ -4,7 +4,7 @@ description: '深入了解赛鸽 DNA 性别鉴定的科学原理、采样方法�
 pubDate: 2026-08-12
 category: '基因检测'
 tags: ['DNA 性别鉴定', '赛鸽育种', '基因检测']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: true
 ---
 

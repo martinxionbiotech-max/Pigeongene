@@ -4,7 +4,7 @@ description: 'LDHA、DRD4、CRY1、MSTN 等基因位点如何影响赛鸽的速�
 pubDate: 2026-08-03
 category: '基因检测'
 tags: ['基因位点', '飞行能力', '赛鸽育种', '遗传学']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: true
 ---
 

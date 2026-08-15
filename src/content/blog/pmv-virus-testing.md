@@ -4,7 +4,7 @@ description: '副黏病毒（PMV-1，即鸽新城疫）是赛鸽最具威胁的�
 pubDate: 2026-08-10
 category: '病毒检测'
 tags: ['PMV 副黏病毒', '新城疫', '病毒检测', '生物安全']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: true
 ---
 

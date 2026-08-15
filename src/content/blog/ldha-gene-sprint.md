@@ -5,7 +5,7 @@ pubDate: 2026-08-14
 updatedDate: 2026-08-14
 category: '基因检测'
 tags: ['LDHA', '能量代谢', '短距离冲刺', '基因位点', '育种']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 

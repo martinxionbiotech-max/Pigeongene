@@ -9,7 +9,7 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     category: z.string(),
     tags: z.array(z.string()).default([]),
-    author: z.string().default('张家口森诺生物科技有限公司'),
+    author: z.string().default('张家口赛诺生物科技有限公司'),
     authorRole: z.string().optional(),
     featured: z.boolean().default(false),
     cover: z.string().optional(),

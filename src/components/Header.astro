@@ -1,39 +1,90 @@
 ---
-const nav = [
+type NavItem = { label: string; href?: string; children?: { label: string; href: string }[] };
+
+const nav: NavItem[] = [
   { label: '首页', href: '/' },
-  { label: '飞行能力基因检测', href: '/jiyin-jiance/' },
-  { label: '赛鸽病毒检测', href: '/bingdu-jiance/' },
-  { label: 'DNA 身份证', href: '/dna-shenfenzheng/' },
+  {
+    label: '检测服务',
+    children: [
+      { label: '飞行能力基因检测', href: '/jiyin-jiance/' },
+      { label: '赛鸽病毒检测', href: '/bingdu-jiance/' },
+      { label: 'DNA 身份证', href: '/dna-shenfenzheng/' },
+    ],
+  },
   { label: '检测试剂盒', href: '/shijihe/' },
-  { label: '实验室建设', href: '/shiyanshi/' },
-  { label: '代理商合作', href: '/daili/' },
-  { label: '知识中心', href: '/zhishi/' },
-  { label: '专业文章', href: '/blog/' },
+  {
+    label: '项目合作',
+    children: [
+      { label: '实验室建设', href: '/shiyanshi/' },
+      { label: '代理商合作', href: '/daili/' },
+    ],
+  },
+  {
+    label: '专业文章',
+    children: [
+      { label: '知识中心', href: '/zhishi/' },
+      { label: '博客文章', href: '/blog/' },
+    ],
+  },
   { label: '关于我们', href: '/guanyu/' },
 ];
+
 const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
 ---
 
 <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
   <div class="container-x flex h-16 items-center justify-between">
     <a href="/" class="flex items-center gap-2 font-bold text-brand-800">
-      <img src="/wp-content/uploads/cropped-cropped-LOGO.png" alt="SENO 赛鸽基因检测中心 LOGO" class="h-9 w-9 rounded" width="512" height="512" />
-      <span class="text-lg">赛鸽基因检测中心</span>
+      <img src="/wp-content/uploads/cropped-cropped-LOGO.png" alt="SENO 赛诺基因检测中心 LOGO" class="h-9 w-9 rounded" width="512" height="512" />
+      <span class="text-lg">赛诺基因检测中心</span>
     </a>
     <nav class="hidden items-center gap-1 xl:flex" aria-label="主导航">
-      {nav.map((item) => (
-        <a
-          href={item.href}
-          class:list={[
-            'rounded-md px-3 py-2 text-sm font-medium transition',
-            path === item.href
-              ? 'bg-brand-50 text-brand-700'
-              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-          ]}
-        >
-          {item.label}
-        </a>
-      ))}
+      {nav.map((item) =>
+        item.children ? (
+          <div class="group relative">
+            <button
+              type="button"
+              class="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50 hover:text-gray-900"
+              aria-haspopup="true"
+            >
+              {item.label}
+              <svg class="h-4 w-4 opacity-60 transition group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="invisible absolute left-0 top-full z-50 w-56 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div class="overflow-hidden rounded-xl border border-gray-100 bg-white py-2 shadow-lg">
+                {item.children.map((c) => (
+                  <a
+                    href={c.href}
+                    class:list={[
+                      'block px-4 py-2 text-sm transition',
+                      isActive(c.href)
+                        ? 'bg-brand-50 font-medium text-brand-700'
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                    ]}
+                  >
+                    {c.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <a
+            href={item.href || '/'}
+            class:list={[
+              'rounded-md px-3 py-2 text-sm font-medium transition',
+              isActive(item.href || '/')
+                ? 'bg-brand-50 text-brand-700'
+                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+            ]}
+          >
+            {item.label}
+          </a>
+        )
+      )}
     </nav>
     <a href="/lianxi/" class="btn-primary hidden sm:inline-flex">立即检测</a>
     <button id="menu-toggle" class="xl:hidden text-gray-600" aria-label="打开菜单" aria-expanded="false" aria-controls="mobile-menu">
@@ -45,17 +96,34 @@ const path = Astro.url.pathname;
   <!-- mobile menu -->
   <div id="mobile-menu" class="hidden border-t border-gray-100 xl:hidden">
     <nav class="container-x flex flex-col gap-1 py-3" aria-label="移动端导航">
-      {nav.map((item) => (
-        <a
-          href={item.href}
-          class:list={[
-            'rounded-md px-3 py-2 text-sm font-medium',
-            path === item.href ? 'bg-brand-50 text-brand-700' : 'text-gray-600 hover:bg-gray-50',
-          ]}
-        >
-          {item.label}
-        </a>
-      ))}
+      {nav.map((item) =>
+        item.children ? (
+          <div>
+            <p class="px-3 pt-2 text-xs font-semibold uppercase text-gray-400">{item.label}</p>
+            {item.children.map((c) => (
+              <a
+                href={c.href}
+                class:list={[
+                  'block rounded-md px-3 py-2 text-sm font-medium',
+                  isActive(c.href) ? 'bg-brand-50 text-brand-700' : 'text-gray-600 hover:bg-gray-50',
+                ]}
+              >
+                {c.label}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <a
+            href={item.href || '/'}
+            class:list={[
+              'block rounded-md px-3 py-2 text-sm font-medium',
+              isActive(item.href || '/') ? 'bg-brand-50 text-brand-700' : 'text-gray-600 hover:bg-gray-50',
+            ]}
+          >
+            {item.label}
+          </a>
+        )
+      )}
     </nav>
   </div>
 </header>

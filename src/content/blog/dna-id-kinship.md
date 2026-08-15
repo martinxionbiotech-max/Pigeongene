@@ -4,7 +4,7 @@ description: '如何用 STR 微卫星指纹技术为赛鸽建立终身有效的 
 pubDate: 2026-07-30
 category: 'DNA 鉴定'
 tags: ['DNA 身份证', '亲缘鉴定', 'STR 微卫星', '血统认证']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 

@@ -5,7 +5,7 @@ pubDate: 2026-08-14
 updatedDate: 2026-08-14
 category: '技术原理'
 tags: ['样本采集', '羽毛', '血卡', '口腔拭子', '检测准确性']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 

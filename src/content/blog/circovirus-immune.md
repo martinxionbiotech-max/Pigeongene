@@ -5,7 +5,7 @@ pubDate: 2026-08-14
 updatedDate: 2026-08-14
 category: '病毒检测'
 tags: ['圆环病毒', 'PiCV', '免疫抑制', '继发感染', '病毒检测']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 

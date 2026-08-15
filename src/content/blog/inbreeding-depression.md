@@ -5,7 +5,7 @@ pubDate: 2026-08-14
 updatedDate: 2026-08-14
 category: '基因检测'
 tags: ['近亲繁殖', '近亲衰退', '遗传学', '育种策略', '亲缘鉴定']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 

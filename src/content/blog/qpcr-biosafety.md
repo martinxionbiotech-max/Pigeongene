@@ -4,7 +4,7 @@ description: '实时荧光定量 PCR（qPCR）检测的准确性高度依赖规�
 pubDate: 2026-08-05
 category: '技术原理'
 tags: ['qPCR', '生物安全', '质量控制', '检测准确性']
-author: '张家口森诺生物科技有限公司'
+author: '张家口赛诺生物科技有限公司'
 featured: false
 ---
 
