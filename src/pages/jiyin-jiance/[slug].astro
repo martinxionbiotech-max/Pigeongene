@@ -17,7 +17,8 @@ const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/jiyin-jiance/${gene.code.toLowerCase()}/`;
 
 const title = `${gene.name}（${gene.code}）基因位点 | 赛鸽基因检测`;
-const description = `${gene.name}（${gene.code}，${gene.en}）：${gene.function} ${gene.association}`;
+const rawDescription = `${gene.name}（${gene.code}，${gene.en}）：${gene.function} ${gene.association}`;
+const description = rawDescription.length > 150 ? rawDescription.slice(0, 150) + '…' : rawDescription;
 
 const articleJsonLd = [
   {

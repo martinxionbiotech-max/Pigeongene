@@ -17,7 +17,8 @@ const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/shijihe/${kit.slug}/`;
 
 const title = `${kit.name} | 禽类分子诊断试剂盒`;
-const description = `${kit.name}（${kit.en}）：检测目标 ${kit.target}，技术 ${kit.tech}，规格 ${kit.spec}。${kit.intro}`;
+const rawDescription = `${kit.name}（${kit.en}）：检测目标 ${kit.target}，技术 ${kit.tech}，规格 ${kit.spec}。${kit.intro}`;
+const description = rawDescription.length > 150 ? rawDescription.slice(0, 150) + '…' : rawDescription;
 
 const productJsonLd = [
   {
