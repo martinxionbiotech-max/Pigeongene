@@ -90,6 +90,16 @@ const related = geneMarkers.filter((g) => g.code !== gene.code);
             基因检测提供的是<b>遗传倾向的概率性信息</b>，而非成绩预测。赛鸽的实际表现受基因、训练、营养、健康与环境等多因素共同作用。单一位点的效应有限，请结合多个性能基因位点与赛绩、血统综合评估。
           </p>
         </div>
+
+        <div class="mt-8 rounded-xl border border-brand-100 bg-brand-50/60 p-6">
+          <h2 class="text-lg font-bold text-gray-900">📚 深度阅读：{gene.code} 基因百科</h2>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            在遗传知识库中查看 {gene.name}（{gene.code}）的完整百科条目——通俗解读、遗传变异与标记、当前研究证据、育种考量与常见问题，帮助您更系统地理解这一基因位点。
+          </p>
+          <a href={`https://genetics.senopigeon.com/genes/${gene.code.toLowerCase()}/`} target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:underline">
+            前往遗传知识库阅读 {gene.code} 百科 <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
 
       <aside class="space-y-6">
