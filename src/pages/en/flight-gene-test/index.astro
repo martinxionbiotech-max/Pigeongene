@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { geneMarkersEn } from '../../../data/genesEn';
+
+const title = 'Racing Pigeon Flight Gene Test | 8 Core Performance Markers';
+const description =
+  'DNA testing for racing pigeons: LDHA, DRD4, CRY1, MSTN, LRP8, GSR, CASK and F-KER — eight core markers interpreted for speed, endurance, homing and adaptability in European racing.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/flight-gene-test/';
+
+const serviceJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Racing Pigeon Flight Performance Gene Test',
+    url: `${siteUrl}${canonicalPath}`,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    areaServed: 'Worldwide',
+    offers: {
+      '@type': 'Offer',
+      description: 'Contact us for the latest pricing and package options.',
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    '@id': `${siteUrl}${canonicalPath}#genes`,
+    name: 'Racing Pigeon 8 Core Performance Gene Markers',
+    description:
+      'Eight core genetic markers influencing speed, endurance, homing and adaptability in racing pigeons.',
+    hasDefinedTerm: geneMarkersEn.map((g) => ({
+      '@type': 'DefinedTerm',
+      name: g.name,
+      alternateName: g.code,
+      description: g.function,
+    })),
+  },
+];
+
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/jiyin-jiance/` },
+  { lang: 'x-default', href: `${siteUrl}/jiyin-jiance/` },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={serviceJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Racing Pigeon Flight Gene Test</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        Eight core genetic markers interpreted for speed, endurance, homing and adaptability — a data-driven reference for European pigeon fanciers.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {geneMarkersEn.map((g) => (
+        <div class="card">
+          <div class="flex items-center gap-2">
+            <span class="rounded-md bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">{g.code}</span>
+          </div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">{g.name}</h3>
+          <p class="mt-2 text-sm font-medium text-brand-700">Function:</p>
+          <p class="text-sm text-gray-600">{g.function}</p>
+          <p class="mt-3 text-sm font-medium text-brand-700">Breeding value:</p>
+          <p class="text-sm text-gray-600">{g.benefit}</p>
+          <p class="mt-3 text-sm font-medium text-brand-700">Scientific association:</p>
+          <p class="text-sm text-gray-600">{g.association}</p>
+          <div class="mt-3 border-t border-gray-100 pt-3 text-xs text-gray-500">
+            <p><span class="font-medium text-gray-600">Marker type:</span> {g.markerType}</p>
+            <p class="mt-1"><span class="font-medium text-gray-600">Reference:</span> {g.reference}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Why European fanciers use gene testing -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Why European fanciers test flight genes</h2>
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">📜 Bloodline certification</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            Add an objective genetic layer to a pedigree. For fanciers in Belgium, the Netherlands and Germany, a marker profile supports the provenance and breeding story of a line, alongside performance records.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">🏷️ Auction anti-fraud</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            A genetic profile travels with the bird. At auction or private sale, it helps a buyer verify that the pigeon matches the described line and type, reducing misrepresentation risk.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="font-semibold text-gray-900">🏁 Race eligibility & planning</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            Marker tendencies (sprint vs. endurance, homing vs. adaptability) inform race-distance planning and loft selection, complementing — never replacing — actual performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scientific boundaries -->
+  <section class="container-x py-12">
+    <div class="mx-auto max-w-3xl rounded-xl border border-brand-100 bg-brand-50/50 p-8">
+      <h2 class="text-lg font-bold text-gray-900">Scientific boundaries</h2>
+      <p class="mt-3 text-sm leading-relaxed text-gray-600">
+        Gene markers indicate a <b>genetic tendency</b>, not a guarantee. Race results are the product of many genes, training, environment, nutrition and health acting together. We interpret genotypes from published literature and laboratory data, but no gene result predicts or ensures a specific result. Reports are for avian genetic research and scientific breeding reference only — not veterinary diagnosis.
+      </p>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="container-x py-8">
+    <div class="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
+      <p class="text-sm leading-relaxed text-gray-700">
+        ⚠️ <b>Scope of service:</b> all tests are for racing pigeons and other birds (avian/veterinary use) only. They are <b>not</b> intended for human medical diagnosis.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sampling process -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Sampling process</h2>
+    <div class="mt-12 grid gap-8 md:grid-cols-4">
+      {[
+        { n: '①', t: 'Collect', d: 'Feathers with an intact root, or a blood card.' },
+        { n: '②', t: 'Ship', d: 'Send samples with the submission form via DHL, FedEx or similar.' },
+        { n: '③', t: 'Analyse', d: 'High-precision PCR analysis on receipt at the laboratory.' },
+        { n: '④', t: 'Report', d: 'Receive an electronic report with genotype interpretation.' },
+      ].map((s) => (
+        <div class="card text-center">
+          <div class="text-4xl font-bold text-brand-600">{s.n}</div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 text-center">
+      <a href="/lianxi/" class="btn-primary">Start a test</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

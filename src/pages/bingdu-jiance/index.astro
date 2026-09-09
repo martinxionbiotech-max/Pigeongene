@@ -53,7 +53,11 @@ const qc = [
 ];
 ---
 
-<BaseLayout {title} {description} canonical="/bingdu-jiance/" jsonLd={serviceJsonLd}>
+<BaseLayout {title} {description} canonical="/bingdu-jiance/" hreflang={[
+  { lang: 'zh-CN', href: 'https://senopigeon.com/bingdu-jiance/' },
+  { lang: 'en', href: 'https://senopigeon.com/en/pathogen-testing/' },
+  { lang: 'x-default', href: 'https://senopigeon.com/bingdu-jiance/' },
+]} jsonLd={serviceJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">

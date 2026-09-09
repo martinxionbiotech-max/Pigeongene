@@ -5,6 +5,11 @@ import '@fontsource/inter/latin-500.css';
 import '@fontsource/inter/latin-600.css';
 import '@fontsource/inter/latin-700.css';
 
+interface HreflangAlt {
+  lang: string;
+  href: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -12,6 +17,8 @@ interface Props {
   type?: string;
   canonical?: string;
   jsonLd?: Record<string, any>[];
+  lang?: string;
+  hreflang?: HreflangAlt[];
 }
 
 const {
@@ -21,18 +28,22 @@ const {
   type = 'website',
   canonical,
   jsonLd = [],
+  lang = 'zh-CN',
+  hreflang = [],
 } = Astro.props;
+
+const isEn = lang === 'en';
 
 const site = Astro.site ?? new URL('https://senopigeon.com');
 const siteUrl = site.toString().replace(/\/$/, '');
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 
-const BRAND = 'SENO 赛诺基因检测中心';
+const BRAND = isEn ? 'SENO PigeonGene' : 'SENO 赛诺基因检测中心';
 const brandSuffix = ` - ${BRAND}`;
 const fullTitle = title.includes(BRAND) ? title : `${title}${brandSuffix}`;
 
-const orgSchema = {
+const zhOrg = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': `${siteUrl}/#organization`,
@@ -86,9 +97,67 @@ const orgSchema = {
     'https://genetics.senopigeon.com',
     'https://health.senopigeon.com',
     'https://research.senopigeon.com',
-    'https://tools.senopigeon.com',
   ],
 };
+
+const enOrg = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
+  name: 'Zhangjiakou SENO Biotech Co., Ltd',
+  alternateName: ['SENO Biotech', 'PigeonGene', 'SENO'],
+  legalName: 'Zhangjiakou SENO Biotech Co., Ltd',
+  url: siteUrl,
+  logo: `${siteUrl}/wp-content/uploads/cropped-cropped-LOGO.png`,
+  image: `${siteUrl}/wp-content/uploads/home-hero-racing-pigeon.jpg`,
+  description: 'A national high-tech enterprise and a key gene-testing laboratory in Zhangjiakou, specialising in racing pigeon flight-performance gene testing, pathogen testing, and DNA identification / kinship testing.',
+  foundingDate: '2014',
+  numberOfEmployees: { '@type': 'QuantitativeValue', value: 15 },
+  award: [
+    'National High-Tech Enterprise',
+    'Key Gene-Testing Laboratory of Zhangjiakou',
+    'Technology-based SME',
+  ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'ISO 9001 Quality Management System Certification',
+  },
+  knowsAbout: [
+    'Racing pigeon flight-performance gene testing',
+    'Racing pigeon pathogen testing',
+    'DNA identification',
+    'Kinship testing',
+    'Real-time quantitative PCR',
+    'Avian molecular diagnostics',
+  ],
+  areaServed: 'Worldwide',
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      telephone: '+86 15612372623',
+      contactType: 'sales',
+      email: 'martin@senobiocorp.com',
+      availableLanguage: ['en', 'zh-CN'],
+      areaServed: 'Worldwide',
+    },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Building 3, North Silicon Valley, Qiaodong District',
+    addressLocality: 'Zhangjiakou',
+    addressRegion: 'Hebei',
+    postalCode: '075000',
+    addressCountry: 'CN',
+  },
+  sameAs: [
+    siteUrl,
+    'https://genetics.senopigeon.com',
+    'https://health.senopigeon.com',
+    'https://research.senopigeon.com',
+  ],
+};
+
+const orgSchema = isEn ? enOrg : zhOrg;
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -97,14 +166,14 @@ const websiteSchema = {
   url: siteUrl,
   name: BRAND,
   publisher: { '@id': `${siteUrl}/#organization` },
-  inLanguage: 'zh-CN',
+  inLanguage: lang,
 };
 
 const allJsonLd = [orgSchema, websiteSchema, ...jsonLd];
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -114,6 +183,9 @@ const allJsonLd = [orgSchema, websiteSchema, ...jsonLd];
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    {hreflang.map((h) => (
+      <link rel="alternate" hreflang={h.lang} href={h.href} />
+    ))}
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph -->
@@ -125,7 +197,7 @@ const allJsonLd = [orgSchema, websiteSchema, ...jsonLd];
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="809" />
     <meta property="og:image:height" content="607" />
-    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale" content={isEn ? 'en_US' : 'zh_CN'} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

@@ -30,7 +30,11 @@ const serviceJsonLd = [
 ];
 ---
 
-<BaseLayout {title} {description} canonical="/dna-shenfenzheng/" jsonLd={serviceJsonLd}>
+<BaseLayout {title} {description} canonical="/dna-shenfenzheng/" hreflang={[
+  { lang: 'zh-CN', href: 'https://senopigeon.com/dna-shenfenzheng/' },
+  { lang: 'en', href: 'https://senopigeon.com/en/dna-id-kinship/' },
+  { lang: 'x-default', href: 'https://senopigeon.com/dna-shenfenzheng/' },
+]} jsonLd={serviceJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
@@ -128,6 +132,111 @@ const serviceJsonLd = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- STR 微卫星原理 -->
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="section-title text-center">STR 微卫星标记：为什么它可信？</h2>
+      <p class="mt-4 text-center text-gray-600">亲缘鉴定的科学基础——短串联重复序列</p>
+      <div class="mt-10 space-y-6 leading-relaxed text-gray-700">
+        <p>
+          <b>STR（Short Tandem Repeat，短串联重复序列）</b>是基因组中一类由 2–6 个碱基为单元、首尾相连重复出现的 DNA 片段，也叫微卫星（microsatellite）。这类片段的重复次数在个体之间存在丰富的差异，因此具有很高的<b>多态性</b>——这正是它能用于个体识别与亲缘判断的根本原因。
+        </p>
+        <p>
+          亲缘鉴定的逻辑建立在<b>孟德尔遗传规律</b>之上：子代的两条染色体分别来自父本与母本，因此在每一个 STR 位点上，子代的基因型中必有一个等位基因来自父亲、一个来自母亲。当实验室同时对多个 STR 位点进行分型时，只要某个“疑似亲本”在任何一个位点上无法提供子代所必需的等位基因，就可以在统计学上<b>排除</b>其亲缘关系；而当所有位点都符合遗传规律时，则可依据各位点的群体频率计算<b>累计亲权概率</b>，给出“支持亲缘关系”的结论。
+        </p>
+        <p>
+          之所以可信，是因为：① STR 位点遵循稳定的共显性遗传，分型结果可重复、可复核；② 同时检测的位点数量越多，两个无关个体“偶然匹配”的概率越低，结论越可靠；③ 分型数据可长期保存，同一只赛鸽在不同时间、不同实验室间可比对。这一技术路径与国际上动物亲子鉴定的通用方法一致。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 血统书 vs 基因指纹 -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">传统血统书 vs 基因指纹</h2>
+      <p class="mt-4 text-center text-gray-600">一张纸质证明，与一份可复核的分子证据</p>
+      <div class="mx-auto mt-10 max-w-4xl overflow-x-auto">
+        <table class="w-full border-collapse overflow-hidden rounded-xl bg-white text-sm shadow-sm">
+          <thead>
+            <tr class="bg-brand-50 text-left text-brand-800">
+              <th class="px-4 py-3 font-semibold">维度</th>
+              <th class="px-4 py-3 font-semibold">传统血统书</th>
+              <th class="px-4 py-3 font-semibold">DNA 基因指纹</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 font-medium text-gray-900">记录方式</td>
+              <td class="px-4 py-3">人工登记的系谱（祖先、环号、赛绩）</td>
+              <td class="px-4 py-3">多位点 STR 分型数据（分子层面）</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 font-medium text-gray-900">可篡改性</td>
+              <td class="px-4 py-3">依赖登记诚信，可能被误记或造假</td>
+              <td class="px-4 py-3">个体 DNA 终身不变，无法伪造顶替</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 font-medium text-gray-900">亲缘确认能力</td>
+              <td class="px-4 py-3">仅记录宣称的亲缘，无法独立验证</td>
+              <td class="px-4 py-3">可对疑似亲本进行排除/支持判定</td>
+            </tr>
+            <tr class="border-t border-gray-100">
+              <td class="px-4 py-3 font-medium text-gray-900">可复核性</td>
+              <td class="px-4 py-3">难以二次验证</td>
+              <td class="px-4 py-3">数据可长期保存、跨时间跨实验室比对</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mx-auto mt-6 max-w-4xl text-sm leading-relaxed text-gray-600">
+        两者并非对立关系：血统书承载了祖先、赛绩、环号等育种历史信息，而 DNA 基因指纹为其补充了可验证的分子证据。将二者结合，才是对一只名贵种鸽最完整、最可信的价值背书。
+      </p>
+    </div>
+  </section>
+
+  <!-- 报告样例 -->
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="section-title text-center">报告样例说明</h2>
+      <p class="mt-4 text-center text-gray-600">一份规范的 DNA 身份证 / 亲缘鉴定报告包含哪些内容</p>
+      <div class="mt-10 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+        <p class="text-sm text-gray-500">以下为报告结构示意（非真实检测数据，仅说明报告版式与栏目）。</p>
+        <div class="mt-6 space-y-4 text-sm leading-relaxed text-gray-700">
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 shrink-0 rounded-md bg-brand-50 px-2 py-1 text-xs font-semibold text-brand-700">基本信息</span>
+            <p>赛鸽唯一编号（环号）、品种、羽色、采样类型（羽毛/血卡）、采样日期、送检方信息。</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 shrink-0 rounded-md bg-brand-50 px-2 py-1 text-xs font-semibold text-brand-700">DNA 身份证号</span>
+            <p>根据多位点分型结果生成的唯一 DNA 身份编号，用于终身身份比对与存档。</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 shrink-0 rounded-md bg-brand-50 px-2 py-1 text-xs font-semibold text-brand-700">STR 分型结果表</span>
+            <p>逐位点列出各 STR 位点的等位基因型，作为指纹图谱的核心数据。</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 shrink-0 rounded-md bg-brand-50 px-2 py-1 text-xs font-semibold text-brand-700">亲缘结论</span>
+            <p>当送检多个样本时，给出“排除亲缘关系”或“支持亲缘关系（附累计概率）”的判定说明。</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 shrink-0 rounded-md bg-brand-50 px-2 py-1 text-xs font-semibold text-brand-700">方法说明与声明</span>
+            <p>检测方法（STR 分型）、检测范围与“仅用于赛鸽禽类领域、不用于人体医学诊断”的合规声明。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 合规声明 -->
+  <section class="container-x py-8">
+    <div class="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
+      <p class="text-sm leading-relaxed text-gray-700">
+        ⚠️ <b>服务范围声明：</b>本检测服务仅用于赛鸽（禽类/兽用）领域，不适用于人体医学诊断。亲缘鉴定结论基于所送检样本的基因分型数据，用于育种参考与身份核验。
+      </p>
     </div>
   </section>
 

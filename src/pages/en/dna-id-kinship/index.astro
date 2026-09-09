@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { dnaIdApplicationsEn, dnaIdMarkersEn, dnaIdProcessEn } from '../../../data/dnaIdEn';
+
+const title = 'Racing Pigeon DNA ID & Kinship Testing | STR Fingerprint';
+const description =
+  'Racing pigeon DNA identity and parentage testing using STR microsatellite markers. A lifetime, forgery-proof DNA fingerprint for breeder certification, auction anti-fraud and breeding management in Europe.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/dna-id-kinship/';
+
+const serviceJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Racing Pigeon DNA ID & Kinship Testing',
+    url: `${siteUrl}${canonicalPath}`,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    areaServed: 'Worldwide',
+    serviceType: 'STR microsatellite DNA fingerprinting and parentage testing',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'DNA ID & Kinship', item: `${siteUrl}${canonicalPath}` },
+    ],
+  },
+];
+
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/dna-shenfenzheng/` },
+  { lang: 'x-default', href: `${siteUrl}/dna-shenfenzheng/` },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={serviceJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Racing Pigeon DNA ID & Kinship Testing</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        A lifetime, forgery-proof DNA fingerprint for every pigeon — making pedigree, parentage and provenance verifiable.
+      </p>
+    </div>
+  </section>
+
+  <!-- What is it -->
+  <section class="container-x py-16">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900">What is a pigeon DNA ID?</h2>
+        <p class="mt-6 leading-relaxed text-gray-700">
+          A pigeon DNA ID is built by genotyping multiple highly variable STR (short tandem repeat) microsatellite loci across the pigeon genome, producing a DNA fingerprint that is unique to each individual bird. That fingerprint is permanent and cannot be forged — a true "genetic identity card".
+        </p>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          Combined with parentage analysis, it scientifically confirms the sire/dam/offspring relationship, providing authoritative DNA evidence for breeder certification, pedigree certificates, sale protection and breeding management.
+        </p>
+        <div class="mt-6 rounded-xl bg-brand-50 p-5">
+          <h3 class="font-semibold text-gray-900">Core value</h3>
+          <ul class="mt-3 space-y-2 text-sm text-gray-700">
+            <li>✅ Lifetime unique — cannot be forged or substituted</li>
+            <li>✅ Scientifically confirms parentage, ruling out pedigree fraud</li>
+            <li>✅ Raises credibility of valuable breeder transactions</li>
+            <li>✅ Provides a kinship basis for pairing decisions</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <img
+          src="/wp-content/uploads/IMG_44401-1-scaled.jpg"
+          alt="Racing pigeon DNA ID and kinship testing"
+          class="w-full rounded-2xl shadow-lg"
+          width="1920"
+          height="1280"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Applications</h2>
+      <p class="mt-4 text-center text-gray-600">The multi-value of DNA ID and kinship testing</p>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {dnaIdApplicationsEn.map((a) => (
+          <div class="card">
+            <div class="text-3xl">{a.icon}</div>
+            <h3 class="mt-4 text-lg font-semibold text-gray-900">{a.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Markers -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Testing technology & markers</h2>
+    <p class="mt-4 text-center text-gray-600">Multiple molecular markers for accurate individual identification and parentage</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {dnaIdMarkersEn.map((m) => (
+        <div class="card">
+          <div class="flex items-center gap-2">
+            <span class="rounded-md bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">{m.code}</span>
+          </div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">{m.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">{m.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Process</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-5">
+        {dnaIdProcessEn.map((s) => (
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-brand-600">{s.n}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{s.t}</h3>
+            <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="container-x py-8">
+    <div class="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
+      <p class="text-sm leading-relaxed text-gray-700">
+        ⚠️ <b>Scope of service:</b> all tests are for racing pigeons and other birds (avian/veterinary use) only. They are <b>not</b> intended for human medical diagnosis.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x text-center">
+      <h2 class="text-3xl font-bold">Build a lifetime DNA record for your pigeons</h2>
+      <p class="mt-4 text-brand-100">Scientifically verify kinship and protect bloodline value</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/lianxi/" class="btn-accent">Enquire about testing</a>
+        <a href="/caiyang/" class="btn-outline-light">Sampling methods</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

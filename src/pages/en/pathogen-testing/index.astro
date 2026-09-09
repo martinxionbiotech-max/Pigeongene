@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { virusTestsEn } from '../../../data/virusesEn';
+
+const title = 'Racing Pigeon Pathogen Testing | 12 Common Pathogens by qPCR';
+const description =
+  'Real-time PCR pathogen testing for racing pigeons, covering 12 common viral, bacterial, fungal and parasitic pathogens. Early detection for loft biosecurity, pre-race screening and import quarantine across Europe.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/pathogen-testing/';
+
+const serviceJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Racing Pigeon Pathogen Testing',
+    url: `${siteUrl}${canonicalPath}`,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    areaServed: 'Worldwide',
+    serviceType: 'Real-time quantitative PCR (qPCR) pathogen detection',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Pathogen Testing', item: `${siteUrl}${canonicalPath}` },
+    ],
+  },
+];
+
+const scenarios = [
+  { icon: '🏁', title: 'Pre-race screening', desc: 'Systematically check for pathogens before basketing so pigeons race in top health, avoiding performance loss and cross-infection in the transporter.' },
+  { icon: '🐣', title: 'Import quarantine', desc: 'Test newly introduced breeders and youngsters before they enter the loft, protecting your biosecurity.' },
+  { icon: '🚑', title: 'Disease diagnosis', desc: 'When diarrhoea, respiratory or nervous signs appear, quickly identify the pathogen and guide targeted treatment.' },
+  { icon: '🛡️', title: 'Rearing-period monitoring', desc: 'Monitor common young-pigeon pathogens during rearing to reduce mortality and improve survival.' },
+  { icon: '📦', title: 'Outbreak investigation', desc: 'When multiple birds fall ill or die, systematically screen pathogens to clarify the disease and guide isolation and control.' },
+  { icon: '🌍', title: 'Export / transport', desc: 'Meet quarantine requirements for cross-region transport, exhibition and export, with a standardised report.' },
+];
+
+const qc = [
+  { icon: '📐', title: 'MIQE compliance', desc: 'All qPCR tests follow MIQE guidelines for reproducible, accurate and transparent results.' },
+  { icon: '🧪', title: 'Internal controls', desc: 'Every reaction includes an internal amplification control to verify extraction, detect PCR inhibition and confirm sample integrity.' },
+  { icon: '🛡️', title: 'UNG contamination control', desc: 'The dUTP/UNG system eliminates aerosol carryover, preventing false positives.' },
+  { icon: '📈', title: 'Efficiency monitoring', desc: 'Amplification efficiency is kept at 95–105% for reliable detection of low viral loads and early infection.' },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} hreflang={[
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/bingdu-jiance/` },
+  { lang: 'x-default', href: `${siteUrl}/bingdu-jiance/` },
+]} jsonLd={serviceJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Racing Pigeon Pathogen Testing</h1>
+      <p class="mt-4 max-w-2xl text-lg text-white/90">
+        Twelve common pathogens — viral, bacterial, fungal and parasitic — detected by real-time qPCR, often 7–14 days before clinical signs appear.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/caiyang/" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-accent-700 shadow-sm transition hover:bg-brand-50">Sampling guide</a>
+        <a href="/lianxi/" class="btn-outline-light">Enquire about testing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pathogen list -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">12 pathogen test panel</h2>
+    <p class="mt-4 text-center text-gray-600">Viruses, bacteria, fungi and parasites</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {virusTestsEn.map((v) => (
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <span class="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">{v.type}</span>
+          </div>
+          <h3 class="mt-4 text-xl font-bold text-gray-900">{v.name}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">{v.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Why qPCR -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Why qPCR is the gold standard for avian disease testing</h2>
+      <p class="mt-4 text-center text-gray-600">From "treating after illness" to "predictive prevention"</p>
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-3">
+        <div class="card">
+          <div class="text-3xl">⏱️</div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">Early detection window</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            qPCR detects pathogen nucleic acid during incubation, when the pigeon looks clinically normal but is already infectious. Unlike antigen rapid tests that need a high pathogen load, qPCR finds low-copy DNA/RNA for early intervention before spread.
+          </p>
+          <p class="mt-3 rounded-lg bg-brand-50 px-3 py-2 text-sm font-semibold text-brand-700">7–14 days before clinical signs</p>
+        </div>
+        <div class="card">
+          <div class="text-3xl">🧫</div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">qPCR + ELISA dual track</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            qPCR tracks active infection and asymptomatic carriers; ELISA antibody testing evaluates vaccine immune response. Together they reveal both "infection" and "immunity", pinpointing weak individuals and avoiding blind medication.
+          </p>
+        </div>
+        <div class="card">
+          <div class="text-3xl">🏭</div>
+          <h3 class="mt-3 text-lg font-semibold text-gray-900">Environmental monitoring</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            Beyond individual testing, sample loft air dust, drinking systems, equipment surfaces and contact zones to quantify environmental pathogen load and map transmission routes for systemic biosecurity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QC -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Quality control</h2>
+    <p class="mt-4 text-center text-gray-600">Multi-dimensional QC for reliable reports</p>
+    <div class="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {qc.map((q) => (
+        <div class="card text-center">
+          <div class="text-3xl">{q.icon}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{q.title}</h3>
+          <p class="mt-2 text-sm text-gray-600">{q.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="container-x py-8">
+    <div class="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
+      <p class="text-sm leading-relaxed text-gray-700">
+        ⚠️ <b>Scope of service:</b> all tests are for racing pigeons and other birds (avian/veterinary use) only. They are <b>not</b> intended for human medical diagnosis. Results support — but do not replace — veterinary clinical judgement.
+      </p>
+    </div>
+  </section>
+
+  <!-- Applications -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Applications</h2>
+    <p class="mt-4 text-center text-gray-600">Health testing across the full racing pigeon lifecycle</p>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {scenarios.map((s) => (
+        <div class="card">
+          <div class="text-3xl">{s.icon}</div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900">{s.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
+    <div class="container-x text-center">
+      <h2 class="text-3xl font-bold">Protect your loft with precise testing</h2>
+      <p class="mt-4 text-white/90">Submit samples and receive an authoritative report in 2–3 working days</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/caiyang/" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-accent-700 shadow-sm transition hover:bg-brand-50">Sampling methods</a>
+        <a href="/lianxi/" class="btn-outline-light">Contact an expert</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
