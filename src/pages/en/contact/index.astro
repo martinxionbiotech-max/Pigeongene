@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Contact | Racing Pigeon Genetic Testing';
+const description = 'Contact Zhangjiakou SENO Biotech Co., Ltd. for racing-pigeon flight-gene testing and pathogen testing. Phone/WhatsApp +86 15612372623.';
+
+const siteUrl = 'https://senopigeon.com';
+const contactJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Us',
+    url: `${siteUrl}/en/contact/`,
+    inLanguage: 'en',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Zhangjiakou SENO Biotech Co., Ltd.',
+    url: siteUrl,
+    telephone: '+86 15612372623',
+    email: 'martin@senobiocorp.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Building 3, North Silicon Valley, Qiaodong District',
+      addressLocality: 'Zhangjiakou',
+      addressRegion: 'Hebei',
+      addressCountry: 'CN',
+    },
+  },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical="/en/contact/" jsonLd={contactJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x text-center">
+      <h1 class="text-4xl font-bold">Contact Us</h1>
+      <p class="mt-4 text-lg text-brand-100">Start your science-based pigeon testing journey</p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="card">
+        <h2 class="text-2xl font-bold text-gray-900">Expert Advisor</h2>
+        <div class="mt-6 space-y-6">
+          <div class="flex items-start gap-4 rounded-lg bg-gray-50 p-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 font-bold text-white">M</div>
+            <div>
+              <h3 class="font-semibold text-gray-900">Martin</h3>
+              <p class="mt-1 text-sm text-gray-600">📧 <a href="mailto:martin@senobiocorp.com" class="hover:text-brand-600">martin@senobiocorp.com</a></p>
+              <p class="text-sm text-gray-600">📞 <a href="tel:+8615612372623" class="hover:text-brand-600">+86 15612372623</a> (Phone / WhatsApp)</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 rounded-lg bg-brand-50 p-4">
+          <h3 class="font-semibold text-gray-900">What to prepare</h3>
+          <p class="mt-2 text-sm text-gray-600">
+            To get an accurate quote and turnaround, tell us the number of birds, the test type
+            (flight-gene, pathogen, or DNA ID/kinship), and your shipping origin. We ship worldwide
+            and accept samples by DHL / FedEx.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="text-2xl font-bold text-gray-900">Company</h2>
+        <dl class="mt-6 space-y-4 text-sm text-gray-600">
+          <div><dt class="font-semibold text-gray-900">Company</dt><dd>Zhangjiakou SENO Biotech Co., Ltd.</dd></div>
+          <div><dt class="font-semibold text-gray-900">Address</dt><dd>Building 3, North Silicon Valley, Qiaodong District, Zhangjiakou, Hebei, China</dd></div>
+          <div><dt class="font-semibold text-gray-900">Email</dt><dd><a href="mailto:martin@senobiocorp.com" class="hover:text-brand-600">martin@senobiocorp.com</a></dd></div>
+          <div><dt class="font-semibold text-gray-900">Phone / WhatsApp</dt><dd><a href="tel:+8615612372623" class="hover:text-brand-600">+86 15612372623</a></dd></div>
+        </dl>
+        <p class="mt-6 text-xs text-gray-400">
+          Testing services on this site are for racing pigeons (avian / veterinary use) only — not
+          for human medical diagnosis.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-wrap gap-4">
+      <a href="/en/flight-gene-test/" class="btn-primary">Flight Gene Test</a>
+      <a href="/en/pathogen-testing/" class="btn-outline">Pathogen Testing</a>
+      <a href="/en/dna-id-kinship/" class="btn-outline">DNA ID &amp; Kinship</a>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

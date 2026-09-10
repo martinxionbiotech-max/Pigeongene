@@ -1,0 +1,20 @@
+# SENO Biotech — Racing Pigeon Genetic Testing
+
+> Zhangjiakou SENO Biotech Co., Ltd. (National High-Tech Enterprise) — racing pigeon gene-testing platform for flight-gene testing, pathogen testing, and DNA ID / kinship verification.
+
+## Core Testing Services
+
+- [Flight Gene Test](https://senopigeon.com/en/flight-gene-test/): Precise analysis of 8 core gene loci — LDHA, DRD4, CRY1, MSTN, LRP8, GSR, CASK, F-KER — for speed, endurance, homing and adaptability.
+- [Pathogen Testing](https://senopigeon.com/en/pathogen-testing/): Covers 12 common pathogens (viruses, bacteria, fungi, parasites) via real-time qPCR, detecting pathogens 7–14 days before clinical signs.
+- [DNA ID & Kinship](https://senopigeon.com/en/dna-id-kinship/): STR microsatellite markers build a unique DNA fingerprint for each pigeon, scientifically confirming parentage.
+
+## Contact
+
+- Company: Zhangjiakou SENO Biotech Co., Ltd.
+- Address: Building 3, North Silicon Valley, Qiaodong District, Zhangjiakou, Hebei, China
+- Email: martin@senobiocorp.com
+- Phone/WhatsApp: +86 15612372623
+
+## Note
+
+Testing services on this site are for racing pigeons (avian / veterinary use) only — not for human medical diagnosis.
