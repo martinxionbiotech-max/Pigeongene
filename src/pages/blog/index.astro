@@ -4,9 +4,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection('blog'))
+  .filter((p) => (p.data.lang || 'zh-CN') === 'zh-CN')
+  .sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
 
 const title = '专业文章 | 赛鸽基因检测与病毒检测知识';
 const description = '赛鸽基因检测、病毒检测、DNA 鉴定、育种与健康管理领域的专业科普文章，由赛诺生物科技实验室团队撰写。';

@@ -12,6 +12,12 @@
 
 - [Content & Evidence Policy](https://senopigeon.com/en/content-policy/): Editorial principles, citation standards (PMID/DOI verifiable), testing methodology, and veterinary disclaimer.
 
+## Articles
+
+- [All articles](https://senopigeon.com/en/blog/): Practical guides on pigeon testing and loft management.
+- [Pathogen Testing: A Practical Guide](https://senopigeon.com/en/blog/pathogen-testing-practical-guide/): When and how to test, the 12-pathogen panel, sampling options and honest report reading.
+- [Reading a Flight-Gene Report](https://senopigeon.com/en/blog/flight-gene-report-guide/): The 8 loci, evidence grades B/C/D, and why genotypes support breeding decisions rather than predicting results.
+
 ## Contact
 
 - Company: Zhangjiakou SENO Biotech Co., Ltd.

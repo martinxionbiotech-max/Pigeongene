@@ -13,6 +13,7 @@ const blog = defineCollection({
     authorRole: z.string().optional(),
     featured: z.boolean().default(false),
     cover: z.string().optional(),
+    lang: z.string().default('zh-CN'),
   }),
 });
 
