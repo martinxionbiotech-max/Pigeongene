@@ -27,6 +27,16 @@ const serviceJsonLd = [
       { '@type': 'ListItem', position: 2, name: 'DNA 身份证 | 亲缘鉴定', item: `${siteUrl}/dna-shenfenzheng/` },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'DNA 身份证和血统书有什么区别？', acceptedAnswer: { '@type': 'Answer', text: '血统书依赖人工记录，可能存在记录错误或人为篡改；DNA 身份证基于鸽子的基因分型数据，客观可复核，可验证血统记录的准确性。' } },
+      { '@type': 'Question', name: '亲缘鉴定能确定「父子/母子」关系吗？', acceptedAnswer: { '@type': 'Answer', text: '能。子代的每个等位基因都应在父母基因型中找到来源，通过多个 STR 标记联合分析，可给出符合或排除亲子关系的结论。' } },
+      { '@type': 'Question', name: '多久出报告？', acceptedAnswer: { '@type': 'Answer', text: '样本到达实验室后 7-14 个工作日出具报告，实际周期视样本量与寄送时间而定。' } },
+      { '@type': 'Question', name: '哪些场景需要做？', acceptedAnswer: { '@type': 'Answer', text: '种鸽引进核验、拍卖交易防伪、血统争议解决、终身身份建档等场景均可使用。' } },
+    ],
+  },
 ];
 ---
 
@@ -237,6 +247,31 @@ const serviceJsonLd = [
       <p class="text-sm leading-relaxed text-gray-700">
         ⚠️ <b>服务范围声明：</b>本检测服务仅用于赛鸽（禽类/兽用）领域，不适用于人体医学诊断。亲缘鉴定结论基于所送检样本的基因分型数据，用于育种参考与身份核验。
       </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">常见问题</h2>
+      <div class="mx-auto mt-10 max-w-3xl space-y-4">
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">DNA 身份证和血统书有什么区别？</p>
+          <p class="mt-2 text-sm text-gray-600">血统书依赖人工记录，可能存在记录错误或人为篡改；DNA 身份证基于鸽子的基因分型数据，客观可复核，可验证血统记录的准确性。</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">亲缘鉴定能确定「父子/母子」关系吗？</p>
+          <p class="mt-2 text-sm text-gray-600">能。子代的每个等位基因都应在父母基因型中找到来源，通过多个 STR 标记联合分析，可给出符合或排除亲子关系的结论。</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">多久出报告？</p>
+          <p class="mt-2 text-sm text-gray-600">样本到达实验室后 7-14 个工作日出具报告，实际周期视样本量与寄送时间而定。</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">哪些场景需要做？</p>
+          <p class="mt-2 text-sm text-gray-600">种鸽引进核验、拍卖交易防伪、血统争议解决、终身身份建档等场景均可使用。</p>
+        </div>
+      </div>
     </div>
   </section>
 
