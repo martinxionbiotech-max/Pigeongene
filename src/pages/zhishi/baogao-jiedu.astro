@@ -28,6 +28,15 @@ const articleJsonLd = [
       { '@type': 'ListItem', position: 3, name: '报告解读', item: pageUrl },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: '基因型一样，成绩就一样吗？', acceptedAnswer: { '@type': 'Answer', text: '不一定。基因型只贡献遗传倾向，训练、环境、营养与健康状况对成绩同样重要，甚至影响更大。' } },
+      { '@type': 'Question', name: '报告中的关联能当结论用吗？', acceptedAnswer: { '@type': 'Answer', text: '关联是统计学证据，不等于因果。解读时请关注报告标注的证据等级与文献来源，必要时咨询专家。' } },
+      { '@type': 'Question', name: '适合哪些使用场景？', acceptedAnswer: { '@type': 'Answer', text: '主要用于选育参考、系谱验证与个体档案管理，不用于成绩预测或兽医诊断。' } },
+    ],
+  },
 ];
 
 const sections = [

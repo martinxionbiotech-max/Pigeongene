@@ -27,6 +27,16 @@ const serviceJsonLd = [
       { '@type': 'ListItem', position: 2, name: '赛鸽病毒检测', item: `${siteUrl}/bingdu-jiance/` },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: '出现症状再检测来得及吗？', acceptedAnswer: { '@type': 'Answer', text: '出现症状时检测可明确病因、指导针对性处置；但建议日常赛前筛查与引种检疫前置，早发现可降低群体传播风险。' } },
+      { '@type': 'Question', name: '检测阴性说明鸽子一定健康吗？', acceptedAnswer: { '@type': 'Answer', text: '不一定。阴性结果反映送检样本在采样时点未检出目标病原，采样时机、样本质量与病原载量都会影响检出率。' } },
+      { '@type': 'Question', name: '多种症状同时出现测什么？', acceptedAnswer: { '@type': 'Answer', text: '呼吸道、消化道症状在多种病原间重叠，建议根据症状与接触史选择联合检测，并与实验室沟通送检方案。' } },
+      { '@type': 'Question', name: '多久出报告？', acceptedAnswer: { '@type': 'Answer', text: '常规项目 2-3 个工作日出具电子报告，具体以项目说明与样本接收时间为准。' } },
+    ],
+  },
 ];
 
 const scenarios = [

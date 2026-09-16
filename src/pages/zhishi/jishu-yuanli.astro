@@ -28,6 +28,15 @@ const articleJsonLd = [
       { '@type': 'ListItem', position: 3, name: '基因检测技术原理', item: pageUrl },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: '为什么选择 PCR 而不是测序？', acceptedAnswer: { '@type': 'Answer', text: '对已知位点的基因分型，PCR 更快、成本更低、单次可批量检测多个样本；全基因组测序信息更全但成本高，更适合科研场景。' } },
+      { '@type': 'Question', name: 'SNP 与 STR 有什么区别？', acceptedAnswer: { '@type': 'Answer', text: 'SNP 是单碱基变异，用于性状关联分析；STR 是重复次数差异，多态性高，适合个体识别与亲缘鉴定。两者用途互补。' } },
+      { '@type': 'Question', name: '检测会受环境影响吗？', acceptedAnswer: { '@type': 'Answer', text: 'DNA 序列不随环境改变，但样本污染、保存不当会影响结果可靠性——规范的样本采集与质控流程因此很重要。' } },
+    ],
+  },
 ];
 
 const techs = [

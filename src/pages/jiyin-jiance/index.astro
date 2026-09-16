@@ -4,8 +4,8 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { geneMarkers } from '../../data/genes';
 
-const title = '赛鸽飞行能力基因检测 | 8 大核心性能基因位点';
-const description = '赛鸽飞行能力 DNA 检测，精准解析 LDHA、DRD4、CRY1、MSTN、LRP8、GSR、CASK、F-KER 8 大核心基因位点，科学解读速度、耐力、归巢能力与适应性。';
+const title = '赛鸽飞行能力基因检测 | 8 个性能相关基因位点';
+const description = '赛鸽飞行能力 DNA 检测，解析 LDHA、DRD4、CRY1、MSTN、LRP8、GSR、CASK、F-KER 8 个基因位点，作为候选基因参考，解读基于已发表的赛鸽研究。';
 
 const siteUrl = 'https://senopigeon.com';
 const serviceJsonLd = [
@@ -28,8 +28,8 @@ const serviceJsonLd = [
     '@context': 'https://schema.org',
     '@type': 'DefinedTermSet',
     '@id': `${siteUrl}/jiyin-jiance/#genes`,
-    name: '赛鸽 8 大核心性能基因位点',
-    description: '影响赛鸽速度、耐力、归巢能力与适应性的 8 大核心基因位点。',
+    name: '赛鸽 8 个性能相关基因位点',
+    description: '赛鸽研究中与竞翔表现等性状存在统计学关联的 8 个候选基因位点。',
     hasDefinedTerm: geneMarkers.map((g) => ({
       '@type': 'DefinedTerm',
       name: g.name,
@@ -37,6 +37,16 @@ const serviceJsonLd = [
       description: g.function,
       url: `${siteUrl}/jiyin-jiance/${g.code.toLowerCase()}/`,
     })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: '基因检测能预测比赛成绩吗？', acceptedAnswer: { '@type': 'Answer', text: '不能。基因型只反映遗传倾向，比赛成绩是多基因、训练、环境、营养与健康共同作用的结果。检测报告用于育种参考，不作为成绩预测工具。' } },
+      { '@type': 'Question', name: '需要什么样本？', acceptedAnswer: { '@type': 'Answer', text: '带完整羽根的羽毛（3-5 根）或血卡样本均可，具体采样方法见采样指南。' } },
+      { '@type': 'Question', name: '幼鸽多大可以检测？', acceptedAnswer: { '@type': 'Answer', text: 'DNA 序列终身不变，出壳后的幼鸽即可采样检测，可用于早期选育参考。' } },
+      { '@type': 'Question', name: '检测结果怎么看？', acceptedAnswer: { '@type': 'Answer', text: '报告会按基因位点列出基因型、已知关联方向与文献来源，并注明证据等级与解读边界，可咨询我们的专家顾问获取育种建议。' } },
+    ],
   },
 ];
 ---
@@ -52,7 +62,7 @@ const serviceJsonLd = [
     <div class="container-x">
       <h1 class="text-4xl font-bold">赛鸽飞行能力基因检测</h1>
       <p class="mt-4 max-w-2xl text-lg text-brand-100">
-        精准解析影响速度、耐力、归巢能力与身体适应性的 8 大核心基因位点，为科学育种与训练提供可靠依据。
+        解析 8 个性能相关基因位点，作为候选基因参考，为科学育种与训练提供依据。
       </p>
     </div>
   </section>
