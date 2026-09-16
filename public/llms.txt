@@ -4,8 +4,8 @@
 
 ## 核心检测服务
 
-- [飞行能力基因检测](https://senopigeon.com/jiyin-jiance/)：精准解析 LDHA、DRD4、CRY1、MSTN、LRP8、GSR、CASK、F-KER 8 大核心基因位点，科学解读速度、耐力、归巢能力与适应性。
-- [赛鸽病毒检测](https://senopigeon.com/bingdu-jiance/)：覆盖 12 项常见病原（病毒、细菌、真菌、寄生虫），实时荧光 qPCR 精准检测，可早于临床症状 7-14 天发现病原。
+- [飞行能力基因检测](https://senopigeon.com/jiyin-jiance/)：解析 LDHA、DRD4、CRY1、MSTN、LRP8、GSR、CASK、F-KER 8 个基因位点，作为候选基因参考，解读基于已发表的赛鸽研究。
+- [赛鸽病毒检测](https://senopigeon.com/bingdu-jiance/)：覆盖 12 项常见病原（病毒、细菌、真菌、寄生虫），实时荧光 qPCR 精准检测，可在症状出现前实现早期发现。
 - [DNA 身份证 | 亲缘鉴定](https://senopigeon.com/dna-shenfenzheng/)：采用 STR 微卫星标记构建每只赛鸽独一无二的 DNA 指纹图谱，科学确认亲缘关系。
 
 ## 病毒检测项目（12 项）

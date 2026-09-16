@@ -4,8 +4,8 @@
 
 ## Core Testing Services
 
-- [Flight Gene Test](https://senopigeon.com/en/flight-gene-test/): Precise analysis of 8 core gene loci — LDHA, DRD4, CRY1, MSTN, LRP8, GSR, CASK, F-KER — for speed, endurance, homing and adaptability.
-- [Pathogen Testing](https://senopigeon.com/en/pathogen-testing/): Covers 12 common pathogens (viruses, bacteria, fungi, parasites) via real-time qPCR, detecting pathogens 7–14 days before clinical signs.
+- [Flight Gene Test](https://senopigeon.com/en/flight-gene-test/): Analysis of 8 gene loci — LDHA, DRD4, CRY1, MSTN, LRP8, GSR, CASK, F-KER — as a candidate-gene reference based on published pigeon research.
+- [Pathogen Testing](https://senopigeon.com/en/pathogen-testing/): Covers 12 common pathogens (viruses, bacteria, fungi, parasites) via real-time qPCR, enabling early detection before clinical signs appear.
 - [DNA ID & Kinship](https://senopigeon.com/en/dna-id-kinship/): STR microsatellite markers build a unique DNA fingerprint for each pigeon, scientifically confirming parentage.
 
 ## Contact
