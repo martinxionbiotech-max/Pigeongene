@@ -4,7 +4,7 @@ import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
 const title = 'Content & Evidence Policy | Racing Pigeon Genetic Testing';
-const description = 'SENO Biotech content and evidence policy: editorial principles, verifiable citation standards, testing methodology, and veterinary disclaimer for our pigeon genetic testing knowledge base.';
+const description = 'SENO Biotech content and evidence policy: editorial principles, citation standards, testing methodology and veterinary disclaimer.';
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/en/content-policy/`;
@@ -68,9 +68,14 @@ const sections = [
     ],
   },
 ];
+const hreflang = [
+  { lang: 'en', href: pageUrl },
+  { lang: 'zh-CN', href: `${siteUrl}/zhishi/neirong-zhengce/` },
+  { lang: 'x-default', href: `${siteUrl}/zhishi/neirong-zhengce/` },
+];
 ---
 
-<BaseLayout {title} {description} lang="en" canonical="/en/content-policy/" jsonLd={policyJsonLd} type="article">
+<BaseLayout {title} {description} lang="en" canonical="/en/content-policy/" {hreflang} jsonLd={policyJsonLd} type="article">
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">

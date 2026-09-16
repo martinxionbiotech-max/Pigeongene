@@ -1,6 +1,6 @@
 ---
 title: 'Pathogen Testing for Racing Pigeons: A Practical Guide'
-description: 'When and how to test racing pigeons for common pathogens. Covers 12 pathogens, qPCR testing, sampling options, and how to read a report without overinterpreting a negative result.'
+description: 'When and how to test racing pigeons for common pathogens: 12 pathogens, qPCR testing, sampling options and how to read a negative result.'
 pubDate: 2026-09-16
 category: 'Health & Testing'
 tags: ['pathogen testing', 'qPCR', 'racing pigeons', 'loft management']

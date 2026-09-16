@@ -1,6 +1,6 @@
 ---
-title: 'Reading a Pigeon Flight-Gene Report Without Overinterpreting It'
-description: 'A fancier-friendly guide to the 8 gene loci in a racing-pigeon flight-gene panel: what each marker suggests, the evidence grade behind it, and why genotypes support breeding decisions rather than predicting race results.'
+title: 'Reading a Pigeon Flight-Gene Report Responsibly'
+description: 'A fancier-friendly guide to the eight gene loci in a racing-pigeon flight-gene panel: what each marker suggests and how to read the evidence grade behind it.'
 pubDate: 2026-09-16
 category: 'Genetics & Breeding'
 tags: ['gene testing', 'LDHA', 'DRD4', 'breeding', 'racing pigeons']

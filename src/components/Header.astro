@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import { counterpartPath, otherHome, isEnglishPath } from '../i18n/lang';
 
 type NavItem = { label: string; href?: string; children?: { label: string; href: string }[] };
@@ -73,7 +74,23 @@ const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
 
 // Language switcher: point at the SAME page in the other language when that
 // page exists; otherwise fall back to the other language home page.
-const switchHref = counterpartPath(path) ?? otherHome(path);
+// Blog detail pages need an explicit existence check: only some posts have a
+// translation, so a blind /blog/<slug>/ -> /en/blog/<slug>/ rewrite would emit
+// a link to a page that was never built.
+const blogPosts = await getCollection('blog');
+const blogPostsEn = await getCollection('blog-en');
+const zhBlogSlugs = new Set(blogPosts.filter((p) => (p.data.lang || 'zh-CN') !== 'en').map((p) => p.slug));
+const enBlogSlugs = new Set([
+  ...blogPostsEn.map((p) => p.slug),
+  ...blogPosts.filter((p) => p.data.lang === 'en').map((p) => p.slug),
+]);
+
+let switchHref = counterpartPath(path) ?? otherHome(path);
+const blogMatch = path.match(/^\/blog\/([^/]+)\/$/);
+if (blogMatch && !enBlogSlugs.has(blogMatch[1])) switchHref = '/en/';
+const blogEnMatch = path.match(/^\/en\/blog\/([^/]+)\/$/);
+if (blogEnMatch && !zhBlogSlugs.has(blogEnMatch[1])) switchHref = '/';
+
 const switchLabel = isEn ? '中文' : 'EN';
 const switchTitle = isEn ? 'Switch to Chinese' : 'Switch to English';
 const switchLang = isEn ? 'zh-CN' : 'en';
