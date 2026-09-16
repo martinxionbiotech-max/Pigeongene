@@ -51,3 +51,8 @@ CASK 参与突触功能与神经发育。鸽类已有其多态性研究（Dybus 
 ## 结语
 
 了解种鸽的基因图谱，是科学育种的重要一步。欢迎了解我们的[飞行能力基因检测](/jiyin-jiance/)服务，为您的育种决策提供数据支持。
+
+## 延伸阅读
+
+- [基因百科](https://genetics.senopigeon.com/genes/) — 8 大基因位点的证据等级与参考文献
+- [基因型与表型](https://genetics.senopigeon.com/topics/genotype-phenotype/) — 读懂检测报告的基础概念

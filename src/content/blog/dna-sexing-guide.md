@@ -42,3 +42,8 @@ featured: true
 DNA 性别鉴定回答的是"这只鸽是公是母"，而飞行能力基因检测关注的是速度、耐力、归巢等性能性状的遗传倾向，DNA 身份证则是构建每只鸽独一无二的指纹图谱用于身份核验。三者用途不同，可结合使用，构建完整的赛鸽遗传档案。
 
 如需进一步了解，欢迎查看本站的[飞行能力基因检测](/jiyin-jiance/)与 [DNA 身份证](/dna-shenfenzheng/)服务。
+
+## 延伸阅读
+
+- [伴性遗传与性别决定](https://genetics.senopigeon.com/topics/sex-linked-inheritance/) — ZW 体系的遗传规律
+- [赛鸽 DNA 基础知识](https://genetics.senopigeon.com/topics/pigeon-dna/) — DNA 标记与检测原理

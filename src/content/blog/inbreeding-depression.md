@@ -58,3 +58,8 @@ featured: false
 - 规划科学的选配方案，平衡"提纯"与"避免衰退"。
 
 > 延伸阅读：了解 [DNA 亲缘鉴定](/dna-shenfenzheng/) 或查看 [育种遗传知识](/blog/performance-genes-explained/)。
+
+## 延伸阅读
+
+- [近亲繁殖与近交系数](https://genetics.senopigeon.com/topics/inbreeding-coefficient/) — 近交系数的含义与计算
+- [育种遗传](https://genetics.senopigeon.com/topics/breeding-genetics/) — 选配策略的遗传学逻辑

@@ -57,3 +57,8 @@ featured: false
 - 制定更有针对性的健康管理方案。
 
 > 延伸阅读：查看 [赛鸽病毒检测项目](/bingdu-jiance/) 或了解 [病毒监测与防疫体系](/blog/virus-surveillance-plan/)。
+
+## 延伸阅读
+
+- [鸽圆环病毒病原百科](https://health.senopigeon.com/diseases/ge-yuanhuan-bingdu/) — 免疫抑制机制与防控要点
+- [疾病预防指南](https://health.senopigeon.com/guides/prevention/) — 监测、免疫与管理组合拳

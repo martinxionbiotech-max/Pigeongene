@@ -57,3 +57,8 @@ featured: false
 4. 高风险期（比赛季）加强监测，早发现早隔离。
 
 > 延伸阅读：了解 [赛鸽病毒检测项目](/bingdu-jiance/) 或查看 [qPCR 检测与生物安全](/blog/qpcr-biosafety/)。
+
+## 延伸阅读
+
+- [鸽腺病毒病原百科](https://health.senopigeon.com/diseases/ge-xian-bingdu/) — 病原特征、鉴别诊断与检测方法
+- [诊断方法指南](https://health.senopigeon.com/guides/diagnostics/) — 从症状到确诊的科学路径

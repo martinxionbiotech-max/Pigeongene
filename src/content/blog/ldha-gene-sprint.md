@@ -42,3 +42,8 @@ Ramadan 等（2018，PLOS ONE）报道 LDHA 基因多态性与赛鸽竞翔存活
 对于追求科学育种的鸽友，LDHA 等性能基因检测的价值在于：将育种决策从"凭经验"升级为"经验 + 遗传信息"的综合判断，从而更系统、更可复现地进行选配。
 
 > 延伸阅读：了解完整的 [8 大性能基因位点](/jiyin-jiance/)，或查看 [基因检测技术原理](/zhishi/jishu-yuanli/)。
+
+## 延伸阅读
+
+- [LDHA 基因百科](https://genetics.senopigeon.com/genes/ldha/) — 功能、证据等级与科学局限性
+- [性能遗传主题](https://genetics.senopigeon.com/topics/performance-genetics/) — 候选基因研究全景

@@ -55,3 +55,8 @@ PMV 病毒主要通过以下途径传播：
 PMV 副黏病毒防控的核心在于"防患于未然"。通过定期 qPCR 筛查与科学的生物安全管理，可以显著降低疫情风险，保护赛鸽的健康与比赛成绩。
 
 了解本站[赛鸽病毒检测](/bingdu-jiance/)服务，12 项病原一次筛查，守护您的赛鸽健康。
+
+## 延伸阅读
+
+- [新城疫病毒病原百科](https://health.senopigeon.com/diseases/xinchengyi-bingdu/) — 传播途径与鉴别诊断
+- [疫苗免疫指南](https://health.senopigeon.com/guides/vaccination/) — 免疫程序与抗体监测

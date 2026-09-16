@@ -45,3 +45,8 @@ STR 微卫星是基因组中重复出现 2-6 个碱基的短序列。通过 PCR 
 ## 结语
 
 DNA 身份证为赛鸽的血统认证提供了科学、可靠的解决方案，让每一只名贵赛鸽的血统"有据可证"。了解[DNA 身份证与亲缘鉴定](/dna-shenfenzheng/)服务详情。
+
+## 延伸阅读
+
+- [DNA 身份证与亲缘鉴定服务](/dna-shenfenzheng/) — 采样要求与报告解读
+- [亲缘计算器](https://tools.senopigeon.com/parentage-calculator/) — STR 位点相容性自查（教育用途）

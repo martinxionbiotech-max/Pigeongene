@@ -56,3 +56,8 @@ featured: false
 ## 结语
 
 检测结果的准确，既依赖实验室的严谨质控，也依赖送检环节的规范操作。选择具备完整质控体系的检测机构，是获得可靠结果的第一步。了解我们的[质控体系](/bingdu-jiance/)与[采样指南](/caiyang/)。
+
+## 延伸阅读
+
+- [PCR 检测指南](https://health.senopigeon.com/guides/pcr-testing/) — 原理、流程与质控体系
+- [生物安全指南](https://health.senopigeon.com/guides/biosecurity/) — 实验室与鸽舍的双重防线

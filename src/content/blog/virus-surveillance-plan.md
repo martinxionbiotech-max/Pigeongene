@@ -59,3 +59,8 @@ featured: false
 ## 结语
 
 科学的病毒监测不是一次性的任务，而是贯穿赛鸽全生命周期的长效机制。结合[赛鸽病毒检测](/bingdu-jiance/)服务，为您的鸽舍筑起健康防线。
+
+## 延伸阅读
+
+- [疾病预防指南](https://health.senopigeon.com/guides/prevention/) — 监测计划的设计原则
+- [生物安全指南](https://health.senopigeon.com/guides/biosecurity/) — 隔离、消毒与控制的实施细节
