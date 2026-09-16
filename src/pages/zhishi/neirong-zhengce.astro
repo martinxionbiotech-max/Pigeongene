@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '内容与证据政策 | 赛鸽基因检测知识中心';
+const description = '赛诺生物内容与证据政策：本站内容的编辑原则、文献引用标准、证据分级体系与兽医免责声明，确保信息科学、透明、可溯源。';
+
+const siteUrl = 'https://senopigeon.com';
+const pageUrl = `${siteUrl}/zhishi/neirong-zhengce/`;
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: '内容与证据政策',
+    url: pageUrl,
+    description,
+    author: { '@type': 'Organization', name: '张家口赛诺生物科技有限公司' },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'zh-CN',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: '知识中心', item: `${siteUrl}/zhishi/` },
+      { '@type': 'ListItem', position: 3, name: '内容与证据政策', item: pageUrl },
+    ],
+  },
+];
+
+const sections = [
+  {
+    title: '编辑政策',
+    desc: '本站内容遵循「证据优先」的编辑原则：科学结论须有可验证的文献来源支撑，措辞强度不超过证据等级允许的范围；对不确定的研究结论，明确使用「提示」「可能」「关联」等限定表述，不夸大、不虚构。',
+    points: [
+      '科学结论标注文献来源（PMID/DOI），可溯源核验',
+      '关联性证据不写成因果结论',
+      '服务参数类数字（报告周期等）与科研数字严格区分',
+      '发现错误引用时优先修正并记录更正过程',
+    ],
+  },
+  {
+    title: '文献引用标准',
+    desc: '引用的论文均经过 PMID/DOI 核验，可从 PubMed 或出版社页面直接溯源。预印本研究（如 bioRxiv）会明确标注「未经同行评审」，仅作参考，不进入结论性表述。',
+    points: [
+      '优先引用赛鸽专属的同行评审研究',
+      '预印本与综述作为背景参考，不替代原始研究',
+      '证据等级（A/B/C/D）标注于基因页与科研中心',
+    ],
+  },
+  {
+    title: '检测方法学',
+    desc: '检测项目基于实时荧光定量 PCR（qPCR）等分子诊断技术，方法学细节与质控流程见科研中心方法论页。本站描述与实验室实际执行保持一致，不虚构设备、认证与检测参数。',
+    points: [
+      'qPCR 方法学：引物探针设计、内参质控、UNG 防污染',
+      'STR 分型：亲缘鉴定与 DNA 身份证的标记体系',
+      '质控：每批次检测含阳性/阴性对照与内扩增对照',
+    ],
+  },
+  {
+    title: '兽医免责声明',
+    desc: '本站及全部子站（遗传知识库、健康知识库、科研中心、在线工具）的内容仅供科普与育种参考，不构成兽医诊断或治疗建议。鸽子出现疾病症状时，请咨询执业兽医师；检测报告的解读应结合临床症状、流行病学与饲养管理综合判断。',
+    points: [
+      '症状不能单独用于确诊，实验室检测是确诊依据',
+      '单次阴性结果不排除感染可能性',
+      '用药与处置方案请以执业兽医师意见为准',
+    ],
+  },
+];
+---
+
+<BaseLayout {title} {description} canonical="/zhishi/neirong-zhengce/" jsonLd={articleJsonLd} type="article">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">内容与证据政策</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        科学、透明、可溯源——这是本站内容的三条底线。
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl space-y-10">
+      {sections.map((s) => (
+        <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
+          <h2 class="text-2xl font-bold text-gray-900">{s.title}</h2>
+          <p class="mt-3 leading-relaxed text-gray-700">{s.desc}</p>
+          <ul class="mt-4 space-y-2">
+            {s.points.map((p) => (
+              <li class="flex items-start gap-2 text-sm text-gray-600">
+                <span class="mt-0.5 text-brand-600">✓</span> {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <div class="mx-auto max-w-3xl text-center">
+        <h2 class="text-2xl font-bold text-gray-900">相关资源</h2>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a href="/zhishi/jishu-yuanli/" class="btn-outline">基因检测技术原理</a>
+          <a href="/zhishi/baogao-jiedu/" class="btn-outline">报告解读指南</a>
+          <a href="https://research.senopigeon.com/research/evidence-grading/" class="btn-outline">证据分级体系</a>
+          <a href="https://research.senopigeon.com/research/methodology/" class="btn-outline">科研方法论</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
