@@ -15,7 +15,7 @@ export const geneMarkers: GeneMarker[] = [
     name: '乳酸脱氢酶 A',
     en: 'Lactate Dehydrogenase A',
     function: '参与无氧糖酵解过程，是短距离冲刺阶段能量供应的关键酶，其基因型差异可能影响赛鸽在高强度飞行中的能量代谢效率。',
-    benefit: '筛选具有精英级短距离速度与爆发力的赛鸽，为速度型种鸽选配提供遗传参考。',
+    benefit: '筛选与短距离速度表现相关的候选基因型赛鸽，为速度型种鸽选配提供遗传参考。',
     association: '研究提示 LDHA 基因多态性可能与赛鸽无氧运动能力及短距离速度表现相关，属于候选基因关联，尚未建立确定性因果。',
     markerType: 'SNP（单核苷酸多态性）',
     reference: 'NCBI dbSNP；家禽能量代谢相关候选基因研究',
