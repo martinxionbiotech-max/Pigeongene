@@ -13,96 +13,96 @@ export const geneMarkersEn: GeneMarkerEn[] = [
     code: 'LDHA',
     name: 'Lactate Dehydrogenase A',
     function:
-      'Involved in anaerobic glycolysis — the key enzyme supplying energy during the sprint phase of a race. Genotype differences may influence energy-metabolism efficiency under high-intensity flight.',
+      'Involved in anaerobic glycolysis — a key enzyme supplying energy during high-intensity flight. Genotype differences may influence energy-metabolism efficiency.',
     benefit:
-      'Flags pigeons with elite-level short-distance speed and burst power, giving sprint-fanciers a genetic reference when selecting velocity-type breeders.',
+      'Flags candidate genotypes associated with racing survival in published pigeon research — a genetic reference for breeding selection, not a speed guarantee.',
     association:
-      'Research suggests LDHA polymorphism may associate with anaerobic capacity and short-distance speed in racing pigeons; this is a candidate-gene association, not an established causal link.',
+      'A pigeon-specific study (Ramadan 2018, PLOS ONE) reported a statistical association between LDHA polymorphism and racing survival rate. This is a candidate-gene association, not causation, and not equivalent to speed.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'NCBI dbSNP; candidate-gene studies on avian energy metabolism',
+    reference: 'Ramadan 2018, PLOS ONE | PMID: 29775483 | DOI: 10.1371/journal.pone.0195121',
   },
   {
     code: 'DRD4',
     name: 'Dopamine Receptor D4',
     function:
-      'Dopamine receptor D4 participates in neural signalling and is linked to exploratory behaviour, spatial cognition and homing tendency — a candidate gene for navigation ability.',
+      'Dopamine receptor D4 participates in neural signalling and is a candidate gene for racing performance in pigeons.',
     benefit:
-      'Helps assess orientation, exploratory drive and adaptability, supporting homing-type selection and training-programme optimisation.',
+      'A candidate locus for racing performance, supporting breeding and training reference alongside other loci and race records.',
     association:
-      'Studies suggest DRD4 polymorphism may relate to homing ability and behavioural traits; this is an exploratory association and must be read together with multiple genes and environment.',
+      'A pigeon-specific study (Proskura 2015, Animal Genetics) reported a statistical association between DRD4 polymorphism and racing performance. Exploratory association — read together with multiple genes and environment.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Murayama et al. (pigeon behavioural genetics); Proskura 2014 (homing candidate genes)',
+    reference: 'Proskura 2015, Animal Genetics | PMID: 26202371 | DOI: 10.1111/age.12328',
   },
   {
     code: 'CRY1',
     name: 'Cryptochrome 1',
     function:
-      'A core circadian-clock component that regulates day/night rhythm and may influence how pigeons perceive photoperiod change, homing timing and race-day condition.',
+      'A core circadian-clock component regulating day/night rhythm. Note: magnetoreception research focuses on CRY4 — a different cryptochrome from CRY1.',
     benefit:
-      'Helps predict adaptability to long-distance flights and poor weather, supporting scheduling of training and race plans.',
+      'A candidate locus for rhythm and racing-performance reference, used together with other loci and race records.',
     association:
-      'Research suggests CRY1 may relate to circadian rhythm and time perception in homing navigation; an exploratory candidate-gene association.',
+      'A pigeon-specific study (Dybus 2021, Animals) reported a statistical association between CRY1 polymorphism and racing performance. CRY1 must not be claimed as the "magnetoreception gene".',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Pigeon magnetoreception and circadian-clock studies (C. Mora et al.)',
+    reference: 'Dybus 2021, Animals | PMID: 34573598 | DOI: 10.3390/ani11092632',
   },
   {
     code: 'MSTN',
     name: 'Myostatin',
     function:
-      'Myostatin negatively regulates skeletal-muscle growth; variation in this gene can affect muscle mass, power and overall endurance — a classic muscle-phenotype candidate gene.',
+      'Myostatin negatively regulates skeletal-muscle growth; loss-of-function variants cause muscle hypertrophy in mammals. One of the most-studied muscle-regulatory genes.',
     benefit:
-      'Identifies pigeons with superior muscle strength and sustained-flight potential, informing endurance- and power-type breeder selection.',
+      'Provides polymorphism reference across pigeon breeds; racing-performance evidence in pigeons is limited — interpret cautiously.',
     association:
-      'Research suggests MSTN polymorphism may associate with muscle development and endurance; a candidate-gene association strongly modulated by training and nutrition.',
+      'A pigeon study (Dybus 2013) reported MSTN polymorphism in domestic pigeons — a polymorphism survey without racing-performance analysis. Functional background: Rodgers & Garikipati 2008.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Dybus 2013 (DOI: 10.17221/6654-VETMED, racing pigeon MSTN polymorphism)',
+    reference: 'Dybus 2013, Vet Med | DOI: 10.17221/6654-VETMED; Rodgers & Garikipati 2008, PMID: 18591260',
   },
   {
     code: 'F-KER',
     name: 'Feather Keratin Gene',
     function:
-      'Feather keratin is the major structural protein of the feather; the gene affects feather quality, structural integrity and aerodynamic efficiency — closely tied to flight performance.',
+      'Feather keratin is the major structural protein of feathers; related gene variants may affect feather structure and mechanical traits — the link to flight performance is indirect.',
     benefit:
-      'Helps evaluate wing-feather aerodynamic performance and resilience when selecting for superior plumage quality.',
+      'Provides plumage-related polymorphism reference; racing-performance evidence in pigeons is limited — interpret cautiously.',
     association:
-      'Research suggests feather-keratin genes may relate to feather structure and, indirectly, flight aerodynamics; an indirect association.',
+      'A pigeon study (Dybus & Haase 2011) reported F-KER polymorphism in domestic pigeons — a polymorphism survey without racing-performance analysis.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Avian feather-keratin gene-family studies',
+    reference: 'Dybus & Haase 2011, Br Poult Sci | PMID: 21491240 | DOI: 10.1080/00071668.2010.549666',
   },
   {
     code: 'LRP8',
     name: 'Lipoprotein Receptor-Related Protein 8',
     function:
-      'Involved in lipid metabolism and energy transport; may influence energy storage and fatty-acid utilisation during long-distance flight.',
+      'Involved in lipid metabolism and energy transport — a candidate gene in racing-performance research.',
     benefit:
-      'Helps predict energy storage and utilisation efficiency, informing long-distance endurance breeder selection.',
+      'A candidate locus for racing performance, used together with GSR and other loci plus race records.',
     association:
-      'Research suggests LRP8 may relate to energy metabolism and fat utilisation; a candidate-gene association requiring further validation.',
+      'A pigeon-specific study (Kulig 2025) reported the structural impact of GSR and LRP8 polymorphisms on protein function and their role in racing performance. Candidate-gene association.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Lipoprotein-receptor family metabolic candidate-gene studies',
+    reference: 'Kulig 2025, Int J Biol Macromol | PMID: 40246119 | DOI: 10.1016/j.ijbiomac.2025.143181',
   },
   {
     code: 'GSR',
     name: 'Glutathione Reductase',
     function:
-      'A key antioxidant-defence enzyme affecting oxidative-stress clearance and recovery speed under race stress.',
+      'A key antioxidant-defence enzyme related to oxidative-stress clearance and recovery — a candidate gene in racing-performance research.',
     benefit:
-      'Helps assess a pigeon\u2019s ability to stay healthy and recover quickly under high-pressure racing conditions, supporting stress-resilient breeder selection.',
+      'A candidate locus for racing performance, used together with LRP8 and other loci plus race records.',
     association:
-      'Research suggests GSR polymorphism may associate with antioxidant capacity and stress recovery; an exploratory candidate-gene association.',
+      'A pigeon-specific study (Kulig 2025) reported the structural impact of GSR and LRP8 polymorphisms on protein function and their role in racing performance. Candidate-gene association.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Avian oxidative-stress and antioxidant-enzyme gene studies',
+    reference: 'Kulig 2025, Int J Biol Macromol | PMID: 40246119 | DOI: 10.1016/j.ijbiomac.2025.143181',
   },
   {
     code: 'CASK',
     name: 'Calcium/Calmodulin-Dependent Serine Protein Kinase',
     function:
-      'Participates in synaptic development and signalling, with potential links to neural function, learning, memory and behavioural stability — a cognition-related candidate gene.',
+      'Participates in synaptic development and signalling — a cognition-related candidate gene studied in pigeons.',
     benefit:
-      'Supports a holistic view of neural stability and cognition, informing behavioural and training-adaptability assessment.',
+      'A candidate locus related to nervous-system function; performance-association evidence is preliminary.',
     association:
-      'Research suggests CASK may relate to nervous-system function; an exploratory association with limited evidence, to be read cautiously.',
+      'A pigeon study (Dybus 2023, Animals) reported CASK polymorphism in pigeons, with performance association as secondary content. Preliminary evidence — interpret cautiously.',
     markerType: 'SNP (single nucleotide polymorphism)',
-    reference: 'Neurodevelopmental gene-family studies (NCBI Gene)',
+    reference: 'Dybus 2023, Animals | PMID: 37443867 | DOI: 10.3390/ani13132070',
   },
 ];
