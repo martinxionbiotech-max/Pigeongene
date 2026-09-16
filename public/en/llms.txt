@@ -8,6 +8,10 @@
 - [Pathogen Testing](https://senopigeon.com/en/pathogen-testing/): Covers 12 common pathogens (viruses, bacteria, fungi, parasites) via real-time qPCR, enabling early detection before clinical signs appear.
 - [DNA ID & Kinship](https://senopigeon.com/en/dna-id-kinship/): STR microsatellite markers build a unique DNA fingerprint for each pigeon, scientifically confirming parentage.
 
+## Content & Evidence Policy
+
+- [Content & Evidence Policy](https://senopigeon.com/zhishi/neirong-zhengce/): Editorial principles, citation standards (PMID/DOI verifiable), testing methodology, and veterinary disclaimer.
+
 ## Contact
 
 - Company: Zhangjiakou SENO Biotech Co., Ltd.

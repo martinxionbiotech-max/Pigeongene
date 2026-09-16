@@ -28,6 +28,7 @@
 - [知识中心首页](https://senopigeon.com/zhishi/)
 - [基因检测技术原理](https://senopigeon.com/zhishi/jishu-yuanli/)：PCR、qPCR、STR 分型、SNP 分型技术解析。
 - [报告解读](https://senopigeon.com/zhishi/baogao-jiedu/)：如何读懂基因检测报告。
+- [内容与证据政策](https://senopigeon.com/zhishi/neirong-zhengce/)：编辑原则、文献引用标准、检测方法学与兽医免责声明。
 
 ## 其他
 
