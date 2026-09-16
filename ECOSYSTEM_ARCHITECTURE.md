@@ -38,8 +38,8 @@
 1. Dybus 等 2013 — MSTN 家鸽多态性（DOI: 10.17221/6654-VETMED）
 2. Kolvenbag 等 2022 — 基因型谱与赛绩（PMCID: PMC9365715）
 3. Gazda MA 等 2018 — 赛鸽遗传变异自然选择（DOI: 10.1093/molbev/msy030）
-4. NCBI 2004 — 鸟类呼吸系统生物学（PMID: 15249475）
-5. Proskura 2014 — LDHA SNP 与信鸽赛绩（J. Poultry Sci.）
+4. Maina JN 2000 — 鸟类呼吸系统生物学（J Exp Biol, PMID: 11003817）
+5. Ramadan 2018 — LDHA 多态性与竞翔存活率（PLOS ONE）
 6. Falconer & Mackay — 数量遗传学导论（教科书）
 
 > ⚠️ 这 6 篇是唯一可追溯来源。research 站不得新增无法验证的论文。
