@@ -1,13 +1,16 @@
 ---
-// 通用 404 页面 — 内联样式，不依赖项目 BaseLayout/CSS
+// 通用 404 页面 — 内联样式，不依赖项目 BaseLayout/CSS。
+// 语言感知：/en/* 下的失效路径显示英文，其余（中文默认）显示中文；两种语言都给出
+// 对应的首页链接与语言切换入口。服务端无法区分语言时以中文为默认（与站点默认语言一致）。
 ---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>404 — Page Not Found</title>
+    <title>404 — 页面不存在 | Page Not Found</title>
     <style>
       body {
         margin: 0;
@@ -15,7 +18,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
         background: #f7f8fa;
         color: #1f2937;
       }
@@ -24,13 +27,40 @@
       .msg { font-size: 1.1rem; color: #4b5563; margin: 1rem 0; }
       .home { display: inline-block; padding: 0.65rem 1.5rem; border-radius: 8px; background: #0b5cad; color: #fff; text-decoration: none; font-weight: 600; }
       .home:hover { background: #0a4a8f; }
+      .alt { display: block; margin-top: 1.25rem; font-size: 0.9rem; color: #6b7280; }
+      .alt a { color: #0b5cad; text-decoration: none; }
+      .alt a:hover { text-decoration: underline; }
+      [data-lang] { display: none; }
     </style>
   </head>
   <body>
     <div class="wrap">
       <p class="code">404</p>
-      <p class="msg">The page you're looking for doesn't exist or has moved.</p>
-      <a class="home" href="/">← Back to home</a>
+
+      <div data-lang="zh">
+        <p class="msg">您访问的页面不存在或已被移动。</p>
+        <a class="home" href="/">← 返回首页</a>
+        <span class="alt">English version? <a href="/en/">Go to the English site</a></span>
+      </div>
+
+      <div data-lang="en">
+        <p class="msg">The page you're looking for doesn't exist or has moved.</p>
+        <a class="home" href="/en/">← Back to home</a>
+        <span class="alt">中文版？<a href="/">访问中文站</a></span>
+      </div>
     </div>
+
+    <script>
+      // 语言感知：/en/ 下显示英文，其余显示中文（默认语言）。
+      (function () {
+        var isEn = location.pathname === '/en' || location.pathname.indexOf('/en/') === 0;
+        var lang = isEn ? 'en' : 'zh';
+        document.documentElement.lang = isEn ? 'en' : 'zh-CN';
+        var nodes = document.querySelectorAll('[data-lang]');
+        for (var i = 0; i < nodes.length; i++) {
+          nodes[i].style.display = nodes[i].getAttribute('data-lang') === lang ? 'block' : 'none';
+        }
+      })();
+    </script>
   </body>
 </html>

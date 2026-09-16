@@ -4,6 +4,7 @@ import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
 import '@fontsource/inter/latin-600.css';
 import '@fontsource/inter/latin-700.css';
+import { counterpartPath } from '../i18n/lang';
 
 interface HreflangAlt {
   lang: string;
@@ -38,6 +39,25 @@ const site = Astro.site ?? new URL('https://senopigeon.com');
 const siteUrl = site.toString().replace(/\/$/, '');
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : Astro.url.href;
 const ogImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Reverse hreflang: pages that do not pass an explicit hreflang array (all Chinese
+// pages) still declare their English counterpart, so the zh <-> en pairing is
+// bidirectional. Derived from the single source of truth in src/i18n/lang.ts.
+const altLinks: HreflangAlt[] = hreflang.length
+  ? hreflang
+  : (() => {
+      const selfLang = isEn ? 'en' : 'zh-CN';
+      const otherLang = isEn ? 'zh-CN' : 'en';
+      const selfPath = canonical || Astro.url.pathname;
+      const out: HreflangAlt[] = [{ lang: selfLang, href: `${siteUrl}${selfPath}` }];
+      const other = counterpartPath(selfPath);
+      if (other) {
+        out.push({ lang: otherLang, href: `${siteUrl}${other}` });
+        // x-default always points at the Chinese (default locale) URL
+        out.push({ lang: 'x-default', href: `${siteUrl}${isEn ? other : selfPath}` });
+      }
+      return out;
+    })();
 
 const BRAND = isEn ? 'SENO PigeonGene' : 'SENO 赛诺基因检测中心';
 const brandSuffix = ` - ${BRAND}`;
@@ -175,7 +195,7 @@ const allJsonLd = [orgSchema, websiteSchema, ...jsonLd];
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    {hreflang.map((h) => (
+    {altLinks.map((h) => (
       <link rel="alternate" hreflang={h.lang} href={h.href} />
     ))}
     <meta name="generator" content={Astro.generator} />
