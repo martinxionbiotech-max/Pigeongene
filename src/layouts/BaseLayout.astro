@@ -203,7 +203,7 @@ const allJsonLd = [orgSchema, websiteSchema, ...jsonLd];
   </head>
   <body class="min-h-screen bg-white">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white">
-      跳到主要内容
+      {isEn ? 'Skip to main content' : '跳到主要内容'}
     </a>
     <slot />
   </body>

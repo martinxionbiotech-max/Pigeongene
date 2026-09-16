@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'FAQ | Racing Pigeon Gene and Pathogen Testing';
+const description = 'Answers to common questions about racing pigeon gene and pathogen testing: services, sample types, shipping, turnaround and report interpretation.';
+const faqs = [
+  { q: 'What services does SENO offer?', a: 'We focus on racing pigeon flight-gene testing and pathogen testing: analysis of candidate gene markers studied in relation to racing performance in published pigeon research, plus precise testing for 12 common pigeon pathogens. Our services are for pigeon fanciers, breeders and veterinary professionals.' },
+  { q: 'Are the gene tests intended for human medical use?', a: 'No. All gene tests are for racing pigeons (avian / veterinary use) only and must not be used for human medical diagnosis, treatment or clinical application. The genetic information interpreted on this site relates to pigeon biology and performance traits only.' },
+  { q: 'Which pigeon DNA samples can be tested?', a: 'We accept several sample types: feathers with an intact root, blood-card samples, buccal swabs and other recommended avian tissues. Please follow the sampling guide to make sure the test result is valid.' },
+  { q: 'How do I collect and ship a pigeon sample?', a: 'Collect the sample hygienically (feather, blood card and so on), place it in the packaging provided, and complete the submission form with your contact details, the pigeon number and the purpose of testing. Then send it to the laboratory address by a reliable courier such as DHL, FedEx or UPS.' },
+  { q: 'How long does testing take?', a: 'Pathogen testing: a report is issued within 2–3 working days of the sample reaching the laboratory. Flight-gene testing and DNA ID / kinship testing: please contact us for the current turnaround. Actual timelines depend on sample volume and shipping time; results are sent as a PDF by email once testing is complete.' },
+  { q: 'Which gene markers are tested, and what do they mean?', a: 'We analyse a set of candidate gene markers studied in published pigeon research, including LDHA (energy metabolism), DRD4 (neural signalling and behaviour), MSTN (muscle development) and CRY1 (circadian rhythm), among others. Reports explain what each marker is associated with and how it can serve as a reference in breeding decisions.' },
+  { q: 'Can you interpret the results and give breeding advice?', a: 'Yes. Every gene report includes an expert interpretation of the marker results and what they may mean for performance traits. We do not provide medical or therapeutic interventions; the guidance we give is a candidate-gene reference for breeding and training decisions, based on published research and laboratory data.' },
+  { q: 'Is SENO recognised by an authority?', a: 'We work from certified laboratory infrastructure and follow strict quality-control standards. The parent company has completed the relevant regulatory registrations and received recognition for technical innovation. Laboratory accreditation, QC procedures and university / research partner documentation can be provided on request.' },
+  { q: 'How is data and sample information protected?', a: 'We take data privacy seriously. All personal and pigeon-related data is handled in line with our privacy policy, and genetic data is used strictly for the agreed testing purpose and is not shared with third parties without consent.' },
+  { q: 'Can I get a refund if I am not satisfied?', a: 'Refund or re-test eligibility depends on the circumstances: samples damaged in transit, incomplete or unusable samples, or pre-processing errors verified by the technical team. Please refer to the refund policy or contact support to have your case assessed.' },
+  { q: 'How do I contact support for help?', a: 'Email martin@senobiocorp.com or reach us on WhatsApp / phone at +86 15612372623. You can also use the contact page for questions about testing, shipping or report interpretation.' },
+  { q: 'Which specific gene loci are included in the flight gene test?', a: 'We test eight loci studied in published pigeon research: LDHA (energy metabolism), DRD4 (neural signalling and homing behaviour), CRY1 (circadian rhythm and racing timing), MSTN (muscle development), F-KER (feather keratin and aerodynamics), LRP8 (energy metabolism and fatty-acid utilisation), GSR (antioxidant defence and stress recovery) and CASK (nervous-system function and stability). Association evidence differs between loci — some are well studied in pigeons, others are preliminary. The report gives the genotype at each locus with breeding-value interpretation.' },
+  { q: 'Which pathogens does the pathogen test cover?', a: 'We offer 12 pathogen tests across four categories: viruses (pigeon circovirus, herpesvirus, adenovirus, poxvirus, rotavirus, Newcastle disease virus, polyomavirus), bacteria (Salmonella, Chlamydia psittaci, Mycoplasma), fungi (Candida albicans) and parasites (Trichomonas), detected precisely by real-time PCR.' },
+  { q: 'What is a DNA ID, and how does it differ from the gene test?', a: 'A DNA ID uses STR microsatellite markers to build a unique DNA fingerprint for each pigeon, for identity verification and kinship testing; the profile is stable for life and cannot be forged. Flight-gene testing, by contrast, looks at loci studied in relation to performance traits. The two serve different purposes: the first establishes "which pigeon this is", the second is a candidate-gene reference for breeding decisions.' },
+  { q: 'How is qPCR different from conventional testing?', a: 'qPCR (real-time quantitative PCR) is a recognised reference method in molecular diagnostics. It detects very low copy numbers of pathogen nucleic acid and is far more sensitive than traditional culture or microscopy, so pathogens can be found earlier — including before clinical signs appear — enabling earlier intervention. Internal controls and a UNG contamination-control system further support reliable results.' },
+  { q: 'Which tests are recommended before a race?', a: 'Before racing we recommend systematic pathogen testing (covering the 12 common pathogens) so that pigeons are not basketed while infected. If you are interested in the genetic background of your birds, flight-gene testing can be done alongside it. For valuable breeders, we recommend establishing a DNA ID record to support trade and pedigree security.' },
+  { q: 'Are test results confidential?', a: 'Yes. We protect client privacy and genetic data strictly. All test data is used only for the agreed testing purpose and is never sold, rented or shared with any third-party commercial entity without the client\u2019s explicit written consent. See the privacy policy for details.' },
+];
+const faqJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://senopigeon.com/en/' },
+      { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://senopigeon.com/en/faq/' },
+    ],
+  },
+];
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/faq/';
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/faq/` },
+  { lang: 'x-default', href: `${siteUrl}/faq/` },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={faqJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Frequently Asked Questions</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">Answers to common questions about racing pigeon gene and pathogen testing</p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl space-y-4">
+      {faqs.map((f, i) => (
+        <details class="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+          <summary class="flex cursor-pointer items-center justify-between font-semibold text-gray-900">
+            <span>{i + 1}. {f.q}</span>
+            <span class="text-brand-600 transition group-open:rotate-45">＋</span>
+          </summary>
+          <p class="mt-3 leading-relaxed text-gray-600">{f.a}</p>
+        </details>
+      ))}
+    </div>
+    <p class="mt-10 text-center text-sm text-gray-500">
+      All services on this site are for racing pigeons (avian / veterinary use) only and are not intended for human medical diagnosis, treatment or clinical use.
+    </p>
+  </section>
+
+  <Footer />
+</BaseLayout>

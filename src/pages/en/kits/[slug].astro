@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { dnaKitsEn } from '../../../data/kitsEn';
+
+export function getStaticPaths() {
+  return dnaKitsEn.map((kit) => ({
+    params: { slug: kit.slug },
+    props: { kit },
+  }));
+}
+
+const { kit } = Astro.props;
+
+const siteUrl = 'https://senopigeon.com';
+const enPath = `/en/kits/${kit.slug}/`;
+const zhPath = `/shijihe/${kit.slug}/`;
+const pageUrl = `${siteUrl}${enPath}`;
+
+const title = `${kit.shortName} | SENO`;
+const rawDescription = `${kit.name}: target ${kit.target}, technology ${kit.tech}, format ${kit.spec}. ${kit.intro}`;
+const description = rawDescription.length > 155 ? rawDescription.slice(0, 152) + '…' : rawDescription;
+
+const hreflang = [
+  { lang: 'en', href: pageUrl },
+  { lang: 'zh-CN', href: `${siteUrl}${zhPath}` },
+  { lang: 'x-default', href: `${siteUrl}${zhPath}` },
+];
+
+const productJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: kit.name,
+    description: kit.intro,
+    url: pageUrl,
+    category: kit.category,
+    brand: { '@type': 'Brand', name: 'SENO' },
+    manufacturer: { '@id': `${siteUrl}/#organization` },
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'Target', value: kit.target },
+      { '@type': 'PropertyValue', name: 'Technology', value: kit.tech },
+      { '@type': 'PropertyValue', name: 'Format', value: kit.spec },
+      { '@type': 'PropertyValue', name: 'Storage', value: kit.storage },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'Test Kits', item: `${siteUrl}/en/kits/` },
+      { '@type': 'ListItem', position: 3, name: kit.name, item: pageUrl },
+    ],
+  },
+];
+
+const related = dnaKitsEn.filter((k) => k.category === kit.category && k.slug !== kit.slug);
+---
+
+<BaseLayout {title} {description} lang="en" canonical={enPath} {hreflang} jsonLd={productJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/en/" class="hover:text-white">Home</a> /
+        <a href="/en/kits/" class="hover:text-white">Test Kits</a> /
+        <span class="text-white">{kit.name}</span>
+      </nav>
+      <h1 class="mt-4 text-3xl font-bold md:text-4xl">{kit.name}</h1>
+      <p class="mt-3 text-sm text-brand-200">{kit.target}</p>
+      <span class="mt-4 inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">{kit.category}</span>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-bold text-gray-900">Product overview</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{kit.intro}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Technical features</h2>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          {[
+            { icon: '🎯', title: 'High specificity', desc: 'Specific primers and probes are designed against conserved pathogen regions to reduce non-specific amplification.' },
+            { icon: '🔬', title: 'High sensitivity', desc: 'Fluorescent probe chemistry is sensitive enough to detect low-copy-number nucleic acid.' },
+            { icon: '🛡️', title: 'Anti-contamination', desc: 'A built-in dUTP/UNG system removes false positives caused by residual PCR aerosol.' },
+            { icon: '📊', title: 'Reliable results', desc: 'Supplied with internal-control quality checks to support confidence in the process and the result.' },
+          ].map((f) => (
+            <div class="card">
+              <div class="text-2xl">{f.icon}</div>
+              <h3 class="mt-2 font-semibold text-gray-900">{f.title}</h3>
+              <p class="mt-1 text-sm text-gray-600">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Workflow</h2>
+        <ol class="mt-4 space-y-3">
+          {[
+            'Sample collection: collect throat swabs, cloacal swabs or faecal samples using standard technique',
+            'Nucleic acid extraction: extract DNA/RNA from the sample',
+            'Set-up and amplification: add the reaction mix and run the amplification programme',
+            'Result interpretation: read the result from the fluorescence signal together with the internal control',
+          ].map((step, i) => (
+            <li class="flex items-start gap-3">
+              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">{i + 1}</span>
+              <span class="text-gray-700">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="card bg-brand-50/50">
+          <h3 class="text-lg font-semibold text-gray-900">Specifications</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div>
+              <dt class="font-medium text-gray-500">Detection target</dt>
+              <dd class="mt-1 font-semibold text-gray-900">{kit.target}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">Technology</dt>
+              <dd class="mt-1 text-gray-700">{kit.tech}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">Format</dt>
+              <dd class="mt-1 text-gray-700">{kit.spec}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">Storage</dt>
+              <dd class="mt-1 text-gray-700">{kit.storage}</dd>
+            </div>
+          </dl>
+          <a href="/en/contact/" class="btn-primary mt-6 w-full">Enquire about purchase</a>
+        </div>
+
+        <div class="card bg-accent-500/10">
+          <h3 class="text-lg font-semibold text-gray-900">Please note</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">
+            Kits are supplied for laboratory research and professional molecular testing. Results should be interpreted by a veterinarian or laboratory professional in the light of the clinical picture. Follow the instructions strictly when collecting samples and running the assay to avoid cross-contamination.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="bg-gray-50 py-16">
+      <div class="container-x">
+        <h2 class="text-2xl font-bold text-gray-900">Related kits</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((r) => (
+            <a href={`/en/kits/${r.slug}/`} class="card flex items-center gap-3 hover:border-brand-300">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-lg">🧪</div>
+              <div>
+                <h3 class="font-semibold text-gray-900">{r.name}</h3>
+                <p class="text-xs text-gray-500">{r.target}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Sampling Guide | Racing Pigeon Test Sample Collection';
+const description = 'How to collect, label, store and ship samples for racing pigeon PCR testing: swabs, faeces, feathers and tissue, plus storage limits and FAQs.';
+
+const siteUrl = 'https://senopigeon.com';
+const breadcrumbJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'Sampling Guide', item: `${siteUrl}/en/sampling/` },
+    ],
+  },
+];
+
+const steps = [
+  {
+    icon: '🧤',
+    title: 'Before sampling',
+    items: [
+      'Prepare disposable sterile gloves, sterile swabs, sealable bags and a marker pen',
+      'Put on clean disposable latex or nitrile gloves before touching any material or pigeon',
+      'Between birds, disinfect the gloves thoroughly with 75% alcohol and let them dry completely before continuing',
+    ],
+  },
+  {
+    icon: '🏷️',
+    title: 'Sample labelling',
+    items: [
+      'Label clean sealable bags with the pigeon details in advance (owner name, ring number, breed)',
+      'Strictly one pigeon per bag — seal each bird separately to prevent cross-contamination between samples',
+    ],
+  },
+  {
+    icon: '🦢',
+    title: 'Collection methods (choose according to the test requested)',
+    items: [
+      'Throat/choanal swab: gently scrape the mucosal secretions of the throat with a sterile swab',
+      'Cloacal swab: insert a sterile swab into the cloaca and rotate it to collect mucosal secretions',
+      'Faecal sample: collect fresh droppings, avoiding contact with contaminated ground',
+      'Oral swab: collect lesions or secretions from the mouth and crop (trichomoniasis, candida testing)',
+      'Lesion tissue: collect tissue from pox lesions, ulcers and other affected sites',
+      'Ocular/nasal secretions: collect conjunctival or nasal secretions (respiratory pathogen testing)',
+    ],
+  },
+  {
+    icon: '📦',
+    title: 'Sample storage and shipping',
+    items: [
+      'Place each sample into its pre-labelled bag immediately after collection, so it does not come into contact with anything outside the bag',
+      'Short term (within 7 days): store at room temperature and ship as soon as possible',
+      'Longer term (over 7 days): freeze at -20 °C or lower',
+      'For shipping, place the individual sealed bags inside an outer bag, then pack them in a sturdy cardboard box',
+      'Mark the sender name and the laboratory address clearly on the outside of the box',
+    ],
+  },
+  {
+    icon: '✅',
+    title: 'Final checks',
+    items: [
+      'Check sample numbers and labels against your internal records (the bag label must match the pigeon ring number)',
+      'Complete and enclose the sample submission form (contact details, pigeon identifiers, tests requested)',
+      'Send by a reliable courier such as DHL, FedEx or UPS',
+      'The laboratory will contact you to confirm receipt before testing starts',
+    ],
+  },
+];
+
+const precautions = [
+  'Always avoid cross-contamination between samples from different pigeons',
+  'Use fresh feathers with an intact root (genetic testing) or properly collected swabs (pathogen testing)',
+  'Keep samples dry and store them separately',
+  'Make sure you collect a sufficient amount of sample',
+  'Label every sample and its corresponding information clearly',
+  'When collecting, avoid touching the parts of the sample that matter for testing',
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical="/en/sampling/" hreflang={[
+  { lang: 'en', href: `${siteUrl}/en/sampling/` },
+  { lang: 'zh-CN', href: `${siteUrl}/caiyang/` },
+  { lang: 'x-default', href: `${siteUrl}/caiyang/` },
+]} jsonLd={breadcrumbJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/en/" class="hover:text-white">Home</a> /
+        <a href="/en/pathogen-testing/" class="hover:text-white">Racing Pigeon Pathogen Testing</a> /
+        <span class="text-white">Sampling Guide</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">Sampling Guide</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        Correct sample collection is the first step towards accurate, reliable results. Please follow the laboratory-accepted sampling protocol below.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-4xl space-y-8">
+      {steps.map((s, i) => (
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 text-lg font-bold text-white">{i + 1}</span>
+            <div class="text-2xl">{s.icon}</div>
+            <h2 class="text-xl font-bold text-gray-900">{s.title}</h2>
+          </div>
+          <ul class="mt-4 space-y-2">
+            {s.items.map((it) => (
+              <li class="flex items-start gap-2 text-gray-700">
+                <span class="mt-1 text-brand-500">•</span> {it}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-x pb-16">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="text-2xl font-bold text-gray-900">Choosing the sample type by test</h2>
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full min-w-[560px] text-left text-sm">
+          <thead class="border-b border-gray-200 bg-white">
+            <tr>
+              <th class="px-3 py-2 font-semibold text-gray-900">Test</th>
+              <th class="px-3 py-2 font-semibold text-gray-900">Recommended sample</th>
+              <th class="px-3 py-2 font-semibold text-gray-900">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 bg-white">
+            <tr><td class="px-3 py-2">Respiratory pathogen testing</td><td class="px-3 py-2">Throat swab / conjunctival swab</td><td class="px-3 py-2">Gently scrape throat and conjunctival secretions</td></tr>
+            <tr><td class="px-3 py-2">Digestive tract pathogen testing</td><td class="px-3 py-2">Cloacal swab / fresh droppings</td><td class="px-3 py-2">Rotate to collect mucosal secretions; avoid contact with contaminated ground</td></tr>
+            <tr><td class="px-3 py-2">Trichomonas / Candida testing</td><td class="px-3 py-2">Oral swab / crop contents</td><td class="px-3 py-2">Collect lesions or secretions from the mouth and crop</td></tr>
+            <tr><td class="px-3 py-2">Pox lesion testing</td><td class="px-3 py-2">Lesion tissue / scab</td><td class="px-3 py-2">Collect tissue from pox lesions and ulcers</td></tr>
+            <tr><td class="px-3 py-2">Genetic testing / DNA ID</td><td class="px-3 py-2">Feather with intact root / blood card / oral swab</td><td class="px-3 py-2">Feathers must have an intact root; keep the sample dry</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="text-2xl font-bold text-gray-900">Key precautions</h2>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2">
+          {precautions.map((p) => (
+            <div class="flex items-start gap-2 rounded-lg bg-white p-4 text-sm text-gray-700 shadow-sm">
+              <span class="mt-0.5 text-accent-500">⚠️</span> {p}
+            </div>
+          ))}
+        </div>
+        <div class="mt-10">
+          <h2 class="text-2xl font-bold text-gray-900">Frequently asked questions</h2>
+          <div class="mt-6 space-y-4">
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+              <p class="font-semibold text-gray-900">How long can a sample be kept at room temperature?</p>
+              <p class="mt-1 text-sm text-gray-700">Short term (within 7 days) room-temperature storage with prompt shipping is fine; beyond 7 days freeze at -20 °C or lower, and avoid repeated freeze-thaw cycles.</p>
+            </div>
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+              <p class="font-semibold text-gray-900">Can samples from several pigeons go into one bag?</p>
+              <p class="mt-1 text-sm text-gray-700">No. Use one pigeon per bag, sealed separately, to prevent cross-contamination that could mix up results.</p>
+            </div>
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+              <p class="font-semibold text-gray-900">What are the requirements for feather samples?</p>
+              <p class="mt-1 text-sm text-gray-700">Feathers for genetic testing must have an intact root (follicle) and should be plucked rather than cut; keep the sample dry and bag it separately.</p>
+            </div>
+            <div class="rounded-lg bg-white p-4 shadow-sm">
+              <p class="font-semibold text-gray-900">How soon should samples be shipped?</p>
+              <p class="mt-1 text-sm text-gray-700">The sooner the better — ideally the same day or the next day, to keep time at room temperature to a minimum.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 rounded-xl bg-brand-50 p-6 text-center">
+          <p class="text-gray-700">If you have any questions during sampling, our technical support team is happy to help.</p>
+          <div class="mt-4 flex flex-wrap justify-center gap-4">
+            <a href="/en/contact/" class="btn-primary">Contact technical support</a>
+            <a href="/en/pathogen-testing/" class="btn-outline">Back to pathogen testing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

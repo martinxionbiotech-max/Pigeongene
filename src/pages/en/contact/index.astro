@@ -31,9 +31,14 @@ const contactJsonLd = [
     },
   },
 ];
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}/en/contact/` },
+  { lang: 'zh-CN', href: `${siteUrl}/lianxi/` },
+  { lang: 'x-default', href: `${siteUrl}/lianxi/` },
+];
 ---
 
-<BaseLayout {title} {description} lang="en" canonical="/en/contact/" jsonLd={contactJsonLd}>
+<BaseLayout {title} {description} lang="en" canonical="/en/contact/" {hreflang} jsonLd={contactJsonLd}>
   <Header />
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">

@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Scientific References | Racing Pigeon Gene Research';
+const description = 'Published pigeon research on candidate genes linked to racing performance, including MSTN, DRD4, LDHA and CRY1, with citations for the markers we test.';
+
+const siteUrl = 'https://senopigeon.com';
+
+const refs = [
+  {
+    title: 'A. Dybus et al. (2013)',
+    name: 'Single nucleotide polymorphism in exon 3 of the myostatin gene in different breeds of domestic pigeon',
+    journal: 'Veterinární medicína',
+    doi: 'https://doi.org/10.17221/6654-VETMED',
+    summary: 'The study examined MSTN gene polymorphisms in domestic pigeons, showing differences in variant frequencies between breeds and suggesting a role in muscle-development traits.',
+  },
+  {
+    title: 'Geert Kolvenbag et al. (2022)',
+    name: 'A prospective study of the relationship between genotype profiles and racing performance in racing pigeons',
+    journal: 'PMCID: PMC9365715',
+    pubmed: 'https://pubmed.ncbi.nlm.nih.gov/35505002/',
+    summary: 'This prospective study associated several genotype profiles (including DRD4 and LDHA) with racing results, suggesting a contribution of genes to performance tendency rather than a determining role.',
+  },
+  {
+    title: 'Gazda MA et al. (2018)',
+    name: 'Signatures of natural selection on standing genetic variation in racing pigeons',
+    journal: 'Molecular Biology and Evolution',
+    doi: 'https://doi.org/10.1093/molbev/msy030',
+    summary: 'This genomic study explored the variants associated with flight and navigation ability, suggesting a complex polygenic architecture rather than single-gene effects.',
+  },
+  {
+    title: 'J. N. Maina（2000）',
+    name: 'The structure and function of the avian respiratory system',
+    journal: 'Journal of Experimental Biology',
+    doi: 'https://doi.org/10.1242/jeb.203.20.3045',
+    pubmed: 'https://pubmed.ncbi.nlm.nih.gov/11003817/',
+    summary: 'A review of the structural and functional specialisations of the respiratory systems of birds and bats, supporting the efficient oxygen transport required for sustained flight.',
+  },
+  {
+    title: 'Ramadan S et al. (2018)',
+    name: 'LDHA gene polymorphism and racing survival in racing pigeons',
+    journal: 'PLOS ONE',
+    doi: 'https://doi.org/10.1371/journal.pone.0195121',
+    pubmed: 'https://pubmed.ncbi.nlm.nih.gov/29775483/',
+    summary: 'This work analysed the association between LDHA gene polymorphisms and racing survival in racing pigeons, suggesting that variation in this gene is associated with racing performance — association evidence only.',
+  },
+  {
+    title: 'Falconer DS & Mackay TFC',
+    name: 'Introduction to Quantitative Genetics (textbook)',
+    journal: 'Textbook',
+    summary: 'A foundational work on genetic principles, heritability and the analysis of quantitative traits, providing the theoretical background for interpreting genetic markers in breeding.',
+  },
+];
+
+const scholarlyJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Scientific literature on racing pigeon genetic testing',
+    itemListElement: refs.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'ScholarlyArticle',
+        headline: r.title,
+        name: r.name,
+        description: r.summary,
+        ...(r.doi ? { sameAs: r.doi } : {}),
+        ...(r.pubmed ? { sameAs: r.pubmed } : {}),
+      },
+    })),
+  },
+];
+
+const hreflang = [
+  { lang: 'en', href: 'https://senopigeon.com/en/references/' },
+  { lang: 'zh-CN', href: 'https://senopigeon.com/cankao/' },
+  { lang: 'x-default', href: 'https://senopigeon.com/cankao/' },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical="/en/references/" {hreflang} jsonLd={scholarlyJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Scientific References</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        The published pigeon research below provides the scientific basis for the performance-associated candidate-gene markers in our racing pigeon panel. These markers reflect statistical associations, not causal effects: a genetic tendency, not a guarantee of race results.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-6">
+      {refs.map((r) => (
+        <div class="card">
+          <h2 class="text-lg font-bold text-gray-900">{r.title}</h2>
+          <p class="mt-1 font-medium text-brand-700">{r.name}</p>
+          <p class="mt-1 text-xs text-gray-500">{r.journal}</p>
+          {r.doi && <a href={r.doi} class="mt-2 inline-block text-sm text-brand-600 hover:underline">📄 DOI: {r.doi}</a>}
+          {r.pubmed && <a href={r.pubmed} class="mt-2 inline-block text-sm text-brand-600 hover:underline">📄 PubMed: {r.pubmed}</a>}
+          {r.pdf && <a href={r.pdf} class="mt-2 inline-block text-sm text-brand-600 hover:underline">📄 Study PDF: {r.pdf}</a>}
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">{r.summary}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6 text-sm text-gray-600">
+      <h2 class="font-semibold text-gray-900">Disclaimer</h2>
+      <p class="mt-2">
+        The references above are provided for scientific transparency and educational purposes only. SENO Biotech claims no authorship of the findings reported in these studies. The candidate-gene markers analysed are for avian genetic research and breeding reference only; they do not constitute medical diagnosis and do not guarantee the prediction of race results.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

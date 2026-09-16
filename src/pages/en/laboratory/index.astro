@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Laboratory Setup Guide | Avian Molecular Testing Lab';
+const description = 'From equipment lists and floor planning to testing workflows — how SENO Biotech supports partners setting up an avian molecular testing laboratory.';
+
+const siteUrl = 'https://senopigeon.com';
+const pageUrl = `${siteUrl}/en/laboratory/`;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Avian Genetic Testing Laboratory Setup',
+    url: pageUrl,
+    description,
+    provider: { '@id': `${siteUrl}/#organization` },
+    serviceType: 'Laboratory setup service',
+    areaServed: 'CN',
+    inLanguage: 'en',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'Laboratory Setup Guide', item: pageUrl },
+    ],
+  },
+];
+
+const areas = [
+  {
+    name: 'Reagent preparation area',
+    en: 'Reagent Preparation',
+    desc: 'PCR reaction mixes are prepared here, so the area must stay highly clean to avoid nucleic-acid contamination. Equipped with a clean bench, pipettes and a low-temperature refrigerator.',
+  },
+  {
+    name: 'Sample processing area',
+    en: 'Sample Processing',
+    desc: 'Sample receipt and nucleic acid extraction. Equipped with a biological safety cabinet, automated nucleic acid extractor and centrifuge, with careful control of cross-contamination between samples.',
+  },
+  {
+    name: 'Amplification area',
+    en: 'Amplification',
+    desc: 'PCR/qPCR amplification reactions are run here. Equipped with a real-time quantitative PCR instrument and a conventional PCR instrument, with strict control of aerosol contamination.',
+  },
+  {
+    name: 'Product analysis area',
+    en: 'Analysis',
+    desc: 'Electrophoresis, typing and result analysis. Equipped with an electrophoresis unit, gel imaging system, genetic analyser and data-analysis workstation.',
+  },
+];
+
+const equipment = [
+  { name: 'Real-time quantitative PCR instrument', cat: 'Amplification', note: 'Core instrument for qPCR testing' },
+  { name: 'Conventional PCR instrument', cat: 'Amplification', note: 'Target fragment amplification' },
+  { name: 'Automated nucleic acid extractor', cat: 'Sample processing', note: 'Automated DNA/RNA extraction' },
+  { name: 'Biological safety cabinet', cat: 'Sample processing', note: 'Sample handling protection' },
+  { name: 'Clean bench', cat: 'Reagent preparation', note: 'Aseptic reagent preparation' },
+  { name: 'High-speed refrigerated centrifuge', cat: 'Sample processing', note: 'Nucleic acid purification' },
+  { name: 'Gel electrophoresis unit', cat: 'Analysis', note: 'Fragment separation' },
+  { name: 'Gel imaging system', cat: 'Analysis', note: 'Result visualisation' },
+  { name: 'Micropipette set', cat: 'General', note: 'Accurate liquid handling' },
+  { name: '-20 °C / -80 °C freezer', cat: 'General', note: 'Reagent and sample storage' },
+  { name: 'Autoclave', cat: 'General', note: 'Sterilisation of consumables' },
+  { name: 'Data-analysis workstation', cat: 'Analysis', note: 'Genotype interpretation' },
+];
+
+const workflow = [
+  { n: '①', t: 'Needs assessment', d: 'Clarify the tests to be offered, the sample types and the throughput required.' },
+  { n: '②', t: 'Site planning', d: 'Plan the laboratory layout and airflow direction according to the zoning principle.' },
+  { n: '③', t: 'Equipment configuration', d: 'Configure the core instruments and consumables for the tests to be offered.' },
+  { n: '④', t: 'System building', d: 'Establish SOPs, a quality-control system and biosafety rules.' },
+  { n: '⑤', t: 'Staff training', d: 'Operation training and competency assessment before staff work independently.' },
+  { n: '⑥', t: 'Acceptance and operation', d: 'Trial run, method validation and formal start of production.' },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical="/en/laboratory/" hreflang={[
+  { lang: 'en', href: `${siteUrl}/en/laboratory/` },
+  { lang: 'zh-CN', href: `${siteUrl}/shiyanshi/` },
+  { lang: 'x-default', href: `${siteUrl}/shiyanshi/` },
+]} jsonLd={jsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/en/" class="hover:text-white">Home</a> /
+        <span class="text-white">Laboratory Setup Guide</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">Laboratory Setup Guide</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        From site planning to equipment configuration, SENO Biotech provides a complete solution for setting up an avian genetic testing laboratory.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Laboratory functional zones</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-gray-600">
+      A molecular testing laboratory must follow the "one-way flow" principle, so that amplification products cannot flow back and contaminate reagents and samples.
+    </p>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {areas.map((a, i) => (
+        <div class="card">
+          <div class="flex items-center gap-3">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-600 text-lg font-bold text-white">{i + 1}</span>
+            <div>
+              <h3 class="font-bold text-gray-900">{a.name}</h3>
+              <p class="text-xs text-gray-500">{a.en}</p>
+            </div>
+          </div>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">{a.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Core equipment list</h2>
+      <div class="mx-auto mt-12 max-w-4xl overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+        <table class="w-full min-w-[560px] text-left text-sm">
+          <thead class="border-b border-gray-200 bg-gray-50">
+            <tr>
+              <th class="px-5 py-3 font-semibold text-gray-900">Equipment</th>
+              <th class="px-5 py-3 font-semibold text-gray-900">Category</th>
+              <th class="px-5 py-3 font-semibold text-gray-900">Notes</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {equipment.map((e) => (
+              <tr>
+                <td class="px-5 py-3 font-medium text-gray-900">{e.name}</td>
+                <td class="px-5 py-3"><span class="rounded-full bg-brand-50 px-2 py-0.5 text-xs text-brand-700">{e.cat}</span></td>
+                <td class="px-5 py-3 text-gray-500">{e.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Setup workflow</h2>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {workflow.map((s) => (
+        <div class="card text-center">
+          <div class="text-3xl font-bold text-brand-600">{s.n}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x text-center">
+      <h2 class="text-3xl font-bold">Need support setting up a laboratory?</h2>
+      <p class="mt-4 text-brand-100">SENO Biotech provides one-stop support for equipment selection, system building and staff training.</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/en/contact/" class="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow-sm transition hover:bg-brand-50">Contact us</a>
+        <a href="/en/distributors/" class="btn-outline-light">Distributor partnership</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { geneMarkersEn } from '../../../data/genesEn';
+
+export function getStaticPaths() {
+  return geneMarkersEn.map((g) => ({
+    params: { slug: g.code.toLowerCase() },
+    props: { gene: g },
+  }));
+}
+
+const { gene } = Astro.props;
+const slug = gene.code.toLowerCase();
+
+const siteUrl = 'https://senopigeon.com';
+const enPath = `/en/genes/${slug}/`;
+const zhPath = `/jiyin-jiance/${slug}/`;
+const pageUrl = `${siteUrl}${enPath}`;
+
+const shortTitle = `${gene.code} Gene Marker | Racing Pigeon Genetic Reference`;
+const longTitle = `${gene.name} (${gene.code}) | Racing Pigeon Gene Marker`;
+const title = longTitle.length <= 60 ? longTitle : shortTitle;
+
+const rawDescription = `${gene.name} (${gene.code}): ${gene.function}`;
+const description = rawDescription.length > 155 ? rawDescription.slice(0, 152) + '…' : rawDescription;
+
+const hreflang = [
+  { lang: 'en', href: pageUrl },
+  { lang: 'zh-CN', href: `${siteUrl}${zhPath}` },
+  { lang: 'x-default', href: `${siteUrl}${zhPath}` },
+];
+
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${gene.name} (${gene.code}) gene marker in racing pigeons`,
+    description,
+    url: pageUrl,
+    author: { '@id': `${siteUrl}/#organization` },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'en',
+    mainEntityOfPage: pageUrl,
+    about: { '@type': 'Thing', name: gene.name, alternateName: gene.code },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: gene.name,
+    alternateName: gene.code,
+    description: gene.function,
+    url: pageUrl,
+    inDefinedTermSet: { '@id': `${siteUrl}/en/flight-gene-test/#genes` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'Flight Gene Test', item: `${siteUrl}/en/flight-gene-test/` },
+      { '@type': 'ListItem', position: 3, name: `${gene.name} (${gene.code})`, item: pageUrl },
+    ],
+  },
+];
+
+const related = geneMarkersEn.filter((g) => g.code !== gene.code);
+---
+
+<BaseLayout {title} {description} lang="en" canonical={enPath} {hreflang} jsonLd={articleJsonLd} type="article">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/en/" class="hover:text-white">Home</a> /
+        <a href="/en/flight-gene-test/" class="hover:text-white">Flight Gene Test</a> /
+        <span class="text-white">{gene.code}</span>
+      </nav>
+      <h1 class="mt-4 text-3xl font-bold md:text-4xl">{gene.name}</h1>
+      <p class="mt-3 text-sm text-brand-200">{gene.code}</p>
+      <span class="mt-4 inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white">{gene.code} gene marker</span>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <h2 class="text-2xl font-bold text-gray-900">Biological function</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{gene.function}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Breeding value</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{gene.benefit}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Scientific association</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{gene.association}</p>
+
+        <div class="mt-10 rounded-lg bg-accent-500/10 p-6">
+          <h2 class="text-xl font-bold text-gray-900">⚠️ Scientific boundaries</h2>
+          <p class="mt-3 leading-relaxed text-gray-700">
+            A gene test returns <b>probabilistic information about a genetic tendency</b>, not a performance forecast. A pigeon's actual results are shaped by many factors acting together — genetics, training, nutrition, health and environment. The effect of any single locus is limited, so read it alongside other performance loci, race records and pedigree.
+          </p>
+        </div>
+
+        <div class="mt-8 rounded-xl border border-brand-100 bg-brand-50/60 p-6">
+          <h2 class="text-lg font-bold text-gray-900">📚 Further reading: {gene.code} gene encyclopaedia</h2>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">
+            The genetics knowledge base carries the full entry for {gene.name} ({gene.code}) — plain-language explanation, genetic variation and markers, current research evidence, breeding considerations and common questions.
+          </p>
+          <a href={`https://genetics.senopigeon.com/genes/${slug}/`} target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:underline">
+            Read the {gene.code} entry in the genetics knowledge base <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="card bg-brand-50/50">
+          <h3 class="text-lg font-semibold text-gray-900">Marker information</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div>
+              <dt class="font-medium text-gray-500">Gene code</dt>
+              <dd class="mt-1 font-semibold text-gray-900">{gene.code}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">Full name</dt>
+              <dd class="mt-1 text-gray-700">{gene.name}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">Marker type</dt>
+              <dd class="mt-1 text-gray-700">{gene.markerType}</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-gray-500">Literature source</dt>
+              <dd class="mt-1 text-gray-700">{gene.reference}</dd>
+            </div>
+          </dl>
+          <a href="/en/contact/" class="btn-primary mt-6 w-full">Enquire about testing</a>
+        </div>
+
+        <div class="card bg-accent-500/10">
+          <h3 class="text-lg font-semibold text-gray-900">Testing note</h3>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600">
+            A result for a single locus is a reference point only; we recommend the combined panel of eight gene loci for a fuller picture. For sample collection see the
+            <a href="/en/sampling/" class="font-semibold text-brand-600 hover:underline">sampling guide</a>.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="text-2xl font-bold text-gray-900">Other gene markers</h2>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {related.map((g) => (
+          <a href={`/en/genes/${g.code.toLowerCase()}/`} class="card flex items-center gap-3 hover:border-brand-300">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-sm font-bold text-brand-600">{g.code}</div>
+            <div>
+              <h3 class="font-semibold text-gray-900">{g.name}</h3>
+              <p class="text-xs text-gray-500">{g.markerType}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Terms & Conditions | Racing Pigeon Testing';
+const description = 'Terms of service for Zhangjiakou SENO Biotech racing-pigeon testing: scope, disclaimers, sample submission, payment, confidentiality and liability.';
+
+const hreflang = [
+  { lang: 'en', href: 'https://senopigeon.com/en/terms/' },
+  { lang: 'zh-CN', href: 'https://senopigeon.com/tiaokuan/' },
+  { lang: 'x-default', href: 'https://senopigeon.com/tiaokuan/' },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical="/en/terms/" {hreflang}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Terms &amp; Conditions</h1>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="prose prose-gray mx-auto max-w-3xl">
+      <h2>1. General provisions</h2>
+      <p>These Terms and Conditions ("Terms") apply to the racing-pigeon candidate-gene DNA testing and related services provided to you ("the Customer" or "you") by Zhangjiakou SENO Biotech Co., Ltd. (hereinafter "the Company" or "we"). Submitting a sample or placing an order means that you agree to be bound by these Terms.</p>
+
+      <h2>2. Description of services</h2>
+      <ul>
+        <li>Scope of services: the Company provides professional molecular diagnostics, analysing eight candidate-gene loci associated with racing performance in pigeons (LDHA, DRD4, CRY1, MSTN, F-KER, LRP8, GSR, CASK), and also provides virus testing services.</li>
+        <li>Product classification: all products and services are for feed-grade / animal-nutrition use, and are for animal use only (avian / racing pigeons).</li>
+        <li>Exclusions: the services are not intended for human consumption, human medical diagnosis, food processing or pharmaceutical use.</li>
+      </ul>
+
+      <h2>3. Limitations and disclaimers</h2>
+      <ul>
+        <li>Scientific reference only: genetic profile reports are for scientific research, academic and breeding reference only.</li>
+        <li>No guarantee of results: the Company expressly does not guarantee that genetic results can predict or ensure any particular race result, health outcome or breeding outcome. The markers analysed are candidate-gene markers that show a statistical association with performance tendency, not causal effects: this is a genetic tendency, not a guarantee. Racing-pigeon performance is influenced by many factors, including multiple genes, training, environment, nutrition and health.</li>
+        <li>Data limitations: interpretation standards (such as AA/GG classification) are based on current scientific literature, published pigeon research and the Company's own laboratory data, and scientific understanding may evolve over time.</li>
+        <li>Species verification: by submitting a sample, the customer warrants that the sample comes from a racing pigeon (avian) and that it is correctly labelled.</li>
+      </ul>
+
+      <h2>4. Sample submission and testing</h2>
+      <ul>
+        <li>Sample requirements: the customer is responsible for collecting and shipping samples (feathers with the quill, or blood cards) in accordance with the Company's sampling guidelines.</li>
+        <li>Contamination risk: the Company is not responsible for incorrect results caused by sample contamination (cross-contamination between samples or environmental DNA).</li>
+        <li>Insufficient samples: where a sample cannot be analysed because of poor quality or insufficient quantity, the customer will be notified. The Company reserves the right to charge a small handling fee or to require that a new sample be submitted.</li>
+        <li>Turnaround time: an estimated 2-3 working days after the sample arrives at the laboratory; this period is an estimate and not a guarantee.</li>
+      </ul>
+
+      <h2>5. Payment and confidentiality</h2>
+      <ul>
+        <li>Payment: the payment methods (including bank transfer and PayPal) are those stated on the invoice, and services begin only after full payment has been received.</li>
+        <li>Confidentiality: the Company keeps genetic data and customers' personal information strictly confidential and will not share them with third parties without the customer's express written consent, except where required by law.</li>
+        <li>Data use: the Company reserves the right to anonymise and aggregate genetic data (without identifiable information) for internal research and development, statistical analysis and improvement of testing standards.</li>
+      </ul>
+
+      <h2>6. Liability and indemnity</h2>
+      <ul>
+        <li>Limitation of liability: the Company's total liability for any claim shall not exceed the amount paid by the customer for the services concerned. The Company is not liable for any indirect, incidental or consequential damages (such as loss of prize money or loss of breeder value).</li>
+        <li>Indemnity: the customer agrees to indemnify the Company and hold it harmless from any claims, damages or costs arising from a breach of these Terms (including use of feed-grade products for human consumption).</li>
+      </ul>
+
+      <h2>7. Governing law and contact information</h2>
+      <ul>
+        <li>Governing law: these Terms are governed by the laws of the People's Republic of China, specifically under the jurisdiction of Zhangjiakou City, Hebei Province.</li>
+        <li>Contact enquiries: the contact person is Martin W., email martin@senobiocorp.com.</li>
+        <li>Company name: Zhangjiakou SENO Biotech Co., Ltd. (SENO Biotech Co., Ltd)</li>
+      </ul>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

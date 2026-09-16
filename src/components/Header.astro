@@ -1,8 +1,10 @@
 ---
+import { counterpartPath, otherHome, isEnglishPath } from '../i18n/lang';
+
 type NavItem = { label: string; href?: string; children?: { label: string; href: string }[] };
 
 const path = Astro.url.pathname;
-const isEn = path.startsWith('/en/') || path === '/en';
+const isEn = isEnglishPath(path);
 
 const navZh: NavItem[] = [
   { label: '首页', href: '/' },
@@ -33,7 +35,7 @@ const navZh: NavItem[] = [
 ];
 
 const navEn: NavItem[] = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/en/' },
   {
     label: 'Testing Services',
     children: [
@@ -42,35 +44,44 @@ const navEn: NavItem[] = [
       { label: 'DNA ID & Kinship', href: '/en/dna-id-kinship/' },
     ],
   },
-  { label: 'Test Kits', href: '/shijihe/' },
+  { label: 'Test Kits', href: '/en/kits/' },
   {
     label: 'Partnerships',
     children: [
-      { label: 'Lab Setup', href: '/shiyanshi/' },
-      { label: 'Distributor Program', href: '/daili/' },
+      { label: 'Lab Setup', href: '/en/laboratory/' },
+      { label: 'Distributor Program', href: '/en/distributors/' },
     ],
   },
   {
     label: 'Resources',
     children: [
-      { label: 'Knowledge Center', href: '/zhishi/' },
-      { label: 'Blog', href: '/blog/' },
+      { label: 'Knowledge Center', href: '/en/knowledge/' },
+      { label: 'Blog', href: '/en/blog/' },
     ],
   },
-  { label: 'About', href: '/guanyu/' },
+  { label: 'About', href: '/en/about/' },
 ];
 
 const nav = isEn ? navEn : navZh;
-const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+const homeHref = isEn ? '/en/' : '/';
+const isActive = (href: string) =>
+  path === href || (href !== '/' && href !== '/en/' && path.startsWith(href));
 const brandLabel = isEn ? 'SENO Biotech' : '赛诺基因检测中心';
 const ctaLabel = isEn ? 'Start Testing' : '立即检测';
 const mobileAria = isEn ? 'Open menu' : '打开菜单';
 const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
+
+// Language switcher: point at the SAME page in the other language when that
+// page exists; otherwise fall back to the other language home page.
+const switchHref = counterpartPath(path) ?? otherHome(path);
+const switchLabel = isEn ? '中文' : 'EN';
+const switchTitle = isEn ? 'Switch to Chinese' : 'Switch to English';
+const switchLang = isEn ? 'zh-CN' : 'en';
 ---
 
 <header class="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur">
   <div class="container-x flex h-16 items-center justify-between">
-    <a href={isEn ? '/en/' : '/'} class="flex items-center gap-2 font-bold text-brand-800">
+    <a href={homeHref} class="flex items-center gap-2 font-bold text-brand-800">
       <img src="/wp-content/uploads/cropped-cropped-LOGO.png" alt={isEn ? 'SENO Biotech logo' : 'SENO 赛诺基因检测中心 LOGO'} class="h-9 w-9 rounded" width="512" height="512" />
       <span class="text-lg">{brandLabel}</span>
     </a>
@@ -108,10 +119,10 @@ const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
           </div>
         ) : (
           <a
-            href={item.href || '/'}
+            href={item.href || homeHref}
             class:list={[
               'rounded-md px-3 py-2 text-sm font-medium transition',
-              isActive(item.href || '/')
+              isActive(item.href || homeHref)
                 ? 'bg-brand-50 text-brand-700'
                 : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
             ]}
@@ -120,9 +131,9 @@ const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
           </a>
         )
       )}
-      <a href={isEn ? '/zhishi/' : '/'} class="rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:text-gray-600" title={isEn ? '切换到中文' : 'Switch to English'}>{isEn ? '中文' : 'EN'}</a>
+      <a href={switchHref} hreflang={switchLang} lang={switchLang} class="lang-switch rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:text-gray-600" title={switchTitle}>{switchLabel}</a>
     </nav>
-    <a href={isEn ? "/en/contact/" : "/lianxi/"} class="btn-primary hidden sm:inline-flex">{ctaLabel}</a>
+    <a href={isEn ? '/en/contact/' : '/lianxi/'} class="btn-primary hidden sm:inline-flex">{ctaLabel}</a>
     <button id="menu-toggle" class="xl:hidden text-gray-600" aria-label={mobileAria} aria-expanded="false" aria-controls="mobile-menu">
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -150,16 +161,17 @@ const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
           </div>
         ) : (
           <a
-            href={item.href || '/'}
+            href={item.href || homeHref}
             class:list={[
               'block rounded-md px-3 py-2 text-sm font-medium',
-              isActive(item.href || '/') ? 'bg-brand-50 text-brand-700' : 'text-gray-600 hover:bg-gray-50',
+              isActive(item.href || homeHref) ? 'bg-brand-50 text-brand-700' : 'text-gray-600 hover:bg-gray-50',
             ]}
           >
             {item.label}
           </a>
         )
       )}
+      <a href={switchHref} hreflang={switchLang} lang={switchLang} class="lang-switch block rounded-md px-3 py-2 text-sm font-medium text-gray-500">{switchTitle}</a>
     </nav>
   </div>
 </header>
@@ -167,9 +179,12 @@ const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const uiLang = document.documentElement.lang || 'zh-CN';
+  const openLabel = uiLang === 'en' ? 'Open menu' : '打开菜单';
+  const closeLabel = uiLang === 'en' ? 'Close menu' : '关闭菜单';
   toggle?.addEventListener('click', () => {
     const open = menu?.classList.toggle('hidden') === false;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? '关闭菜单' : '打开菜单');
+    toggle.setAttribute('aria-label', open ? closeLabel : openLabel);
   });
 </script>

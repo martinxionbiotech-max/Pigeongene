@@ -1,0 +1,302 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { geneMarkersEn } from '../../data/genesEn';
+import { virusTestsEn } from '../../data/virusesEn';
+
+const title = 'Racing Pigeon DNA Testing | Flight Gene & Pathogen Tests';
+const description = 'Racing pigeon DNA testing: candidate-gene flight markers, 12-pathogen qPCR panels and DNA ID / kinship profiles. Avian use only.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/';
+
+const serviceJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Core racing pigeon testing services',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'Service',
+          name: 'Racing Pigeon Flight Gene Test',
+          url: `${siteUrl}/en/flight-gene-test/`,
+          description: 'Analyses eight candidate gene markers with published pigeon research — LDHA, DRD4, CRY1, MSTN, LRP8, GSR, CASK and F-KER — as a candidate-gene reference for breeding decisions.',
+          provider: { '@id': `${siteUrl}/#organization` },
+          areaServed: 'Worldwide',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@type': 'Service',
+          name: 'Racing Pigeon Pathogen Testing',
+          url: `${siteUrl}/en/pathogen-testing/`,
+          description: 'Covers 12 common pathogens (viral, bacterial, fungal and parasitic) detected by real-time PCR, enabling early detection before clinical signs appear.',
+          provider: { '@id': `${siteUrl}/#organization` },
+          areaServed: 'Worldwide',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: {
+          '@type': 'Service',
+          name: 'Racing Pigeon DNA ID | Kinship Testing',
+          url: `${siteUrl}/en/dna-id-kinship/`,
+          description: 'Uses STR microsatellite markers to build a unique DNA fingerprint for every pigeon, confirming kinship and guarding against pedigree misrepresentation.',
+          provider: { '@id': `${siteUrl}/#organization` },
+          areaServed: 'Worldwide',
+        },
+      },
+    ],
+  },
+];
+
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/` },
+  { lang: 'x-default', href: `${siteUrl}/` },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={serviceJsonLd}>
+  <Header />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white">
+    <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-brand-500/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-accent-500/10 blur-3xl" aria-hidden="true"></div>
+    <div class="container-x relative grid items-center gap-10 py-20 lg:grid-cols-2 lg:py-28">
+      <div>
+        <p class="inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium">
+          A leading racing-pigeon performance DNA testing laboratory in China
+        </p>
+        <h1 class="mt-6 text-4xl font-bold leading-tight sm:text-5xl">
+          Eight performance-associated gene markers<br class="hidden sm:block" />
+          supporting science-based breeding
+        </h1>
+        <p class="mt-5 text-lg text-brand-100">
+          Technical support provided by Zhangjiakou SENO Biotech Co., Ltd. — a National High-Tech Enterprise
+        </p>
+        <p class="mt-3 text-brand-100/90">
+          We focus on racing pigeon flight-gene DNA testing, pathogen testing and DNA ID / kinship testing. Using high-precision molecular diagnostics, we give fanciers, breeders and researchers worldwide reliable, data-driven references for breeding and health management.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/en/flight-gene-test/" class="btn-primary">Flight Gene Test</a>
+          <a href="/en/pathogen-testing/" class="btn-outline-light">Pathogen Testing</a>
+          <a href="/en/dna-id-kinship/" class="btn-outline-light">DNA ID</a>
+        </div>
+      </div>
+      <div class="relative">
+        <img
+          src="/wp-content/uploads/home-hero-racing-pigeon.jpg"
+          alt="Racing pigeon flight-gene DNA testing"
+          class="h-72 w-full rounded-2xl object-cover object-center shadow-2xl sm:h-96 lg:h-full lg:max-h-[480px]"
+          width="809"
+          height="607"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust figures -->
+  <section class="border-b border-gray-100 bg-white py-10">
+    <div class="container-x grid grid-cols-2 gap-6 text-center md:grid-cols-4">
+      {[
+        { n: '12 years', t: 'Focused on pigeon testing', d: 'Founded in 2014' },
+        { n: '8', t: 'Gene markers analysed', d: 'A candidate-gene reference for breeding' },
+        { n: '12', t: 'Pathogen tests available', d: 'Four categories covered' },
+        { n: '2–3 days', t: 'Pathogen report turnaround', d: 'From sample arrival at the laboratory' },
+      ].map((s) => (
+        <div>
+          <p class="text-3xl font-bold text-brand-700">{s.n}</p>
+          <p class="mt-1 text-sm font-semibold text-gray-900">{s.t}</p>
+          <p class="mt-1 text-xs text-gray-500">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Three core services -->
+  <section class="container-x py-20">
+    <div class="text-center">
+      <h2 class="section-title">Three core testing services</h2>
+      <p class="mt-4 text-lg text-gray-600">Science-based breeding · Health protection · Verifiable pedigree</p>
+    </div>
+    <div class="mt-12 grid gap-8 md:grid-cols-3">
+      <a href="/en/flight-gene-test/" class="group card hover:border-brand-300">
+        <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-100 text-2xl transition group-hover:scale-105">🧬</div>
+        <h3 class="mt-5 text-2xl font-bold text-gray-900">Flight Gene Test</h3>
+        <p class="mt-3 text-gray-600">
+          Analyses eight performance-associated loci (LDHA, DRD4, CRY1, MSTN, LRP8, GSR, CASK and F-KER) as a candidate-gene reference for pairing and training decisions.
+        </p>
+        <span class="mt-5 inline-flex items-center gap-1 font-semibold text-brand-600 group-hover:gap-2">
+          Learn more <span aria-hidden="true">→</span>
+        </span>
+      </a>
+      <a href="/en/pathogen-testing/" class="group card hover:border-brand-300">
+        <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-accent-500/20 text-2xl transition group-hover:scale-105">🦠</div>
+        <h3 class="mt-5 text-2xl font-bold text-gray-900">Racing Pigeon Pathogen Testing</h3>
+        <p class="mt-3 text-gray-600">
+          Covers 12 common pathogens (pigeon circovirus, herpesvirus, adenovirus, poxvirus, rotavirus, Newcastle disease, polyomavirus, Salmonella, Candida albicans, Trichomonas, Chlamydia psittaci and Mycoplasma), detected precisely by real-time PCR.
+        </p>
+        <span class="mt-5 inline-flex items-center gap-1 font-semibold text-brand-600 group-hover:gap-2">
+          Learn more <span aria-hidden="true">→</span>
+        </span>
+      </a>
+      <a href="/en/dna-id-kinship/" class="group card hover:border-brand-300">
+        <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-100 text-2xl transition group-hover:scale-105">🪪</div>
+        <h3 class="mt-5 text-2xl font-bold text-gray-900">DNA ID | Kinship Testing</h3>
+        <p class="mt-3 text-gray-600">
+          Uses STR microsatellite markers to build a unique DNA fingerprint for every pigeon, confirming kinship scientifically, guarding against pedigree misrepresentation, and providing a reference for breeder certification, sale verification and breeding management.
+        </p>
+        <span class="mt-5 inline-flex items-center gap-1 font-semibold text-brand-600 group-hover:gap-2">
+          Learn more <span aria-hidden="true">→</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Eight gene markers -->
+  <section class="bg-gray-50 py-20">
+    <div class="container-x">
+      <div class="text-center">
+        <h2 class="section-title">Eight performance-associated gene markers</h2>
+        <p class="mt-4 text-lg text-gray-600">Genotype interpretation and breeding significance in detail</p>
+      </div>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {geneMarkersEn.map((g) => (
+          <div class="card">
+            <div class="flex items-center gap-2">
+              <span class="rounded-md bg-brand-600 px-2 py-0.5 text-xs font-bold text-white">{g.code}</span>
+            </div>
+            <h3 class="mt-3 font-semibold text-gray-900">{g.name}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">{g.function}</p>
+            <p class="mt-3 text-sm font-medium text-brand-700">Breeding value:</p>
+            <p class="text-sm text-gray-600">{g.benefit}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/en/flight-gene-test/" class="btn-primary">See the full flight gene test service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pathogen testing overview -->
+  <section class="container-x py-20">
+    <div class="container-x">
+      <div class="text-center">
+        <h2 class="section-title">12 pathogen tests</h2>
+        <p class="mt-4 text-lg text-gray-600">Covering common viral, bacterial, fungal and parasitic pathogens of racing pigeons</p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {virusTestsEn.map((v) => (
+          <a href={`/en/pathogens/${v.slug}/`} class="card flex items-center gap-4 hover:border-brand-300">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-lg">🔬</div>
+            <div>
+              <h3 class="font-semibold text-gray-900">{v.name}</h3>
+              <p class="text-xs text-gray-500">{v.type}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Pathogen testing technical advantages -->
+      <div class="mt-12 grid gap-6 rounded-2xl border border-brand-100 bg-white p-8 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { icon: '🎯', t: 'High sensitivity', d: 'Real-time PCR detects very low copy numbers of pathogen nucleic acid' },
+          { icon: '⚡', t: 'Fast and accurate', d: 'A standardised electronic report in 2–3 working days' },
+          { icon: '🧬', t: 'Highly specific', d: 'Specific primers and probes avoid cross-reactivity' },
+          { icon: '🔬', t: 'Four categories covered', d: 'Viruses, bacteria, fungi and parasites all tested' },
+        ].map((a) => (
+          <div class="text-center">
+            <div class="text-3xl">{a.icon}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{a.t}</h3>
+            <p class="mt-2 text-sm text-gray-600">{a.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="/en/pathogen-testing/" class="btn-primary">See all pathogen tests</a>
+        <a href="/en/sampling/" class="btn-outline">Sampling methods</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages -->
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-20 text-white">
+    <div class="container-x">
+      <div class="text-center">
+        <h2 class="section-title !text-white">Why choose SENO Biotech?</h2>
+        <p class="mt-4 text-brand-100">Trust · Expertise · Efficiency</p>
+      </div>
+      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-3xl">🏆</div>
+          <h3 class="mt-4 text-lg font-semibold">High-tech certification</h3>
+          <p class="mt-2 text-sm text-brand-100">A National High-Tech Enterprise with continued investment in R&amp;D and technical innovation.</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-3xl">✅</div>
+          <h3 class="mt-4 text-lg font-semibold">No compromise on quality</h3>
+          <p class="mt-2 text-sm text-brand-100">Laboratory workflows follow ISO quality-management standards, with QC steps designed to reduce the risk of error.</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-3xl">🔬</div>
+          <h3 class="mt-4 text-lg font-semibold">Scientific excellence</h3>
+          <p class="mt-2 text-sm text-brand-100">A municipal key laboratory, with test methods that are continuously verified and improved.</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/10 text-3xl">⚡</div>
+          <h3 class="mt-4 text-lg font-semibold">Fast reporting</h3>
+          <p class="mt-2 text-sm text-brand-100">Pathogen testing reports are issued in 2–3 working days after the sample reaches the laboratory.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testing process -->
+  <section class="container-x py-20">
+    <div class="text-center">
+      <h2 class="section-title">Testing process: simple · safe · worldwide</h2>
+    </div>
+    <div class="mt-12 grid gap-8 md:grid-cols-4">
+      {[
+        { n: '①', t: 'Simple sampling', d: 'Collect feathers with an intact root or a blood-card sample safely. We accept compliant samples from fanciers worldwide.' },
+        { n: '②', t: 'Worldwide shipping', d: 'Send the sample together with the submission form by DHL, FedEx or a similar courier.' },
+        { n: '③', t: 'Fast analysis', d: 'High-precision PCR analysis starts as soon as the laboratory receives the sample.' },
+        { n: '④', t: 'Electronic report', d: 'Receive a complete report with genotype interpretation by email or via a secure platform.' },
+      ].map((s) => (
+        <div class="card text-center">
+          <div class="text-4xl font-bold text-brand-600">{s.n}</div>
+          <h3 class="mt-4 text-lg font-semibold text-gray-900">{s.t}</h3>
+          <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="bg-gray-50 py-20">
+    <div class="container-x">
+      <div class="flex items-end justify-between">
+        <div>
+          <h2 class="section-title">Articles</h2>
+          <p class="mt-2 text-gray-600">The latest knowledge on gene testing, disease control and science-based breeding.</p>
+        </div>
+        <a href="/en/blog/" class="text-sm font-semibold text-brand-600 hover:text-brand-700">View all →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

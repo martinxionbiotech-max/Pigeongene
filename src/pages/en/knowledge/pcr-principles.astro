@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'PCR & qPCR Principles | Racing Pigeon Gene Testing';
+const description =
+  'How racing pigeon gene testing works: PCR chain reaction, real-time quantitative PCR, STR microsatellite typing and SNP genotyping explained step by step.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/knowledge/pcr-principles/';
+const pageUrl = `${siteUrl}${canonicalPath}`;
+
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/zhishi/jishu-yuanli/` },
+  { lang: 'x-default', href: `${siteUrl}/zhishi/jishu-yuanli/` },
+];
+
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Gene Testing Principles: PCR and qPCR Molecular Diagnostics',
+    url: pageUrl,
+    description,
+    author: { '@type': 'Organization', name: 'Zhangjiakou SENO Biotech Co., Ltd.' },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'en',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Knowledge Centre', item: `${siteUrl}/en/knowledge/` },
+      { '@type': 'ListItem', position: 3, name: 'Gene Testing Principles', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'Why use PCR rather than sequencing?', acceptedAnswer: { '@type': 'Answer', text: 'For genotyping known loci, PCR is faster, costs less and can test many samples in a single batch; whole-genome sequencing gives more complete information but costs more and is better suited to research settings.' } },
+      { '@type': 'Question', name: 'What is the difference between SNP and STR?', acceptedAnswer: { '@type': 'Answer', text: 'A SNP is a single-base variation, used for trait association analysis; an STR is a difference in repeat number, with high polymorphism, suited to individual identification and parentage testing. The two uses are complementary.' } },
+      { '@type': 'Question', name: 'Does the environment affect testing?', acceptedAnswer: { '@type': 'Answer', text: 'DNA sequence does not change with the environment, but sample contamination or poor storage will affect the reliability of results — which is why standardised sampling and quality control procedures matter.' } },
+    ],
+  },
+];
+
+const techs = [
+  {
+    name: 'PCR (polymerase chain reaction)',
+    en: 'Polymerase Chain Reaction',
+    desc: 'The core technique for amplifying a specific DNA fragment in vitro. Through three temperature stages — denaturation, annealing and extension — a trace amount of target DNA is amplified exponentially, up to millions of copies, so that even extremely small amounts of genetic material can be detected.',
+    use: 'The foundational technique for gene locus testing and pathogen nucleic acid detection.',
+  },
+  {
+    name: 'Real-time quantitative PCR (qPCR)',
+    en: 'Real-time Quantitative PCR',
+    desc: 'A fluorescent probe is added to the PCR reaction to monitor amplification in real time. The shape of the fluorescence curve (Ct value) quantifies the initial amount of target nucleic acid, with high sensitivity and specificity, so that even very low copy numbers of pathogen nucleic acid can be detected.',
+    use: 'Used for pathogen detection and quantification, enabling early detection before clinical signs appear.',
+  },
+  {
+    name: 'STR microsatellite typing',
+    en: 'Short Tandem Repeat',
+    desc: 'STRs are short sequences of 2–6 bases that repeat in the genome, and the number of repeats varies widely between individuals. By genotyping the repeat-number combination at multiple STR loci, a DNA fingerprint unique to each racing pigeon can be built.',
+    use: 'Used to establish a DNA ID and for parentage testing.',
+  },
+  {
+    name: 'SNP genotyping',
+    en: 'Single Nucleotide Polymorphism',
+    desc: 'A SNP is a variation at a single base in the genome, and an important genetic basis for differences in biological traits. Genotyping candidate-gene SNP loci associated with racing pigeon traits assesses the genetic tendency of traits related to racing performance — a statistical association drawn from published pigeon research, not a causal claim.',
+    use: 'Used for genotype analysis at candidate-gene loci associated with flight performance — a genetic reference for breeding decisions, always read alongside performance records.',
+  },
+];
+
+const workflow = [
+  { n: '①', t: 'DNA extraction', d: 'High-quality genomic DNA is extracted from feather pulp, blood cards or swab samples.' },
+  { n: '②', t: 'Target amplification', d: 'PCR/qPCR specifically amplifies the target gene loci or pathogen nucleic acid.' },
+  { n: '③', t: 'Signal detection', d: 'Fluorescence signals or electrophoresis bands are read to obtain the genotype or pathogen detection result.' },
+  { n: '④', t: 'Data analysis', d: 'Genotypes are called and results interpreted against reference databases and quality-control standards.' },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={articleJsonLd} type="article">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/en/" class="hover:text-white">Home</a> /
+        <a href="/en/knowledge/" class="hover:text-white">Knowledge Centre</a> /
+        <span class="text-white">Gene testing principles</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">Gene testing principles</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        How PCR, qPCR and STR typing work — the scientific basis behind racing pigeon gene testing.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl space-y-8">
+      {techs.map((t) => (
+        <div class="card">
+          <h2 class="text-xl font-bold text-gray-900">{t.name}</h2>
+          <p class="mt-1 text-sm text-gray-500">{t.en}</p>
+          <p class="mt-3 leading-relaxed text-gray-700">{t.desc}</p>
+          <p class="mt-3 rounded-lg bg-brand-50 px-4 py-2 text-sm text-brand-700">
+            <strong>Application:</strong> {t.use}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Testing workflow</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-4">
+        {workflow.map((s) => (
+          <div class="card text-center">
+            <div class="text-3xl font-bold text-brand-600">{s.n}</div>
+            <h3 class="mt-3 font-semibold text-gray-900">{s.t}</h3>
+            <p class="mt-2 text-sm text-gray-600">{s.d}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/en/flight-gene-test/" class="btn-primary">Explore our gene testing service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scope of service -->
+  <section class="container-x py-8">
+    <div class="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
+      <p class="text-sm leading-relaxed text-gray-700">
+        ⚠️ <b>Scope of service:</b> all tests are for racing pigeons and other birds (avian/veterinary use) only. They are <b>not</b> intended for human medical diagnosis.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Technical principles FAQ</h2>
+      <div class="mx-auto mt-8 max-w-3xl space-y-4">
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Why use PCR rather than sequencing?</p>
+          <p class="mt-2 text-sm text-gray-600">For genotyping known loci, PCR is faster, costs less and can test many samples in a single batch; whole-genome sequencing gives more complete information but costs more and is better suited to research settings.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">What is the difference between SNP and STR?</p>
+          <p class="mt-2 text-sm text-gray-600">A SNP is a single-base variation, used for trait association analysis; an STR is a difference in repeat number, with high polymorphism, suited to individual identification and parentage testing. The two uses are complementary.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Does the environment affect testing?</p>
+          <p class="mt-2 text-sm text-gray-600">DNA sequence does not change with the environment, but sample contamination or poor storage will affect the reliability of results — which is why standardised sampling and quality control procedures matter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

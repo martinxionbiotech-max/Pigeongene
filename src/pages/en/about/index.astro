@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'About Us | Zhangjiakou SENO Biotech Co., Ltd.';
+const description = 'Zhangjiakou SENO Biotech Co., Ltd. — a National High-Tech Enterprise and key gene-testing laboratory in Zhangjiakou, focused on racing pigeon testing.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/about/';
+
+const aboutJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About Us',
+    url: `${siteUrl}${canonicalPath}`,
+    inLanguage: 'en',
+    mainEntity: { '@id': `${siteUrl}/#organization` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${siteUrl}/#zhangyiwen`,
+    name: 'Zhang Yiwen',
+    jobTitle: 'Chief Scientific Expert',
+    affiliation: { '@id': `${siteUrl}/#organization` },
+    alumniOf: 'Hebei Agricultural University',
+    knowsAbout: ['Racing pigeon genetics', 'Molecular diagnostics', 'Avian performance diagnostics'],
+  },
+];
+
+const certifications = [
+  { icon: '🏆', name: 'National High-Tech Enterprise', desc: 'Jointly recognised by the Ministry of Science and Technology, the Ministry of Finance and the State Taxation Administration, with core independent intellectual property and sustained R&D capability.' },
+  { icon: '🔬', name: 'Municipal Key Gene-Testing Laboratory', desc: 'Designated a key laboratory of Zhangjiakou in 2021, responsible for regional gene-testing technology development and application.' },
+  { icon: '📋', name: 'ISO 9001 Quality Management System', desc: 'Laboratory testing workflows follow ISO 9001 quality-management standards to keep reports accurate and reliable.' },
+  { icon: '🧬', name: '20+ independent patents', desc: 'More than 20 patents in biological testing and reagent development, reflecting our in-house innovation capability.' },
+];
+
+const team = [
+  {
+    name: 'Dr. Zhang Yiwen',
+    role: 'Chief Scientific Expert',
+    bio: 'Holds a PhD in genetics from Hebei Agricultural University. Long engaged in avian genetics and molecular diagnostics research, recognised in the field in 2024, and continues to advance racing pigeon genetics and performance-diagnostics research.',
+  },
+  {
+    name: 'R&D Team',
+    role: 'Molecular diagnostics R&D',
+    bio: 'Led by two PhDs and two MSc holders within a 15-person team; more than half have five or more years of laboratory experience, focused on developing and validating PCR/qPCR test systems.',
+  },
+  {
+    name: 'Quality Control Team',
+    role: 'Quality control and review',
+    bio: 'Every test report is double-reviewed by independent QC staff under strict MIQE guidelines and internal QC standards, so results are traceable and reproducible.',
+  },
+];
+
+const qcStandards = [
+  'MIQE guidelines are followed to keep qPCR experiments reproducible, accurate and transparent',
+  'Every reaction includes an internal amplification control to verify extraction efficiency and sample integrity',
+  'A dUTP/UNG system eliminates aerosol contamination and prevents false positives',
+  'Amplification efficiency is monitored at 95%–105% for reliable detection of low-load samples',
+  'A double-review mechanism: every report is signed off after review by independent QC staff',
+];
+
+const milestones = [
+  { year: '2014', event: 'Company founded, focused on gene testing and reagent development in biotechnology.' },
+  { year: '2020', event: 'Invited to move into the North Silicon Valley park in Qiaodong District, Zhangjiakou, and established as a key regional technology enterprise.' },
+  { year: '2021', event: 'Recognised as a National High-Tech Enterprise and designated a key gene-testing laboratory of Zhangjiakou.' },
+  { year: 'To date', event: 'Continuing to serve fanciers worldwide, having completed a large number of racing pigeon gene and pathogen test samples.' },
+];
+
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/guanyu/` },
+  { lang: 'x-default', href: `${siteUrl}/guanyu/` },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={aboutJsonLd}>
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">About Us</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">Mission and vision: supporting science-based breeding success</p>
+    </div>
+  </section>
+
+  <!-- Company profile -->
+  <section class="container-x py-16">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900">Zhangjiakou SENO Biotech Co., Ltd.</h2>
+        <p class="mt-6 leading-relaxed text-gray-700">
+          SENO Biotech was founded in 2014 and has more than a decade of focused experience in gene testing and reagent development in biotechnology. We apply advanced molecular biology to avian genetics, giving fanciers and breeders worldwide reliable, data-driven genetic insight.
+        </p>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          In 2020 the company was invited to move into the North Silicon Valley park in Qiaodong District, Zhangjiakou, and was established as a key regional technology enterprise. The company has been recognised as a National High-Tech Enterprise and a technology-based SME, and in 2021 was designated a key gene-testing laboratory of Zhangjiakou.
+        </p>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          Our three core services are racing pigeon flight-gene testing, pathogen testing and DNA ID / kinship testing. Using high-precision molecular diagnostics, we provide scientific, dependable testing for fanciers, breeders and researchers worldwide.
+        </p>
+      </div>
+      <div>
+        <img
+          src="/wp-content/uploads/SENO-Location.jpg"
+          alt="Location of the SENO Biotech laboratory"
+          class="w-full rounded-2xl shadow-lg"
+          width="1576"
+          height="1032"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Research infrastructure -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Research infrastructure and team</h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="card text-center">
+          <div class="text-3xl">🏢</div>
+          <h3 class="mt-3 text-xl font-bold text-brand-700">1,500 m²</h3>
+          <p class="mt-2 text-sm text-gray-600">Two laboratory complexes purpose-built for high-throughput, high-precision molecular diagnostics.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-3xl">💎</div>
+          <h3 class="mt-3 text-xl font-bold text-brand-700">US$1 million</h3>
+          <p class="mt-2 text-sm text-gray-600">Total value of advanced instrumentation, supporting industry-leading accuracy and analytical capability.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-3xl">👨‍🔬</div>
+          <h3 class="mt-3 text-xl font-bold text-brand-700">15-person team</h3>
+          <p class="mt-2 text-sm text-gray-600">Including two PhDs and two MSc holders; half have more than five years of laboratory experience.</p>
+        </div>
+        <div class="card text-center">
+          <div class="text-3xl">📄</div>
+          <h3 class="mt-3 text-xl font-bold text-brand-700">20+ patents</h3>
+          <p class="mt-2 text-sm text-gray-600">Patents relating to biological testing and reagent development, reflecting our in-house innovation capability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Certifications and accreditation</h2>
+    <p class="mt-4 text-center text-gray-600">Recognised credentials that document our capability</p>
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {certifications.map((c) => (
+        <div class="card text-center">
+          <div class="text-3xl">{c.icon}</div>
+          <h3 class="mt-3 font-semibold text-gray-900">{c.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-gray-600">{c.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Expert team -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Expert team</h2>
+      <p class="mt-4 text-center text-gray-600">Specialists accountable for every report</p>
+      <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
+        {team.map((t) => (
+          <div class="card">
+            <h3 class="text-lg font-bold text-gray-900">{t.name}</h3>
+            <p class="mt-1 text-sm font-semibold text-brand-700">{t.role}</p>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600">{t.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- QC standards -->
+  <section class="container-x py-16">
+    <h2 class="section-title text-center">Quality control standards</h2>
+    <p class="mt-4 text-center text-gray-600">A multi-dimensional QC system for accurate, dependable results</p>
+    <div class="mx-auto mt-10 max-w-3xl space-y-3">
+      {qcStandards.map((q) => (
+        <div class="flex items-start gap-3 rounded-lg bg-brand-50 p-4 text-gray-700">
+          <span class="mt-0.5 text-brand-600">✓</span>
+          <span class="text-sm leading-relaxed">{q}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Milestones -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Milestones</h2>
+      <div class="mx-auto mt-12 max-w-2xl space-y-6">
+        {milestones.map((m) => (
+          <div class="flex gap-4">
+            <div class="shrink-0 rounded-lg bg-brand-600 px-3 py-1 text-sm font-bold text-white">{m.year}</div>
+            <p class="text-gray-700">{m.event}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/en/contact/" class="btn-primary">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

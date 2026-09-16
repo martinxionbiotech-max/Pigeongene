@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'How to Read a Racing Pigeon Gene Test Report | Guide';
+const description =
+  'How to read a racing pigeon gene test report: what each genotype means, how to interpret positive and negative results, and how to use them in breeding.';
+
+const siteUrl = 'https://senopigeon.com';
+const canonicalPath = '/en/knowledge/report-guide/';
+const pageUrl = `${siteUrl}${canonicalPath}`;
+
+const hreflang = [
+  { lang: 'en', href: `${siteUrl}${canonicalPath}` },
+  { lang: 'zh-CN', href: `${siteUrl}/zhishi/baogao-jiedu/` },
+  { lang: 'x-default', href: `${siteUrl}/zhishi/baogao-jiedu/` },
+];
+
+const articleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'How to read a racing pigeon gene test report',
+    url: pageUrl,
+    description,
+    author: { '@type': 'Organization', name: 'Zhangjiakou SENO Biotech Co., Ltd.' },
+    publisher: { '@id': `${siteUrl}/#organization` },
+    inLanguage: 'en',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Knowledge Centre', item: `${siteUrl}/en/knowledge/` },
+      { '@type': 'ListItem', position: 3, name: 'Report Guide', item: pageUrl },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'If the genotype is the same, are the results the same?', acceptedAnswer: { '@type': 'Answer', text: 'Not necessarily. Genotype only contributes genetic tendency; training, environment, nutrition and health status are equally important to the outcome — sometimes more so.' } },
+      { '@type': 'Question', name: 'Can the "association" in the report be treated as a conclusion?', acceptedAnswer: { '@type': 'Answer', text: '"Association" is statistical association evidence and is not causal. When interpreting it, look at the evidence level and literature source noted in the report, and consult an expert where necessary.' } },
+      { '@type': 'Question', name: 'Which situations is it suitable for?', acceptedAnswer: { '@type': 'Answer', text: 'Mainly breeding reference, pedigree verification and individual record-keeping. It is not used for performance prediction or veterinary diagnosis.' } },
+    ],
+  },
+];
+
+const sections = [
+  {
+    title: 'Reading a gene test report',
+    desc: 'A flight-performance gene test report shows the genotype at each gene locus (such as AA, AG or GG) and notes the performance tendency annotated for that genotype. It is important to stress that a gene indicates a "tendency" rather than a "decision": racing results are the combined outcome of genetics, training, environment, nutrition and health. The loci we report are candidate-gene associations drawn from published pigeon research — a genetic tendency, not a guarantee.',
+    points: [
+      'Genotype reflects a genetic tendency and does not equal competition results',
+      'The contribution of any single locus is limited — assess several loci together',
+      'Gene testing is a reference for breeding decisions, always read alongside performance records; the associations are statistical, not causal',
+    ],
+  },
+  {
+    title: 'Reading a pathogen test report',
+    desc: 'A pathogen test report shows the detection result for each pathogen tested, usually expressed as "positive (detected)" or "negative (not detected)". qPCR uses the Ct value to reflect pathogen load: the lower the Ct value, the higher the pathogen load.',
+    points: [
+      'Negative: target pathogen nucleic acid not detected, so the loft\'s risk from that pathogen is lower',
+      'Positive: the target pathogen was detected — infection status must be assessed together with clinical signs',
+      'Weak positive: pathogen load is low, which may indicate early infection or a carrier state',
+      'Results should be judged alongside clinical signs, epidemiology and husbandry management',
+    ],
+  },
+  {
+    title: 'Reading a DNA ID and parentage report',
+    desc: 'A DNA ID report contains the STR locus genotype data for each racing pigeon, forming a unique DNA fingerprint. Parentage testing compares the genotypes of offspring with candidate parents to calculate the probability of relationship.',
+    points: [
+      'A DNA fingerprint is unchanged for the animal\'s whole life and can be used for identity verification and anti-fraud',
+      'Parentage testing follows Mendelian inheritance and compares multiple STR loci',
+      'Excluding a parent requires mismatches at multiple loci; confirming parentage requires meeting a cumulative probability threshold',
+    ],
+  },
+];
+
+const tips = [
+  'Combine the gene report with training records to build an individual training plan',
+  'When pairing, consider both birds\' genotypes to optimise the genetic combination for the target traits',
+  'Isolate affected birds promptly after a positive pathogen result to prevent spread through the loft',
+  'Re-test periodically to monitor loft health over time',
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={articleJsonLd} type="article">
+  <Header />
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <nav class="text-sm text-brand-100">
+        <a href="/en/" class="hover:text-white">Home</a> /
+        <a href="/en/knowledge/" class="hover:text-white">Knowledge Centre</a> /
+        <span class="text-white">Report guide</span>
+      </nav>
+      <h1 class="mt-4 text-4xl font-bold">How to read a racing pigeon gene test report</h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100">
+        Making test data genuinely useful for scientific breeding and health management.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl space-y-10">
+      {sections.map((s) => (
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">{s.title}</h2>
+          <p class="mt-4 leading-relaxed text-gray-700">{s.desc}</p>
+          <ul class="mt-4 space-y-2">
+            {s.points.map((p) => (
+              <li class="flex items-start gap-2 text-gray-700">
+                <span class="mt-1 text-brand-500">•</span> {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Scope of service -->
+  <section class="container-x py-8">
+    <div class="mx-auto max-w-3xl rounded-xl border border-amber-200 bg-amber-50 p-6">
+      <p class="text-sm leading-relaxed text-gray-700">
+        ⚠️ <b>Scope of service:</b> all tests are for racing pigeons and other birds (avian/veterinary use) only. They are <b>not</b> intended for human medical diagnosis.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Practical advice</h2>
+      <div class="mx-auto mt-10 max-w-3xl space-y-3">
+        {tips.map((t) => (
+          <div class="flex items-start gap-3 rounded-lg bg-white p-4 text-gray-700 shadow-sm">
+            <span class="mt-0.5 text-accent-500">💡</span>
+            <span class="text-sm leading-relaxed">{t}</span>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 text-center">
+        <a href="/en/faq/" class="btn-outline">See the FAQ</a>
+        <a href="/en/contact/" class="btn-primary ml-4">Ask about report interpretation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container-x py-16">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="section-title text-center">Report interpretation FAQ</h2>
+      <div class="mt-8 space-y-4">
+        <div class="rounded-lg border border-gray-100 bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">If the genotype is the same, are the results the same?</p>
+          <p class="mt-2 text-sm text-gray-600">Not necessarily. Genotype only contributes genetic tendency; training, environment, nutrition and health status are equally important to the outcome — sometimes more so.</p>
+        </div>
+        <div class="rounded-lg border border-gray-100 bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Can the "association" in the report be treated as a conclusion?</p>
+          <p class="mt-2 text-sm text-gray-600">"Association" is statistical association evidence and is not causal. When interpreting it, look at the evidence level and literature source noted in the report, and consult an expert where necessary.</p>
+        </div>
+        <div class="rounded-lg border border-gray-100 bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Which situations is it suitable for?</p>
+          <p class="mt-2 text-sm text-gray-600">Mainly breeding reference, pedigree verification and individual record-keeping. It is not used for performance prediction or veterinary diagnosis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
