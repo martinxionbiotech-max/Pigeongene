@@ -41,6 +41,16 @@ const serviceJsonLd = [
       description: g.function,
     })),
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'Can gene testing predict race results?', acceptedAnswer: { '@type': 'Answer', text: 'No. Genotypes reflect genetic tendency only; race results are the product of many genes, training, environment, nutrition and health. Reports support breeding reference, not result prediction.' } },
+      { '@type': 'Question', name: 'What sample do I need?', acceptedAnswer: { '@type': 'Answer', text: 'Feathers with complete calamus (3-5) or blood cards; see the sampling guide for details.' } },
+      { '@type': 'Question', name: 'How old must a young pigeon be for testing?', acceptedAnswer: { '@type': 'Answer', text: 'The DNA sequence is stable for life; squabs can be sampled shortly after hatching for early breeding reference.' } },
+      { '@type': 'Question', name: 'How do I read the results?', acceptedAnswer: { '@type': 'Answer', text: 'The report lists genotypes per locus, known association direction and literature sources, with evidence grades and interpretation boundaries; consult our experts for breeding advice.' } },
+    ],
+  },
 ];
 
 const hreflang = [
@@ -150,6 +160,31 @@ const hreflang = [
     </div>
     <div class="mt-10 text-center">
       <a href="/en/contact/" class="btn-primary">Start a test</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+      <div class="mx-auto mt-10 max-w-3xl space-y-4">
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Can gene testing predict race results?</p>
+          <p class="mt-2 text-sm text-gray-600">No. Genotypes reflect genetic tendency only; race results are the product of many genes, training, environment, nutrition and health. Reports support breeding reference, not result prediction.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">What sample do I need?</p>
+          <p class="mt-2 text-sm text-gray-600">Feathers with complete calamus (3-5) or blood cards; see the sampling guide for details.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">How old must a young pigeon be for testing?</p>
+          <p class="mt-2 text-sm text-gray-600">The DNA sequence is stable for life; squabs can be sampled shortly after hatching for early breeding reference.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">How do I read the results?</p>
+          <p class="mt-2 text-sm text-gray-600">The report lists genotypes per locus, known association direction and literature sources, with evidence grades and interpretation boundaries; consult our experts for breeding advice.</p>
+        </div>
+      </div>
     </div>
   </section>
 

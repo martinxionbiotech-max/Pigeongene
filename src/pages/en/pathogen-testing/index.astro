@@ -30,6 +30,16 @@ const serviceJsonLd = [
       { '@type': 'ListItem', position: 2, name: 'Pathogen Testing', item: `${siteUrl}${canonicalPath}` },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'Is it too late to test once symptoms appear?', acceptedAnswer: { '@type': 'Answer', text: 'Testing during symptoms identifies the cause and guides targeted treatment. Regular pre-race screening and quarantine testing catch problems earlier, reducing spread risk.' } },
+      { '@type': 'Question', name: 'Does a negative result mean my pigeon is healthy?', acceptedAnswer: { '@type': 'Answer', text: 'Not necessarily. A negative result reflects the sample at the time of collection; sampling timing, sample quality and pathogen load all affect detection.' } },
+      { '@type': 'Question', name: 'What should I test when multiple symptoms appear?', acceptedAnswer: { '@type': 'Answer', text: 'Respiratory and digestive symptoms overlap across many pathogens. Choose a combined panel based on symptoms and exposure history, and discuss the plan with the lab.' } },
+      { '@type': 'Question', name: 'How long does a report take?', acceptedAnswer: { '@type': 'Answer', text: 'Routine panels take 2-3 working days after the sample arrives; specifics depend on the project and sample receipt time.' } },
+    ],
+  },
 ];
 
 const scenarios = [
@@ -157,11 +167,36 @@ const qc = [
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+      <div class="mx-auto mt-10 max-w-3xl space-y-4">
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Is it too late to test once symptoms appear?</p>
+          <p class="mt-2 text-sm text-gray-600">Testing during symptoms identifies the cause and guides targeted treatment. Regular pre-race screening and quarantine testing catch problems earlier, reducing spread risk.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Does a negative result mean my pigeon is healthy?</p>
+          <p class="mt-2 text-sm text-gray-600">Not necessarily. A negative result reflects the sample at the time of collection; sampling timing, sample quality and pathogen load all affect detection.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">What should I test when multiple symptoms appear?</p>
+          <p class="mt-2 text-sm text-gray-600">Respiratory and digestive symptoms overlap across many pathogens. Choose a combined panel based on symptoms and exposure history, and discuss the plan with the lab.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">How long does a report take?</p>
+          <p class="mt-2 text-sm text-gray-600">Routine panels take 2-3 working days after the sample arrives; specifics depend on the project and sample receipt time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
     <div class="container-x text-center">
       <h2 class="text-3xl font-bold">Protect your loft with precise testing</h2>
-      <p class="mt-4 text-white/90">Submit samples and receive an authoritative report in 2–3 working days</p>
+      <p class="mt-4 text-white/90">Submit samples and receive a report in 2–3 working days</p>
       <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a href="/caiyang/" class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-accent-700 shadow-sm transition hover:bg-brand-50">Sampling methods</a>
         <a href="/en/contact/" class="btn-outline-light">Contact an expert</a>

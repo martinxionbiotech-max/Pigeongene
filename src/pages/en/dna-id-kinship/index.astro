@@ -30,6 +30,16 @@ const serviceJsonLd = [
       { '@type': 'ListItem', position: 2, name: 'DNA ID & Kinship', item: `${siteUrl}${canonicalPath}` },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      { '@type': 'Question', name: 'How is a DNA ID different from a pedigree?', acceptedAnswer: { '@type': 'Answer', text: 'Pedigrees rely on manual records which may contain errors or tampering; a DNA ID is based on objective genotyping data that can be verified against records.' } },
+      { '@type': 'Question', name: 'Can kinship testing confirm parent-offspring relationships?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Each allele in the offspring must trace to the parents\' genotypes; multiple STR markers jointly support or exclude parentage.' } },
+      { '@type': 'Question', name: 'How long does a report take?', acceptedAnswer: { '@type': 'Answer', text: '7-14 working days after the sample arrives, depending on sample volume and shipping time.' } },
+      { '@type': 'Question', name: 'When is this needed?', acceptedAnswer: { '@type': 'Answer', text: 'Breeder verification, auction anti-fraud, pedigree disputes, and lifelong identity archiving.' } },
+    ],
+  },
 ];
 
 const hreflang = [
@@ -142,6 +152,31 @@ const hreflang = [
       <p class="text-sm leading-relaxed text-gray-700">
         ⚠️ <b>Scope of service:</b> all tests are for racing pigeons and other birds (avian/veterinary use) only. They are <b>not</b> intended for human medical diagnosis.
       </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 py-16">
+    <div class="container-x">
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+      <div class="mx-auto mt-10 max-w-3xl space-y-4">
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">How is a DNA ID different from a pedigree?</p>
+          <p class="mt-2 text-sm text-gray-600">Pedigrees rely on manual records which may contain errors or tampering; a DNA ID is based on objective genotyping data that can be verified against records.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">Can kinship testing confirm parent-offspring relationships?</p>
+          <p class="mt-2 text-sm text-gray-600">Yes. Each allele in the offspring must trace to the parents' genotypes; multiple STR markers jointly support or exclude parentage.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">How long does a report take?</p>
+          <p class="mt-2 text-sm text-gray-600">7-14 working days after the sample arrives, depending on sample volume and shipping time.</p>
+        </div>
+        <div class="rounded-lg bg-white p-5 shadow-sm">
+          <p class="font-semibold text-gray-900">When is this needed?</p>
+          <p class="mt-2 text-sm text-gray-600">Breeder verification, auction anti-fraud, pedigree disputes, and lifelong identity archiving.</p>
+        </div>
+      </div>
     </div>
   </section>
 
