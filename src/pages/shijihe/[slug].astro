@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { dnaKits } from '../../data/kits';
+import { KIT_PRICE_TEXT_ZH, kitOffers } from '../../data/pricing';
 
 export function getStaticPaths() {
   return dnaKits.map((kit) => ({
@@ -31,6 +32,7 @@ const productJsonLd = [
     category: kit.category,
     brand: { '@type': 'Brand', name: 'SENO' },
     manufacturer: { '@id': `${siteUrl}/#organization` },
+    offers: kitOffers(pageUrl),
     additionalProperty: [
       { '@type': 'PropertyValue', name: '检测目标', value: kit.target },
       { '@type': 'PropertyValue', name: '检测技术', value: kit.tech },
@@ -127,6 +129,9 @@ const related = dnaKits.filter((k) => k.category === kit.category && k.slug !== 
               <dd class="mt-1 text-gray-700">{kit.storage}</dd>
             </div>
           </dl>
+          <p class="mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+            <span class="font-semibold text-gray-900">价格：</span> {KIT_PRICE_TEXT_ZH}
+          </p>
           <a href="/lianxi/" class="btn-primary mt-6 w-full">咨询采购</a>
         </div>
 

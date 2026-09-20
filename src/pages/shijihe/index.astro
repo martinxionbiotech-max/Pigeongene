@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { dnaKits, kitTech } from '../../data/kits';
+import { KIT_PRICE_TEXT_ZH, kitOffers } from '../../data/pricing';
 
 const title = '禽类分子诊断试剂盒 | PCR 检测方案';
 const description = '禽类与赛鸽分子诊断试剂盒，涵盖性别鉴定与病原核酸检测（鸽疱疹病毒、圆环病毒、腺病毒、副黏病毒、衣原体、沙门氏菌、毛滴虫等），基于 PCR/RT-PCR 荧光探针技术，含 UNG 防污染系统。';
@@ -28,9 +29,11 @@ const productJsonLd = [
         '@type': 'Product',
         name: k.name,
         alternateName: k.en,
+        url: `${siteUrl}/shijihe/${k.slug}/`,
         category: k.category,
         description: `检测目标：${k.target}；技术：${k.tech}`,
         brand: { '@type': 'Brand', name: 'SENO' },
+        offers: kitOffers(`${siteUrl}/shijihe/${k.slug}/`),
       },
     })),
   },
@@ -52,6 +55,7 @@ const categories = ['性别鉴定', '病原检测'];
       <p class="mt-4 max-w-2xl text-lg text-brand-100">
         基于 PCR / RT-PCR 荧光探针技术的分子诊断与基因检测试剂盒，覆盖性别鉴定与多种禽类病原核酸检测。
       </p>
+      <p class="mt-3 text-sm text-brand-100">价格区间：{KIT_PRICE_TEXT_ZH}</p>
     </div>
   </section>
 

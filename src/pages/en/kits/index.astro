@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import { dnaKitsEn as dnaKits, kitTechEn as kitTech } from '../../../data/kitsEn';
+import { KIT_PRICE_TEXT_EN, kitOffers } from '../../../data/pricing';
 
 const title = 'Avian Molecular Diagnostic Kits | PCR & qPCR Test Kits';
 const description = 'PCR and RT-PCR fluorescent-probe kits for bird sex identification and avian pathogen detection, with a UNG anti-contamination system. 48T/kit, 96T/kit.';
@@ -27,9 +28,11 @@ const productJsonLd = [
       item: {
         '@type': 'Product',
         name: k.name,
+        url: `${siteUrl}/en/kits/${k.slug}/`,
         category: k.category,
         description: `Target: ${k.target}; Technology: ${k.tech}`,
         brand: { '@type': 'Brand', name: 'SENO' },
+        offers: kitOffers(`${siteUrl}/en/kits/${k.slug}/`),
       },
     })),
   },
@@ -60,6 +63,7 @@ const categories = Array.from(new Set(dnaKits.map((k) => k.category)));
       <p class="mt-4 max-w-2xl text-lg text-brand-100">
         Molecular diagnostic and genetic testing kits based on PCR / RT-PCR fluorescent-probe technology, covering sex identification and nucleic acid detection for a range of avian pathogens.
       </p>
+      <p class="mt-3 text-sm text-brand-100">Price range: {KIT_PRICE_TEXT_EN}</p>
     </div>
   </section>
 

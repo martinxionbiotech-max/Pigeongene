@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import { dnaKitsEn } from '../../../data/kitsEn';
+import { KIT_PRICE_TEXT_EN, kitOffers } from '../../../data/pricing';
 
 export function getStaticPaths() {
   return dnaKitsEn.map((kit) => ({
@@ -38,6 +39,7 @@ const productJsonLd = [
     category: kit.category,
     brand: { '@type': 'Brand', name: 'SENO' },
     manufacturer: { '@id': `${siteUrl}/#organization` },
+    offers: kitOffers(pageUrl),
     additionalProperty: [
       { '@type': 'PropertyValue', name: 'Target', value: kit.target },
       { '@type': 'PropertyValue', name: 'Technology', value: kit.tech },
@@ -134,6 +136,9 @@ const related = dnaKitsEn.filter((k) => k.category === kit.category && k.slug !=
               <dd class="mt-1 text-gray-700">{kit.storage}</dd>
             </div>
           </dl>
+          <p class="mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+            <span class="font-semibold text-gray-900">Price:</span> {KIT_PRICE_TEXT_EN}
+          </p>
           <a href="/en/contact/" class="btn-primary mt-6 w-full">Enquire about purchase</a>
         </div>
 
