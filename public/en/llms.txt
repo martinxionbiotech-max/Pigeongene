@@ -25,6 +25,24 @@
 - Email: martin@senobiocorp.com
 - Phone/WhatsApp: +86 15612372623
 
+## Machine-readable markdown
+
+Every data/content page has a matching Markdown variant (`text/markdown`, no HTML noise) for AI crawling and structured retrieval:
+
+- Test kits: `/en/kits/{slug}.md`
+- Flight-gene markers: `/en/genes/{slug}.md`
+- Pathogen tests: `/en/pathogens/{slug}.md`
+- DNA ID: `/en/dna-id-kinship.md`
+- Articles: `/en/blog/{slug}.md`
+
+Examples:
+
+- [Bird Sex Identification Kit](https://senopigeon.com/en/kits/bird-sex-id.md)
+- [LDHA gene marker](https://senopigeon.com/en/genes/ldha.md)
+- [Pigeon Circovirus testing](https://senopigeon.com/en/pathogens/ge-yuanhuan-bingdu.md)
+- [Racing Pigeon DNA ID](https://senopigeon.com/en/dna-id-kinship.md)
+- [Sampling Guide](https://senopigeon.com/en/blog/sampling-guide.md)
+
 ## Note
 
 Testing services on this site are for racing pigeons (avian / veterinary use) only — not for human medical diagnosis.

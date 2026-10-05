@@ -39,6 +39,39 @@
 /robots.txt
   Cache-Control: public, max-age=3600
 
+# Machine-readable Markdown variants — force text/markdown (single-segment paths)
+/shijihe/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/jiyin-jiance/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/bingdu-jiance/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/blog/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/dna-shenfenzheng.md
+  Content-Type: text/markdown; charset=utf-8
+
+/en/kits/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/en/genes/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/en/pathogens/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/en/blog/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/en/dna-id-kinship.md
+  Content-Type: text/markdown; charset=utf-8
+
 # HTML pages — edge cache with stale-while-revalidate
 /*
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Link: </sitemap-index.xml>; rel="sitemap"
+  Link: </llms.txt>; rel="llms"

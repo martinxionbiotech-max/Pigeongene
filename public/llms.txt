@@ -40,6 +40,24 @@
 - [关于我们](https://senopigeon.com/guanyu/)：公司简介、资质认证、专家团队。
 - [联系我们](https://senopigeon.com/lianxi/)：联系方式与实验室地址。
 
+## Machine-readable markdown
+
+每个数据/内容页都提供同构的 Markdown 变体（`text/markdown`，零 HTML 杂讯），供 AI 抓取与结构化检索：
+
+- 检测试剂盒：`/shijihe/{slug}.md`
+- 飞行能力基因位点：`/jiyin-jiance/{slug}.md`
+- 病毒检测项目：`/bingdu-jiance/{slug}.md`
+- DNA 身份证：`/dna-shenfenzheng.md`
+- 专业文章：`/blog/{slug}.md`
+
+示例：
+
+- [鸟类性别鉴定试剂盒](https://senopigeon.com/shijihe/bird-sex-id.md)
+- [LDHA 基因位点](https://senopigeon.com/jiyin-jiance/ldha.md)
+- [鸽圆环病毒检测](https://senopigeon.com/bingdu-jiance/ge-yuanhuan-bingdu.md)
+- [赛鸽 DNA 身份证](https://senopigeon.com/dna-shenfenzheng.md)
+- [引种检疫清单](https://senopigeon.com/blog/quarantine-checklist.md)
+
 ## 联系信息
 
 - 公司：张家口赛诺生物科技有限公司（SENO Biotech Co., Ltd）
