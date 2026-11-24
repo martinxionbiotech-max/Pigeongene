@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { blogExtrasEn } from '../../../data/blogExtrasEn';
 import { SITE_URL, yaml, isoDate } from '../../../lib/md';
 
 /**
@@ -50,6 +51,21 @@ export const GET: APIRoute = async ({ params }) => {
   out.push(post.body || '');
   out.push('');
   out.push(`View the full HTML page: ${canonical}`);
+  const extra = blogExtrasEn[post.slug];
+  if (extra) {
+    out.push('');
+    out.push(`## ${extra.heading}`);
+    out.push('');
+    for (const paragraph of extra.body) {
+      out.push(paragraph);
+      out.push('');
+    }
+    for (const bullet of extra.bullets) {
+      out.push(`- ${bullet}`);
+    }
+    out.push('');
+  }
+
   out.push('');
 
   return new Response(out.join('\n'), {
