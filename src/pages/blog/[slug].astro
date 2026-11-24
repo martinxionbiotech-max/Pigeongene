@@ -6,21 +6,49 @@ import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  // Hand-written English posts live in `blog` with lang: 'en'. They must never
+  // generate a Chinese URL; their canonical English URL is /en/blog/<slug>/.
+  return posts
+    .filter((post) => (post.data.lang || 'zh-CN') !== 'en')
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-const { title, description, pubDate, category, tags, author, authorRole, updatedDate, lang } = post.data;
+const { title, description: rawDescription, pubDate, category, tags, author, authorRole, updatedDate, lang } = post.data;
 
 const postLang = lang || 'zh-CN';
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/blog/${post.slug}/`;
 
+// Only advertise an English alternate when a real English page will be built.
+const blogEnPosts = await getCollection('blog-en');
+const enSlugs = new Set(blogEnPosts.map((p) => p.slug));
+const hasEn = enSlugs.has(post.slug);
+const hreflang = hasEn
+  ? [
+      { lang: 'zh-CN', href: pageUrl },
+      { lang: 'en', href: `${siteUrl}/en/blog/${post.slug}/` },
+      { lang: 'x-default', href: pageUrl },
+    ]
+  : [
+      { lang: 'zh-CN', href: pageUrl },
+      { lang: 'x-default', href: pageUrl },
+    ];
+
+const descSuffix = category.includes('Genetics')
+  ? '本文从基因功能、研究证据与育种应用三个层面梳理关键点，并明确候选基因的解读边界。'
+  : category.includes('Health')
+    ? '本文结合赛鸽实验室检测与鸽舍管理实践，梳理病原特点、检测意义与防控要点。'
+    : '本文结合赛鸽实验室检测与育种实践，梳理关键要点、证据边界与常见误区。';
+const description =
+  rawDescription.length >= 70 ? rawDescription : `${rawDescription}${descSuffix}`;
+
+const authorIsCompany = /SENO|赛诺|Zhangjiakou/i.test(author);
 const articleJsonLd = [
   {
     '@context': 'https://schema.org',
@@ -29,13 +57,15 @@ const articleJsonLd = [
     description,
     url: pageUrl,
     datePublished: pubDate.toISOString(),
-    ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
-    author: {
-      '@type': 'Person',
-      name: author,
-      ...(authorRole ? { jobTitle: authorRole } : {}),
-      affiliation: { '@id': `${siteUrl}/#organization` },
-    },
+    dateModified: (updatedDate || pubDate).toISOString(),
+    author: authorIsCompany
+      ? { '@type': 'Organization', name: author, '@id': `${siteUrl}/#organization` }
+      : {
+          '@type': 'Person',
+          name: author,
+          ...(authorRole ? { jobTitle: authorRole } : {}),
+          affiliation: { '@id': `${siteUrl}/#organization` },
+        },
     publisher: { '@id': `${siteUrl}/#organization` },
     keywords: tags.join(','),
     inLanguage: postLang,
@@ -57,8 +87,10 @@ const fmtDate = (d: Date) =>
   `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日`;
 ---
 
-<BaseLayout {title} {description} canonical={`/blog/${post.slug}/`} jsonLd={articleJsonLd} type="article">
+<BaseLayout {title} {description} canonical={`/blog/${post.slug}/`} {hreflang} jsonLd={articleJsonLd} type="article">
   <Header />
+
+  <main id="main">
 
   <article>
     <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
@@ -102,6 +134,8 @@ const fmtDate = (d: Date) =>
       </div>
     </section>
   </article>
+
+    </main>
 
   <Footer />
 </BaseLayout>

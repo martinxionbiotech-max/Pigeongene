@@ -11,7 +11,7 @@ const posts = (await getCollection('blog'))
   );
 
 const title = '专业文章 | 赛鸽基因检测与病毒检测知识';
-const description = '赛鸽基因检测、病毒检测、DNA 鉴定、育种与健康管理领域的专业科普文章，由赛诺生物科技实验室团队撰写。';
+const description = '赛鸽基因检测、病毒检测、DNA 身份证与育种健康管理领域的专业科普文章，由赛诺生物科技实验室团队撰写，涵盖原理、采样、报告解读与防控实践，持续更新。';
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/blog/`;
@@ -43,6 +43,8 @@ const fmtDate = (d: Date) =>
 
 <BaseLayout {title} {description} canonical="/blog/" jsonLd={listJsonLd} type="article">
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
@@ -96,6 +98,8 @@ const fmtDate = (d: Date) =>
       </div>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

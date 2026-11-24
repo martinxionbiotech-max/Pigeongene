@@ -13,7 +13,8 @@ export function getStaticPaths() {
 
 const { virus, others } = Astro.props;
 const title = `${virus.name}检测 | 赛鸽病毒检测`;
-const description = virus.desc;
+const rawDescription = `${virus.desc} 采用${virus.method}检测${virus.sample}，${virus.detectValue}`;
+const description = rawDescription.length > 150 ? rawDescription.slice(0, 150) + '…' : rawDescription;
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/bingdu-jiance/${virus.slug}/`;
@@ -64,6 +65,8 @@ const articleJsonLd = [
 
 <BaseLayout {title} {description} canonical={`/bingdu-jiance/${virus.slug}/`} jsonLd={articleJsonLd} type="article">
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-accent-600 to-accent-500 py-16 text-white">
     <div class="container-x">
@@ -178,6 +181,8 @@ const articleJsonLd = [
       </div>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

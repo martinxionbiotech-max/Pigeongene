@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = '联系我们 | 咨询赛鸽检测服务';
-const description = '联系张家口赛诺生物科技有限公司，咨询赛鸽飞行能力基因检测与病毒检测服务。电话 +86 15612372623。';
+const description = '联系张家口赛诺生物科技有限公司，咨询赛鸽飞行能力基因检测、病毒检测、DNA 身份证与试剂盒采购。电话/WhatsApp +86 15612372623，或通过页面邮箱留言。';
 
 const siteUrl = 'https://senopigeon.com';
 const contactJsonLd = [
@@ -35,6 +35,8 @@ const contactJsonLd = [
 
 <BaseLayout {title} {description} canonical="/lianxi/" jsonLd={contactJsonLd}>
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x text-center">
@@ -78,6 +80,8 @@ const contactJsonLd = [
       </div>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

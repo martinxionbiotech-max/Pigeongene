@@ -4,11 +4,13 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = '隐私政策';
-const description = '赛诺检测中心隐私政策，说明我们如何收集、使用、存储和保护您的个人信息与检测数据。';
+const description = '赛诺检测中心隐私政策，说明我们如何收集、使用、存储、共享和保护您的个人信息与检测数据，以及您享有的查询、更正与删除权利；生效日期与联系方式见正文。';
 ---
 
 <BaseLayout {title} {description} canonical="/yinsi/">
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
@@ -75,6 +77,8 @@ const description = '赛诺检测中心隐私政策，说明我们如何收集�
       </ul>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

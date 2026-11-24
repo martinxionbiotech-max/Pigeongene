@@ -51,7 +51,7 @@ const articleJsonLd = [
     description,
     url: pageUrl,
     datePublished: pubDate.toISOString(),
-    ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+    dateModified: (updatedDate || pubDate).toISOString(),
     author: {
       '@type': 'Organization',
       name: author,
@@ -80,6 +80,8 @@ const fmtDate = (d: Date) =>
 
 <BaseLayout {title} {description} lang="en" canonical={enPath} {hreflang} jsonLd={articleJsonLd} type="article">
   <Header />
+
+  <main id="main">
 
   <article>
     <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
@@ -123,6 +125,8 @@ const fmtDate = (d: Date) =>
       </div>
     </section>
   </article>
+
+    </main>
 
   <Footer />
 </BaseLayout>

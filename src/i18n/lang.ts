@@ -51,6 +51,12 @@ const EN_TO_ZH: Record<string, string> = Object.fromEntries(
   Object.entries(ZH_TO_EN).map(([zh, en]) => [en, zh])
 );
 
+// English index hubs are English-first navigation pages. Their language-switch
+// target is the corresponding Chinese hub, even though the Chinese hub's own
+// primary counterpart remains the service landing page.
+EN_TO_ZH['/en/genes/'] = '/jiyin-jiance/';
+EN_TO_ZH['/en/pathogens/'] = '/bingdu-jiance/';
+
 function normalize(pathname: string): string {
   if (!pathname) return '/';
   let p = pathname.split('?')[0].split('#')[0];

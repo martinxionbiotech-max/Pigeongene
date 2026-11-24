@@ -3,7 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
-const title = 'Racing Pigeon Knowledge Centre | PCR, Health & DNA Guides';
+const title = 'Racing Pigeon Knowledge Centre | PCR & DNA Guides';
 const description =
   'Guides to racing pigeon gene testing, qPCR pathogen detection, DNA ID and parentage testing, sampling and how to read a test report.';
 
@@ -88,6 +88,8 @@ const categories = [
 
 <BaseLayout {title} {description} lang="en" canonical={canonicalPath} {hreflang} jsonLd={hubJsonLd}>
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
@@ -184,6 +186,8 @@ const categories = [
       </div>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = '内容与证据政策 | 赛鸽基因检测知识中心';
-const description = '赛诺生物内容与证据政策：本站内容的编辑原则、文献引用标准、证据分级体系与兽医免责声明，确保信息科学、透明、可溯源。';
+const description = '赛诺生物内容与证据政策：本站内容的编辑原则、文献引用标准、证据分级体系与兽医免责声明，确保信息科学、透明、可溯源；所有引用均标注 PMID/DOI。';
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/zhishi/neirong-zhengce/`;
@@ -74,6 +74,8 @@ const sections = [
 <BaseLayout {title} {description} canonical="/zhishi/neirong-zhengce/" jsonLd={articleJsonLd} type="article">
   <Header />
 
+  <main id="main">
+
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
       <h1 class="text-4xl font-bold">内容与证据政策</h1>
@@ -114,6 +116,8 @@ const sections = [
       </div>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

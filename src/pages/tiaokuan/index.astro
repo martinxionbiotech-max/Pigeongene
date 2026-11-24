@@ -4,11 +4,13 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = '服务条款';
-const description = '赛鸽基因检测服务条款与条件，涵盖服务范围、限制与免责声明、样本提交、付款与保密、责任限制等。';
+const description = '赛鸽基因检测服务条款与条件，涵盖服务范围、样本提交与检测、检测周期、付款与保密、限制与免责声明、责任限制及适用法律，请在下单前阅读并确认，谢谢。';
 ---
 
 <BaseLayout {title} {description} canonical="/tiaokuan/">
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
@@ -65,6 +67,8 @@ const description = '赛鸽基因检测服务条款与条件，涵盖服务范�
       </ul>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

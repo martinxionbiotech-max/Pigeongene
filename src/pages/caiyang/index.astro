@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const title = '采样指南 | 赛鸽病毒检测样本采集';
-const description = '赛鸽病毒检测样本采集指南，涵盖采样前准备、各类样本采集方法、样本保存与寄送、注意事项，确保检测结果准确可靠。';
+const description = '赛鸽病毒检测与 DNA 检测样本采集指南，涵盖采样前准备、羽毛/血卡/口腔拭子采集方法、样本保存与寄送、污染防控及注意事项，帮助您获得可靠结果。';
 
 const siteUrl = 'https://senopigeon.com';
 const breadcrumbJsonLd = [
@@ -83,6 +83,8 @@ const precautions = [
 
 <BaseLayout {title} {description} canonical="/caiyang/" jsonLd={breadcrumbJsonLd}>
   <Header />
+
+  <main id="main">
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
@@ -205,6 +207,8 @@ const precautions = [
       </div>
     </div>
   </section>
+
+    </main>
 
   <Footer />
 </BaseLayout>

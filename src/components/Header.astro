@@ -41,7 +41,9 @@ const navEn: NavItem[] = [
     label: 'Testing Services',
     children: [
       { label: 'Flight Gene Test', href: '/en/flight-gene-test/' },
+      { label: 'Gene Marker Index', href: '/en/genes/' },
       { label: 'Pathogen Testing', href: '/en/pathogen-testing/' },
+      { label: 'Pathogen Index', href: '/en/pathogens/' },
       { label: 'DNA ID & Kinship', href: '/en/dna-id-kinship/' },
     ],
   },
@@ -91,7 +93,7 @@ if (blogMatch && !enBlogSlugs.has(blogMatch[1])) switchHref = '/en/';
 const blogEnMatch = path.match(/^\/en\/blog\/([^/]+)\/$/);
 if (blogEnMatch && !zhBlogSlugs.has(blogEnMatch[1])) switchHref = '/';
 
-const switchLabel = isEn ? '中文' : 'EN';
+const switchLabel = isEn ? 'ZH' : 'EN';
 const switchTitle = isEn ? 'Switch to Chinese' : 'Switch to English';
 const switchLang = isEn ? 'zh-CN' : 'en';
 ---
@@ -151,7 +153,7 @@ const switchLang = isEn ? 'zh-CN' : 'en';
       <a href={switchHref} hreflang={switchLang} lang={switchLang} class="lang-switch rounded-md px-3 py-2 text-sm font-medium text-gray-400 hover:text-gray-600" title={switchTitle}>{switchLabel}</a>
     </nav>
     <a href={isEn ? '/en/contact/' : '/lianxi/'} class="btn-primary hidden sm:inline-flex">{ctaLabel}</a>
-    <button id="menu-toggle" class="xl:hidden text-gray-600" aria-label={mobileAria} aria-expanded="false" aria-controls="mobile-menu">
+    <button id="menu-toggle" class="xl:hidden text-gray-600" aria-label={mobileAria} aria-expanded="false" aria-controls="mobile-menu" data-open-label={mobileAria} data-close-label={mobileAriaClose}>
       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -196,9 +198,8 @@ const switchLang = isEn ? 'zh-CN' : 'en';
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
-  const uiLang = document.documentElement.lang || 'zh-CN';
-  const openLabel = uiLang === 'en' ? 'Open menu' : '打开菜单';
-  const closeLabel = uiLang === 'en' ? 'Close menu' : '关闭菜单';
+  const openLabel = toggle?.dataset.openLabel || 'Open menu';
+  const closeLabel = toggle?.dataset.closeLabel || 'Close menu';
   toggle?.addEventListener('click', () => {
     const open = menu?.classList.toggle('hidden') === false;
     toggle.setAttribute('aria-expanded', String(open));

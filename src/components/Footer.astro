@@ -35,7 +35,9 @@ const isEn = isEnglishPath(Astro.url.pathname);
       <h2 class="text-sm font-semibold text-gray-900">{isEn ? 'Testing Services' : '检测服务'}</h2>
       <ul class="mt-4 space-y-2 text-sm text-gray-600">
         <li><a href={isEn ? '/en/flight-gene-test/' : '/jiyin-jiance/'} class="hover:text-brand-600">{isEn ? 'Flight Gene Test' : '飞行能力基因检测'}</a></li>
+        {isEn && <li><a href="/en/genes/" class="hover:text-brand-600">Gene Marker Index</a></li>}
         <li><a href={isEn ? '/en/pathogen-testing/' : '/bingdu-jiance/'} class="hover:text-brand-600">{isEn ? 'Pathogen Testing' : '赛鸽病毒检测'}</a></li>
+        {isEn && <li><a href="/en/pathogens/" class="hover:text-brand-600">Pathogen Index</a></li>}
         <li><a href={isEn ? '/en/dna-id-kinship/' : '/dna-shenfenzheng/'} class="hover:text-brand-600">{isEn ? 'DNA ID & Kinship' : 'DNA 身份证 | 亲缘鉴定'}</a></li>
         <li><a href={isEn ? '/en/sampling/' : '/caiyang/'} class="hover:text-brand-600">{isEn ? 'Sampling Guide' : '采样指南'}</a></li>
         <li><a href={isEn ? '/en/kits/' : '/shijihe/'} class="hover:text-brand-600">{isEn ? 'Test Kits' : '检测试剂盒'}</a></li>
