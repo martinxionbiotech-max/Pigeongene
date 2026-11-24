@@ -3,8 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
-const title = 'Content & Evidence Policy | Pigeon Genetic Testing';
-const description = 'SENO Biotech content and evidence policy: editorial principles, citation standards, testing methodology and veterinary disclaimer.';
+const title = 'Content & Evidence Policy | Pigeon Genetics';
+const description = 'SENO content and evidence policy: editorial independence, authors and review, A/B/C/D evidence grades, PMID/DOI citations, methodology, corrections and veterinary boundaries.';
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/en/content-policy/`;
@@ -23,7 +23,7 @@ const policyJsonLd = [
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/en/` },
       { '@type': 'ListItem', position: 2, name: 'Content & Evidence Policy', item: pageUrl },
     ],
   },
@@ -31,40 +31,112 @@ const policyJsonLd = [
 
 const sections = [
   {
-    title: 'Editorial Policy',
-    desc: 'Content on this site follows an evidence-first principle: scientific conclusions must be supported by verifiable published sources, and wording never exceeds what the evidence allows. Where findings are uncertain, we use qualified language such as "suggests", "may", or "associated with" — never overstatement.',
+    title: '1. Scope and commitments',
+    desc: 'This policy applies to educational, technical and methodological content on senopigeon.com, its genetics, health, research and tools sub-sites, and testing reports. Our commitments are verifiability, traceability and restraint: commercial goals do not change the strength of evidence, and association is never presented as causation.',
     points: [
-      'Scientific claims cite verifiable sources (PMID/DOI)',
-      'Associations are not written as causal conclusions',
-      'Service figures (e.g. turnaround times) are kept separate from research figures',
-      'Citation errors are corrected promptly and the correction is documented',
+      'Scientific conclusions require a verifiable source; unverifiable claims are not presented as conclusions',
+      'Service parameters (turnaround, format, price) are kept separate from research figures',
+      'Uncertain findings use qualified language: suggests, may, associated with, requires confirmation',
+      'Updates retain a date and version; material corrections are explained',
     ],
   },
   {
-    title: 'Citation Standards',
-    desc: 'Cited papers are verified against PMID/DOI and can be traced directly through PubMed or the publisher. Preprints (e.g. bioRxiv) are explicitly labelled "not peer-reviewed" and are used only as background reference, never in conclusive statements.',
+    title: '2. Editorial independence and commercial disclosure',
+    desc: 'We sell racing-pigeon testing services and kits, so this site has a commercial interest. That interest does not change our editorial rules: we do not exaggerate test capability, disparage competitors, or invent customers, certifications, patents or performance data. When content concerns our own products, we state the intended use, limits and alternatives first.',
     points: [
-      'Peer-reviewed, pigeon-specific studies are preferred',
-      'Preprints and reviews serve as background, not as substitutes for original research',
-      'Evidence grades (A/B/C/D) are shown on gene pages and in the research center',
+      'Product pages state intended use, sample requirements, limits and outcomes we cannot guarantee',
+      'Candidate-gene associations are not written as “determines performance” or “guarantees breeding value”',
+      'No invented testimonials, test volumes, partner institutions or certification scopes',
+      'Conflicts of interest are disclosed in the page or report',
     ],
   },
   {
-    title: 'Testing Methodology',
-    desc: 'Our testing services are based on molecular diagnostic methods such as real-time fluorescent PCR (qPCR). Methodological details and quality-control procedures are published in the research center. Descriptions on this site match actual laboratory practice; we do not fabricate equipment, accreditations, or testing parameters.',
+    title: '3. Authors, review and responsibility',
+    desc: 'Technical articles are written by the laboratory team or invited authors. Content involving genetics, pathogens, veterinary practice or regulation is reviewed by a technical reviewer with relevant background. Pages may be signed by an organisation or an individual; unsigned educational pages are institutional content for which the laboratory team is responsible.',
     points: [
-      'qPCR: primer/probe design, internal controls, UNG anti-contamination',
-      'STR typing: marker systems for kinship verification and DNA IDs',
-      'Quality control: positive/negative controls and internal amplification controls per batch',
+      'Authors and reviewers should have relevant training or practical experience',
+      'Report interpretation and veterinary advice are separated: the former is laboratory information, the latter comes from a licensed veterinarian',
+      'External authors disclose affiliation and conflicts',
+      'Readers can report factual errors through the contact address; section 9 explains the process',
     ],
   },
   {
-    title: 'Veterinary Disclaimer',
-    desc: 'Content on this site and all sub-sites (genetics, health, research, tools) is for educational and breeding reference only. It does not constitute veterinary diagnosis or treatment advice. If your pigeons show signs of illness, consult a licensed veterinarian; test reports should be interpreted together with clinical signs, epidemiology, and loft management.',
+    title: '4. Evidence grades A/B/C/D',
+    desc: 'An evidence grade describes how strongly current research supports an association. It is not a measure of commercial importance and not a guarantee for an individual test result. Grades guide wording; where no grade is shown, the page should be read at a lower level and not treated as conclusive.',
     points: [
-      'Symptoms alone cannot confirm a diagnosis; laboratory testing is the basis',
-      'A single negative result does not exclude infection',
-      'Medication and treatment decisions should follow a licensed veterinarian\u2019s advice',
+      'A: multiple independent peer-reviewed pigeon studies with functional or independent-cohort support',
+      'B: at least one peer-reviewed pigeon association study, or mutually supportive mechanism and association evidence',
+      'C: preliminary, single or exploratory study; replication is needed',
+      'D: hypothetical, background, unverified or non-pigeon evidence; reference only',
+    ],
+  },
+  {
+    title: '5. Citations and verification',
+    desc: 'We prioritise peer-reviewed original pigeon studies, then reviews and mechanistic work. Citations should include a PMID, DOI or publisher link so readers can verify them. Preprints must be labelled “not peer-reviewed” and cannot support conclusive statements. Historical pages are being updated with clickable links in batches.',
+    points: [
+      'No unverifiable secondary summaries, marketing copy or uncited images',
+      'Distinguish statistical association, causation and mechanistic inference',
+      'Where studies conflict, explain the conflict rather than selecting only supportive results',
+      'Correct citation errors; remove or downgrade claims that cannot be sourced',
+    ],
+  },
+  {
+    title: '6. Testing methodology and quality control',
+    desc: 'Testing uses molecular methods such as real-time quantitative PCR (qPCR) and STR typing. Method details, sample types, QC and interpretation rules are governed by the project description, report and laboratory SOPs. We do not invent equipment, accreditation, reagent performance or testing parameters.',
+    points: [
+      'qPCR: primer/probe design, positive/negative controls, internal or amplification controls, UNG anti-contamination',
+      'STR: marker system and interpretation rules for DNA ID and kinship testing',
+      'Samples: collected, stored and shipped under the sampling guide; non-compliant samples may require re-sampling',
+      'Performance figures (LoD, sensitivity, specificity) require validation records or batch COA; otherwise we do not claim them',
+    ],
+  },
+  {
+    title: '7. Reports and interpretation boundaries',
+    desc: 'A report covers the submitted sample and ordered tests only. Results are probabilistic or associative information, not a race prediction, health diagnosis or breeding guarantee. A positive pathogen result does not necessarily mean clinical disease, and a single negative does not exclude infection; interpretation requires clinical signs, epidemiology, sample quality and loft management.',
+    points: [
+      'Gene results are influenced by multiple genes, training, nutrition, environment, health and chance',
+      'Read evidence grade, method, limitations and sources together with the result',
+      'Do not use a report alone to medicate, cull breeding stock or make high-risk transactions',
+      'Consult a licensed veterinarian for diagnosis and treatment',
+    ],
+  },
+  {
+    title: '8. Automation and AI use',
+    desc: 'We may use automation to assist with layout, translation, search or drafting, but tools do not replace fact-checking. Every scientific conclusion, number, citation, certification and customer detail that reaches a page must be checked by an editor. AI must not be used to invent data, certificates, reviews or test performance.',
+    points: [
+      'AI-assisted content requires human fact-checking and editing',
+      'No fabricated references, PMID/DOI records or customer cases',
+      'Translations must be checked for terminology, numbers and disclaimers, not just literal machine output',
+      'Automation errors are handled under the correction process',
+    ],
+  },
+  {
+    title: '9. Corrections, retractions and versions',
+    desc: 'Readers can report factual errors, broken links or citation problems through the contact address. We review reports within a reasonable period: minor errors are corrected with a date update; material errors affecting conclusions receive a correction note; content that cannot be sourced or is seriously misleading is retracted or downgraded.',
+    points: [
+      'Corrections keep the original URL rather than deleting the page to hide an error',
+      'Corrections involving test performance, certification or regulation are prioritised',
+      'Material corrections are flagged on the page or through order communications',
+      'Older reports remain valid records but should be read with their date and method',
+    ],
+  },
+  {
+    title: '10. Veterinary and human-use disclaimer',
+    desc: 'Content on this site and its sub-sites is for racing-pigeon/avian education, breeding and laboratory reference. It is not veterinary diagnosis or treatment advice, and not human medical advice. Consult a licensed veterinarian when birds are ill; consult a doctor for human health questions.',
+    points: [
+      'Symptoms alone cannot confirm a diagnosis; laboratory testing is only part of the picture',
+      'A single negative does not exclude infection; a positive does not necessarily mean clinical disease',
+      'Medication and management decisions should follow a licensed veterinarian’s advice',
+      'See the dedicated Disclaimer page for the full boundary',
+    ],
+  },
+  {
+    title: '11. Updates and contact',
+    desc: 'This policy is updated as services, scientific evidence and regulation change; the last-updated date is shown on the page. For content, citation, correction or partnership questions, contact Zhangjiakou SENO Biotech Co., Ltd.',
+    points: [
+      'Content and evidence: martin@senobiocorp.com',
+      'Phone | WeChat: +86 15612372623',
+      'Address: Building 3, North Silicon Valley, Qiaodong District, Zhangjiakou, Hebei, China',
     ],
   },
 ];
@@ -82,15 +154,15 @@ const hreflang = [
 
   <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
     <div class="container-x">
-      <h1 class="text-4xl font-bold">Content & Evidence Policy</h1>
+      <h1 class="text-4xl font-bold">Content &amp; Evidence Policy</h1>
       <p class="mt-4 max-w-2xl text-lg text-brand-100">
-        Scientific, transparent, traceable — the three bottom lines of our content.
+        Scientific, transparent, traceable. These rules explain how we write, cite, correct and mark the limits of our evidence.
       </p>
     </div>
   </section>
 
   <section class="container-x py-16">
-    <div class="mx-auto max-w-3xl space-y-10">
+    <div class="mx-auto max-w-3xl space-y-8">
       {sections.map((s) => (
         <div class="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
           <h2 class="text-2xl font-bold text-gray-900">{s.title}</h2>
@@ -110,10 +182,13 @@ const hreflang = [
   <section class="bg-gray-50 py-16">
     <div class="container-x">
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-2xl font-bold text-gray-900">Related Resources</h2>
+        <h2 class="text-2xl font-bold text-gray-900">Related resources</h2>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <a href="/en/flight-gene-test/" class="btn-outline">Flight Gene Test</a>
           <a href="/en/pathogen-testing/" class="btn-outline">Pathogen Testing</a>
+          <a href="/en/disclaimer/" class="btn-outline">Disclaimer</a>
+          <a href="/en/privacy-policy/" class="btn-outline">Privacy Policy</a>
+          <a href="/en/terms/" class="btn-outline">Terms</a>
           <a href="https://research.senopigeon.com/research/evidence-grading/" class="btn-outline">Evidence Grading</a>
         </div>
       </div>

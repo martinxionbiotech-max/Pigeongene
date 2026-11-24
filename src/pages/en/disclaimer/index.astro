@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const title = 'Disclaimer | Pigeon Testing & Genetics';
+const description = 'SENO Biotech disclaimer: intended use for racing pigeons, limits of gene and pathogen testing, research-use-only kits, veterinary-advice boundary and liability limits.';
+const siteUrl = 'https://senopigeon.com';
+const pageUrl = `${siteUrl}/en/disclaimer/`;
+const hreflang = [
+  { lang: 'en', href: pageUrl },
+  { lang: 'zh-CN', href: `${siteUrl}/mianze-shengming/` },
+  { lang: 'x-default', href: `${siteUrl}/mianze-shengming/` },
+];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Disclaimer',
+    url: pageUrl,
+    description,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${siteUrl}/#website` },
+    publisher: { '@id': `${siteUrl}/#organization` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/en/` },
+      { '@type': 'ListItem', position: 2, name: 'Disclaimer', item: pageUrl },
+    ],
+  },
+];
+---
+
+<BaseLayout {title} {description} lang="en" canonical="/en/disclaimer/" {hreflang} jsonLd={jsonLd}>
+  <Header />
+
+  <main id="main">
+
+  <section class="bg-gradient-to-br from-brand-900 to-brand-700 py-16 text-white">
+    <div class="container-x">
+      <h1 class="text-4xl font-bold">Disclaimer</h1>
+      <p class="mt-4 max-w-2xl text-brand-100">Please read this page before using our content, testing services or diagnostic kits. It is not legal advice and does not replace a licensed veterinarian.</p>
+    </div>
+  </section>
+
+  <section class="container-x py-16">
+    <div class="prose prose-gray mx-auto max-w-3xl">
+      <h2>1. Racing pigeons and other birds only — not for human use</h2>
+      <p>Our gene tests, pathogen tests, DNA ID/kinship testing, diagnostic kits and all site content are for racing-pigeon and other avian breeding, health management and research reference only. They are not for human medical diagnosis, human treatment, human health assessment, food processing, pharmaceuticals or any clinical use in humans.</p>
+      <p>Any human use is expressly prohibited and is at the user’s sole risk and responsibility.</p>
+
+      <h2>2. Not veterinary diagnosis or treatment advice</h2>
+      <p>Pathogen descriptions, symptom lists, differential notes, prevention guidance and report explanations on this site are educational and laboratory information. They do not constitute a licensed veterinarian’s diagnosis, prescription or treatment advice, and do not create a veterinarian-client-patient relationship.</p>
+      <p>If a pigeon shows lethargy, diarrhoea, respiratory signs, neurological signs, death or other abnormalities, contact a licensed veterinarian promptly. Test reports must be interpreted with clinical signs, epidemiology, loft management, sample quality and history. Do not use a single test result to self-medicate or manage a flock without professional advice.</p>
+
+      <h2>3. Limits of gene testing</h2>
+      <ul>
+        <li>The panel analyses candidate loci reported in published research. Results reflect statistical association and genetic tendency, not causation and not a race prediction.</li>
+        <li>Performance is influenced by multiple genes, training, nutrition, health, environment, management, pairing and chance. A single locus has limited effect and cannot guarantee race results, breeding value or offspring performance.</li>
+        <li>Studies differ in population, markers, statistical methods and phenotype definitions; evidence strength varies and scientific understanding evolves.</li>
+        <li>Genotype interpretation depends on sample quality, the assay and the reference data used at the time. Contamination, mislabelling or incomplete information can bias results.</li>
+      </ul>
+
+      <h2>4. Limits of pathogen testing</h2>
+      <ul>
+        <li>qPCR detects the presence of a specific pathogen’s nucleic acid in the sample. A positive result does not necessarily mean clinical disease, and a negative result does not entirely exclude infection (sampling time, site, pathogen load, inhibitors and sample quality all matter).</li>
+        <li>Results must be read with clinical signs, epidemiology, vaccination history, loft management and other laboratory findings.</li>
+        <li>Sample site, timing and transport differ by pathogen. Failure to follow the sampling guide may cause false-negative or false-positive results.</li>
+        <li>Pathogen testing does not replace susceptibility testing, serology, pathology or a licensed veterinarian’s clinical diagnosis.</li>
+      </ul>
+
+      <h2>5. Research-use-only kits</h2>
+      <p>Unless the product label or order expressly states that a kit is a registered in-vitro diagnostic (IVD), kits are supplied for research and professional testing use (RUO) and are not for clinical diagnosis, human diagnosis or unapproved regulatory use. Buyers must confirm registration, import, storage, use and waste-disposal requirements in their jurisdiction and ensure operators are trained and work under appropriate biosafety conditions.</p>
+
+      <h2>6. Report use and third-party reliance</h2>
+      <p>Reports are for the Customer’s own breeding, health management, trade explanation or internal research. When showing, citing or relying on a report with third parties, the Customer must avoid misleading use, falsification and infringement of others’ rights, and should retain the complete report and sample ID. We are not liable for loss caused by alteration, misleading excerpting, fabricated results or unauthorised use.</p>
+
+      <h2>7. External links, sub-sites and third-party content</h2>
+      <p>The site may link to genetics, health, research, payment, logistics or other third-party pages. Links are provided for convenience and do not imply endorsement of their content, accuracy, security or privacy practices. Third-party pages are governed by their own terms and policies.</p>
+
+      <h2>8. Limitation of liability</h2>
+      <p>To the maximum extent permitted by law, we are not liable for indirect, incidental, special or consequential loss arising from use of, or inability to use, the site content, testing services, kits or reports, including lost profit, prize money, breeder value, goodwill, data or opportunity. Liability for a particular order is limited as set out in the Terms & Conditions; liabilities that cannot be excluded by law are not excluded.</p>
+
+      <h2>9. Emergencies and contact</h2>
+      <p>This page does not provide emergency veterinary services. If pigeons have an acute illness, mass mortality or suspected notifiable disease, contact a licensed veterinarian or the local animal-disease authority immediately and follow local reporting and isolation rules.</p>
+      <p>For questions about site content, testing scope or a report, contact Zhangjiakou SENO Biotech Co., Ltd., martin@senobiocorp.com, Phone | WeChat +86 15612372623.</p>
+
+      <h2>10. Updates</h2>
+      <p>We may update this Disclaimer for service, scientific or legal changes. The updated version applies from the date shown on the page; please check it before continuing to use the site or services.</p>
+    </div>
+  </section>
+
+    </main>
+
+  <Footer />
+</BaseLayout>

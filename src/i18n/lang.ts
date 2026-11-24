@@ -31,6 +31,7 @@ const ZH_TO_EN: Record<string, string> = {
   '/zhishi/neirong-zhengce/': '/en/content-policy/',
   '/zhishi/jishu-yuanli/': '/en/knowledge/pcr-principles/',
   '/zhishi/baogao-jiedu/': '/en/knowledge/report-guide/',
+  '/mianze-shengming/': '/en/disclaimer/',
   '/faq/': '/en/faq/',
   '/guanyu/': '/en/about/',
   '/lianxi/': '/en/contact/',
