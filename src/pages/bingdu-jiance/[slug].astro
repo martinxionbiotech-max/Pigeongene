@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { virusTests } from '../../data/viruses';
+import { pathogenRefs } from '../../data/pathogenRefs';
 
 export function getStaticPaths() {
   return virusTests.map((v) => ({
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const { virus, others } = Astro.props;
+const refs = pathogenRefs[virus.slug] ?? [];
 const title = `${virus.name}检测 | 赛鸽病毒检测`;
 const rawDescription = `${virus.desc} 采用${virus.method}检测${virus.sample}，${virus.detectValue}`;
 const description = rawDescription.length > 140 ? rawDescription.slice(0, 140) + '…' : rawDescription;
@@ -38,6 +40,7 @@ const articleJsonLd = [
     publisher: { '@id': `${siteUrl}/#organization` },
     inLanguage: 'zh-CN',
     mainEntityOfPage: pageUrl,
+    ...(refs.length ? { citation: refs.map((r) => `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`) } : {}),
   },
   {
     '@context': 'https://schema.org',
@@ -142,6 +145,21 @@ const articleJsonLd = [
           <li>• 阳性鸽只先隔离，避免集鸽、配对和混群；不要自行使用人用药物。</li>
           <li>• 涉及重要动物疫病时，按当地动物防疫要求报告与处置，不以单次核酸结果替代官方诊断。</li>
         </ul>
+
+        {refs.length > 0 && (
+          <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-900">参考文献</h2>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600">以下为 PubMed 收录的病原背景/方法学文献，用于核对本页背景信息；不代表本实验室试剂盒的性能数据，具体检测性能以批次 COA/验证报告为准。</p>
+            <ul class="mt-4 space-y-3 text-sm">
+              {refs.map((r) => (
+                <li class="leading-relaxed text-gray-700">
+                  <a href={`https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`} target="_blank" rel="noopener" class="font-medium text-brand-700 underline">{r.title}</a>
+                  <span class="text-gray-500"> — {r.journal}, {r.year}; PMID: {r.pmid}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div class="mt-8 rounded-xl border border-accent-200 bg-accent-50/60 p-6">
           <h2 class="text-lg font-bold text-gray-900">📚 深度阅读：{virus.name} 病原百科</h2>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { blogExtras } from '../../data/blogExtras';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
@@ -83,6 +84,8 @@ const articleJsonLd = [
   },
 ];
 
+const extra = blogExtras[post.slug];
+
 const fmtDate = (d: Date) =>
   `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日`;
 ---
@@ -116,6 +119,16 @@ const fmtDate = (d: Date) =>
         <div class="prose prose-brand max-w-none">
           <Content />
         </div>
+        {extra && (
+          <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-900">{extra.heading}</h2>
+            {extra.body.map((p) => <p class="mt-4 leading-relaxed text-gray-700">{p}</p>)}
+            <ul class="mt-4 space-y-2 text-gray-700">
+              {extra.bullets.map((b) => <li class="flex items-start gap-2"><span class="mt-1 text-brand-600">◆</span><span>{b}</span></li>)}
+            </ul>
+          </section>
+        )}
+
         <div class="mt-10 rounded-xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-relaxed text-gray-700">
           <p><strong>范围与证据说明：</strong>本文用于赛鸽育种与健康管理参考，不构成兽医诊断、治疗或成绩保证。文中的研究结论以原始论文为准；可点击来源与文献汇总见<a href="/cankao/" class="font-semibold text-brand-700 underline">科学参考</a>，完整边界见<a href="/mianze-shengming/" class="font-semibold text-brand-700 underline">免责声明</a>。</p>
         </div>

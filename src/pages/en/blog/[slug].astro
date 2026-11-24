@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { blogExtrasEn } from '../../../data/blogExtrasEn';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
@@ -74,6 +75,8 @@ const articleJsonLd = [
   },
 ];
 
+const extra = blogExtrasEn[post.slug];
+
 const fmtDate = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 ---
@@ -107,6 +110,16 @@ const fmtDate = (d: Date) =>
         <div class="prose prose-brand max-w-none">
           <Content />
         </div>
+        {extra && (
+          <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-900">{extra.heading}</h2>
+            {extra.body.map((p) => <p class="mt-4 leading-relaxed text-gray-700">{p}</p>)}
+            <ul class="mt-4 space-y-2 text-gray-700">
+              {extra.bullets.map((b) => <li class="flex items-start gap-2"><span class="mt-1 text-brand-600">◆</span><span>{b}</span></li>)}
+            </ul>
+          </section>
+        )}
+
         <div class="mt-10 rounded-xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-relaxed text-gray-700">
           <p><strong>Scope and evidence:</strong> This article is a reference for racing-pigeon breeding and health management, not veterinary diagnosis, treatment or a performance guarantee. Research findings remain subject to the original papers; see <a href="/en/references/" class="font-semibold text-brand-700 underline">Scientific references</a> and the <a href="/en/disclaimer/" class="font-semibold text-brand-700 underline">Disclaimer</a> for the full boundaries.</p>
         </div>

@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import { virusTestsEn } from '../../../data/virusesEn';
+import { pathogenRefs } from '../../../data/pathogenRefs';
 
 export function getStaticPaths() {
   return virusTestsEn.map((v) => ({
@@ -12,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const { virus, others } = Astro.props;
+const refs = pathogenRefs[virus.slug] ?? [];
 
 const siteUrl = 'https://senopigeon.com';
 const enPath = `/en/pathogens/${virus.slug}/`;
@@ -47,6 +49,7 @@ const articleJsonLd = [
     publisher: { '@id': `${siteUrl}/#organization` },
     inLanguage: 'en',
     mainEntityOfPage: pageUrl,
+    ...(refs.length ? { citation: refs.map((r) => `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`) } : {}),
   },
   {
     '@context': 'https://schema.org',
@@ -151,6 +154,21 @@ const articleJsonLd = [
           <li>• Isolate positive birds first and avoid basketing, pairing or mixing; do not use human medicines on your own.</li>
           <li>• For important animal diseases, follow local animal-health reporting and control rules; one PCR result is not an official diagnosis.</li>
         </ul>
+
+        {refs.length > 0 && (
+          <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-900">References</h2>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600">These PubMed-indexed papers support the pathogen background or method discussion on this page. They do not report the performance of our kits; batch COA/validation documents govern that.</p>
+            <ul class="mt-4 space-y-3 text-sm">
+              {refs.map((r) => (
+                <li class="leading-relaxed text-gray-700">
+                  <a href={`https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`} target="_blank" rel="noopener" class="font-medium text-brand-700 underline">{r.title}</a>
+                  <span class="text-gray-500"> — {r.journal}, {r.year}; PMID: {r.pmid}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div class="mt-8 rounded-xl border border-accent-200 bg-accent-50/60 p-6">
           <h2 class="text-lg font-bold text-gray-900">📚 Further reading: {virus.name} encyclopaedia</h2>
