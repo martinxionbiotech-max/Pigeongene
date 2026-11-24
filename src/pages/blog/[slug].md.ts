@@ -11,16 +11,16 @@ import { SITE_URL, yaml, isoDate } from '../../lib/md';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({ params: { slug: post.slug } }));
+  return posts.map((post) => ({ params: { slug: post.id } }));
 }
 
 export const GET: APIRoute = async ({ params }) => {
   const posts = await getCollection('blog');
-  const post = posts.find((p) => p.slug === params.slug);
+  const post = posts.find((p) => p.id === params.slug);
   if (!post) return new Response('Not found', { status: 404 });
 
   const { data } = post;
-  const canonical = `${SITE_URL}/blog/${post.slug}/`;
+  const canonical = `${SITE_URL}/blog/${post.id}/`;
   const updated = data.updatedDate ?? data.pubDate;
 
   const out: string[] = [];
@@ -40,7 +40,7 @@ export const GET: APIRoute = async ({ params }) => {
   out.push(post.body || '');
   out.push('');
   out.push(`查看完整 HTML 页面：${canonical}`);
-  const extra = blogExtras[post.slug];
+  const extra = blogExtras[post.id];
   if (extra) {
     out.push('');
     out.push(`## ${extra.heading}`);

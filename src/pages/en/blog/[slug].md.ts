@@ -16,8 +16,8 @@ export async function getStaticPaths() {
 
   const writtenInEnglish = blog.filter((p) => p.data.lang === 'en');
   return [
-    ...writtenInEnglish.map((post) => ({ params: { slug: post.slug } })),
-    ...translations.map((post) => ({ params: { slug: post.slug } })),
+    ...writtenInEnglish.map((post) => ({ params: { slug: post.id } })),
+    ...translations.map((post) => ({ params: { slug: post.id } })),
   ];
 }
 
@@ -25,13 +25,13 @@ export const GET: APIRoute = async ({ params }) => {
   const blog = await getCollection('blog');
   const translations = await getCollection('blog-en');
   const post =
-    blog.find((p) => p.data.lang === 'en' && p.slug === params.slug) ??
-    translations.find((p) => p.slug === params.slug);
+    blog.find((p) => p.data.lang === 'en' && p.id === params.slug) ??
+    translations.find((p) => p.id === params.slug);
 
   if (!post) return new Response('Not found', { status: 404 });
 
   const { data } = post;
-  const canonical = `${SITE_URL}/en/blog/${post.slug}/`;
+  const canonical = `${SITE_URL}/en/blog/${post.id}/`;
   const updated = data.updatedDate ?? data.pubDate;
 
   const out: string[] = [];
@@ -51,7 +51,7 @@ export const GET: APIRoute = async ({ params }) => {
   out.push(post.body || '');
   out.push('');
   out.push(`View the full HTML page: ${canonical}`);
-  const extra = blogExtrasEn[post.slug];
+  const extra = blogExtrasEn[post.id];
   if (extra) {
     out.push('');
     out.push(`## ${extra.heading}`);

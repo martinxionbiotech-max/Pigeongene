@@ -81,10 +81,10 @@ const mobileAriaClose = isEn ? 'Close menu' : '关闭菜单';
 // a link to a page that was never built.
 const blogPosts = await getCollection('blog');
 const blogPostsEn = await getCollection('blog-en');
-const zhBlogSlugs = new Set(blogPosts.filter((p) => (p.data.lang || 'zh-CN') !== 'en').map((p) => p.slug));
+const zhBlogSlugs = new Set(blogPosts.filter((p) => (p.data.lang || 'zh-CN') !== 'en').map((p) => p.id));
 const enBlogSlugs = new Set([
-  ...blogPostsEn.map((p) => p.slug),
-  ...blogPosts.filter((p) => p.data.lang === 'en').map((p) => p.slug),
+  ...blogPostsEn.map((p) => p.id),
+  ...blogPosts.filter((p) => p.data.lang === 'en').map((p) => p.id),
 ]);
 
 let switchHref = counterpartPath(path) ?? otherHome(path);

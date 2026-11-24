@@ -79,7 +79,7 @@ const fmtDate = (d: Date) =>
           {posts
             .filter((p) => p.data.category === cat)
             .map((post) => (
-              <a href={`/en/blog/${post.slug}/`} class="group card flex flex-col hover:border-brand-300">
+              <a href={`/en/blog/${post.id}/`} class="group card flex flex-col hover:border-brand-300">
                 <div class="flex items-center gap-2 text-xs text-brand-600">
                   <span class="rounded-full bg-brand-50 px-2 py-0.5">{post.data.category}</span>
                   <time datetime={post.data.pubDate.toISOString()}>{fmtDate(post.data.pubDate)}</time>

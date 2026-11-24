@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { blogExtras } from '../../data/blogExtras';
 import Header from '../../components/Header.astro';
@@ -12,28 +12,28 @@ export async function getStaticPaths() {
   return posts
     .filter((post) => (post.data.lang || 'zh-CN') !== 'en')
     .map((post) => ({
-      params: { slug: post.slug },
+      params: { slug: post.id },
       props: { post },
     }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 const { title, description: rawDescription, pubDate, category, tags, author, authorRole, updatedDate, lang } = post.data;
 
 const postLang = lang || 'zh-CN';
 
 const siteUrl = 'https://senopigeon.com';
-const pageUrl = `${siteUrl}/blog/${post.slug}/`;
+const pageUrl = `${siteUrl}/blog/${post.id}/`;
 
 // Only advertise an English alternate when a real English page will be built.
 const blogEnPosts = await getCollection('blog-en');
-const enSlugs = new Set(blogEnPosts.map((p) => p.slug));
-const hasEn = enSlugs.has(post.slug);
+const enSlugs = new Set(blogEnPosts.map((p) => p.id));
+const hasEn = enSlugs.has(post.id);
 const hreflang = hasEn
   ? [
       { lang: 'zh-CN', href: pageUrl },
-      { lang: 'en', href: `${siteUrl}/en/blog/${post.slug}/` },
+      { lang: 'en', href: `${siteUrl}/en/blog/${post.id}/` },
       { lang: 'x-default', href: pageUrl },
     ]
   : [
@@ -84,13 +84,13 @@ const articleJsonLd = [
   },
 ];
 
-const extra = blogExtras[post.slug];
+const extra = blogExtras[post.id];
 
 const fmtDate = (d: Date) =>
   `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日`;
 ---
 
-<BaseLayout {title} {description} canonical={`/blog/${post.slug}/`} {hreflang} jsonLd={articleJsonLd} type="article">
+<BaseLayout {title} {description} canonical={`/blog/${post.id}/`} {hreflang} jsonLd={articleJsonLd} type="article">
   <Header />
 
   <main id="main">

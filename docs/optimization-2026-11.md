@@ -87,6 +87,14 @@
 - 中文试剂盒中位 **674 字**（562–708），英文 **445 词**（352–471）；中文基因页 **647 字**（637–685），英文 **412 词**（399–453）。
 - 同语言 Jaccard ≥0.60 对数为 **0**；仍低于审计建议的 800 字 / 500 词目标，但已不再是同模板页面。
 
-## 8. 结论
+## 9. Astro 7 安全升级（2026-11-24）
+
+- Astro **5.18.2 → 7.4.13**；`npm audit` 从 8 个漏洞降到 **0**（critical/high 均为 0）。
+- 迁移内容集合到 Astro Content Layer：新增 `src/content.config.ts`，使用 `glob()` loader；博客页改用 `render(post)`；集合条目由 `post.slug` 改为 `post.id`。
+- 移除不再兼容 Astro 7 的 `@astrojs/tailwind` 集成，改用标准 `postcss.config.mjs`（Tailwind 3.4 + Autoprefixer）；`@tailwindcss/typography` 升至 0.5.20，并用 `overrides` 将 `postcss-selector-parser` 固定到 6.1.6。
+- 构建仍为 **139 HTML / 138 sitemap / 138 llms HTML + 98 md**；hreflang 0 issues；602 个 JSON-LD 块可解析；CSS 约 39.8 KB，Tailwind 类正常生成。
+- `package-lock.json` 中 `mirrors.tencentyun.com` 为 0，全部为 `mirrors.tencent.com`，保证 Cloudflare `npm ci` 不会因内网源失败。
+
+## 10. 结论
 
 本轮把最严重的“35 个商业页同模板、无差异化”问题拆开了：15 个试剂盒、12 个病原、8 个基因页的同语言重复对数已降到 0（≥0.60），并补了证据等级、PubMed/DOI、页内免责声明、首页电话与主图 WebP/srcset。第二批又补了 26 篇博客的实操段落和 12 个病原页的 PubMed 参考文献。内容厚度仍有差距，尤其是英文试剂盒/基因页和 26 篇博客；下一批应继续做逐页重写，而不是再新增 URL。
