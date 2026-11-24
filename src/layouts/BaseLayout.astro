@@ -100,7 +100,7 @@ function enrichSchema(node: any): any {
     else if (value && typeof value === 'object') out[key] = enrichSchema(value);
   }
   const type = Array.isArray(out['@type']) ? out['@type'][0] : out['@type'];
-  if (['Article', 'BlogPosting', 'TechArticle', 'MedicalWebPage', 'ScholarlyArticle'].includes(type)) {
+  if (['Article', 'BlogPosting', 'TechArticle', 'MedicalWebPage'].includes(type)) {
     if (!out.datePublished) out.datePublished = CONTENT_DATES.published;
     if (!out.dateModified) out.dateModified = CONTENT_DATES.modified;
     if (!out.author) out.author = ORG_AUTHOR;
