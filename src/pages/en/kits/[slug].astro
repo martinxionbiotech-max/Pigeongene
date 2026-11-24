@@ -6,6 +6,8 @@ import { dnaKitsEn } from '../../../data/kitsEn';
 import { kitDetailsEn } from '../../../data/kitDetailsEn';
 import { kitNotesEn } from '../../../data/kitNotesEn';
 import { kitDecisionsEn } from '../../../data/kitDecisionsEn';
+import { kitExtraEn } from '../../../data/kitExtraEn';
+import { kitReportEn } from '../../../data/kitReportEn';
 import { KIT_PRICE_TEXT_EN, kitOffers } from '../../../data/pricing';
 
 export function getStaticPaths() {
@@ -65,6 +67,8 @@ const related = dnaKitsEn.filter((k) => k.category === kit.category && k.slug !=
 const detail = kitDetailsEn[kit.slug] ?? kit.intro;
 const notes = kitNotesEn[kit.slug] ?? '';
 const decision = kitDecisionsEn[kit.slug] ?? '';
+const extra = kitExtraEn[kit.slug] ?? '';
+const report = kitReportEn[kit.slug] ?? '';
 const isSexKit = kit.category === 'Sex Identification';
 const sampleText = isSexKit
   ? 'Feather with an intact quill, blood card or oral swab; DNA is stable when dried, subject to the kit instructions.'
@@ -102,6 +106,8 @@ const resultText = isSexKit
         <p class="mt-4 leading-relaxed text-gray-700">{detail}</p>
         {notes && <p class="mt-3 leading-relaxed text-gray-700">{notes}</p>}
         {decision && <p class="mt-3 rounded-lg border border-brand-100 bg-brand-50/60 p-4 text-sm leading-relaxed text-gray-700"><strong>Decision note:</strong> {decision}</p>}
+        {extra && <p class="mt-3 leading-relaxed text-gray-700">{extra}</p>}
+        {report && <p class="mt-3 text-sm leading-relaxed text-gray-600"><strong>Reporting note:</strong> {report}</p>}
 
         <h2 class="mt-10 text-2xl font-bold text-gray-900">Sample type and storage</h2>
         <p class="mt-4 leading-relaxed text-gray-700">{sampleText}</p>
@@ -111,6 +117,23 @@ const resultText = isSexKit
         <p class="mt-3 leading-relaxed text-gray-700">
           Kits are for laboratory research and professional testing, not human diagnosis. Results should be interpreted by a veterinarian or laboratory professional with the clinical picture, sample quality and epidemiology. See the
           <a href="/en/disclaimer/" class="font-semibold text-brand-600 hover:underline">Disclaimer</a>.
+        </p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Technical notes for laboratory users</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          <strong>Assay format and controls.</strong> The kits use real-time PCR/qPCR chemistry with target-specific primers and a fluorescent probe, plus positive, negative and internal/amplification controls. A valid run requires the internal control to amplify and the negative control to remain clean; a target signal without a valid control should not be reported as a stand-alone positive.
+        </p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          <strong>Sample-to-result workflow.</strong> Collect the sample into the recommended container, extract nucleic acid with a validated method, quantify or normalise input where the instructions require it, and set up amplification in a clean pre-PCR area. Keep extraction, reagent preparation and amplified-product analysis physically separated; use filter tips and dedicated pipettes to reduce carry-over.
+        </p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          <strong>Batch documentation and verification.</strong> Performance depends on the sample matrix, extraction method, instrument and operator. The current batch COA or validation report should be consulted for the claimed limit of detection, specificity panel and any matrix restrictions; users should verify the assay on their own platform before reporting results. This page does not replace those documents.
+        </p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          <strong>Before ordering.</strong> Confirm the catalogue number, batch, 48/96-well format, storage and shipping requirements, and request the current IFU, COA and validation summary. Verify the assay on your own platform before using it for reporting.
+        </p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          <strong>Limitations.</strong> A positive result indicates that target nucleic acid was detected; it does not prove clinical disease, viable organisms or a specific serotype unless the assay explicitly claims that. A negative result does not exclude infection, especially with poor sampling, low organism load or PCR inhibitors. Results are for laboratory research and professional testing and must be interpreted with clinical signs, epidemiology and, where relevant, culture, isolation or sequencing.
         </p>
       </div>
 

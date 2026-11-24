@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { blogExtras } from '../../data/blogExtras';
+import { blogDeepDives } from '../../data/blogDeepDives';
+import { blogDeepDiveExtra } from '../../data/blogDeepDiveExtra';
 import { SITE_URL, yaml, isoDate } from '../../lib/md';
 
 /**
@@ -52,6 +54,22 @@ export const GET: APIRoute = async ({ params }) => {
     for (const bullet of extra.bullets) {
       out.push(`- ${bullet}`);
     }
+    out.push('');
+  }
+
+  const deep = blogDeepDives[post.id];
+  const closing = blogDeepDiveExtra[post.id];
+  if (deep) {
+    out.push('');
+    out.push(`## ${deep.heading}`);
+    out.push('');
+    for (const paragraph of deep.body) {
+      out.push(paragraph);
+      out.push('');
+    }
+  }
+  if (closing) {
+    out.push(closing);
     out.push('');
   }
 

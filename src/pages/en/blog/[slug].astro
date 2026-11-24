@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { blogDeepDivesEn } from '../../../data/blogDeepDivesEn';
+import { blogDeepDiveExtraEn } from '../../../data/blogDeepDiveExtraEn';
 import { blogExtrasEn } from '../../../data/blogExtrasEn';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
@@ -75,6 +77,8 @@ const articleJsonLd = [
   },
 ];
 
+const deep = blogDeepDivesEn[post.id];
+const closing = blogDeepDiveExtraEn[post.id];
 const extra = blogExtrasEn[post.id];
 
 const fmtDate = (d: Date) =>
@@ -117,6 +121,14 @@ const fmtDate = (d: Date) =>
             <ul class="mt-4 space-y-2 text-gray-700">
               {extra.bullets.map((b) => <li class="flex items-start gap-2"><span class="mt-1 text-brand-600">◆</span><span>{b}</span></li>)}
             </ul>
+          </section>
+        )}
+
+        {deep && (
+          <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-900">{deep.heading}</h2>
+            {deep.body.map((p) => <p class="mt-4 leading-relaxed text-gray-700">{p}</p>)}
+            {closing && <p class="mt-4 leading-relaxed text-gray-700">{closing}</p>}
           </section>
         )}
 
