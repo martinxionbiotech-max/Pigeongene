@@ -70,7 +70,7 @@ const articleJsonLd = [
     keywords: tags.join(','),
     inLanguage: postLang,
     mainEntityOfPage: pageUrl,
-    image: `${siteUrl}/wp-content/uploads/Racing-Pigeon-Performance-DNA-Testing-scaled.jpg`,
+    image: `${siteUrl}/wp-content/uploads/Racing-Pigeon-Performance-DNA-Testing-scaled.webp`,
   },
   {
     '@context': 'https://schema.org',
@@ -116,6 +116,10 @@ const fmtDate = (d: Date) =>
         <div class="prose prose-brand max-w-none">
           <Content />
         </div>
+        <div class="mt-10 rounded-xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-relaxed text-gray-700">
+          <p><strong>范围与证据说明：</strong>本文用于赛鸽育种与健康管理参考，不构成兽医诊断、治疗或成绩保证。文中的研究结论以原始论文为准；可点击来源与文献汇总见<a href="/cankao/" class="font-semibold text-brand-700 underline">科学参考</a>，完整边界见<a href="/mianze-shengming/" class="font-semibold text-brand-700 underline">免责声明</a>。</p>
+        </div>
+
         <div class="mt-10 flex flex-wrap gap-2">
           {tags.map((t) => (
             <span class="rounded bg-gray-100 px-3 py-1 text-sm text-gray-600">{t}</span>

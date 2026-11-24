@@ -19,7 +19,7 @@ const zhPath = `/bingdu-jiance/${virus.slug}/`;
 const pageUrl = `${siteUrl}${enPath}`;
 
 const title = `${virus.name} Testing | SENO qPCR Panel`;
-const description = virus.desc.length > 155 ? virus.desc.slice(0, 152) + '…' : virus.desc;
+const description = virus.desc.length > 150 ? virus.desc.slice(0, 147) + '…' : virus.desc;
 
 const hreflang = [
   { lang: 'en', href: pageUrl },
@@ -127,6 +127,30 @@ const articleJsonLd = [
 
         <h2 class="mt-10 text-2xl font-bold text-gray-900">Prevention</h2>
         <p class="mt-4 leading-relaxed text-gray-700">{virus.prevention}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Testing workflow and sample requirements</h2>
+        <ol class="mt-4 space-y-2 text-gray-700">
+          <li>1. Before sampling, record the pigeon ID, signs and medication history; never share one swab between birds.</li>
+          <li>2. Collect {virus.sample} for the target, seal and label each sample, and ship promptly at the recommended temperature.</li>
+          <li>3. The laboratory performs nucleic-acid extraction and {virus.method}, with positive, negative and internal controls.</li>
+          <li>4. Interpret the report with clinical signs, epidemiology and, where needed, a repeat sample.</li>
+        </ol>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Interpretation and limits</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          A positive result means target nucleic acid was detected; it does not prove clinical disease. A negative result does not fully exclude infection, especially when timing, sample volume or shipping conditions were suboptimal. Nucleic-acid testing does not replace virus isolation, bacterial culture, susceptibility testing or histopathology; use the current batch instructions and laboratory report for cut-offs.
+        </p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          This page is for professional testing and research reference, not veterinary diagnosis or treatment advice. Isolation, medication and disposal of positive birds should be decided by a licensed veterinarian on site. See the
+          <a href="/en/disclaimer/" class="font-semibold text-brand-700 underline">Disclaimer</a>.
+        </p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">Biosecurity notes</h2>
+        <ul class="mt-4 space-y-2 text-gray-700">
+          <li>• Wear gloves and a mask when handling suspect birds or samples; separate and disinfect work areas and equipment.</li>
+          <li>• Isolate positive birds first and avoid basketing, pairing or mixing; do not use human medicines on your own.</li>
+          <li>• For important animal diseases, follow local animal-health reporting and control rules; one PCR result is not an official diagnosis.</li>
+        </ul>
 
         <div class="mt-8 rounded-xl border border-accent-200 bg-accent-50/60 p-6">
           <h2 class="text-lg font-bold text-gray-900">📚 Further reading: {virus.name} encyclopaedia</h2>

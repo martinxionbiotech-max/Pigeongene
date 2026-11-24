@@ -31,15 +31,15 @@ const aboutJsonLd = [
 const certifications = [
   { icon: '🏆', name: '国家高新技术企业', desc: '经科技部、财政部、税务总局联合认定，具备核心自主知识产权与持续研发能力。' },
   { icon: '🔬', name: '市级重点基因检测实验室', desc: '2021 年被认定为张家口市重点实验室，承担区域基因检测技术研发与应用。' },
-  { icon: '📋', name: 'ISO 9001 质量管理体系', desc: '实验室检测流程严格遵循 ISO 9001 质量管理标准，确保报告准确可靠。' },
-  { icon: '🧬', name: '20+ 自主专利', desc: '在生物检测与试剂研发领域拥有 20 余项专利，彰显自主创新能力。' },
+  { icon: '📋', name: 'ISO 9001 质量管理体系', desc: '参照 ISO 9001 质量管理原则；认证范围、证书编号与有效期可应要求提供。' },
+  { icon: '🧬', name: '20+ 自主专利', desc: '在生物检测与试剂研发领域拥有 20 余项专利/申请，清单可应要求提供。' },
 ];
 
 const team = [
   {
     name: '张一雯 博士',
     role: '首席科学专家',
-    bio: '毕业于河北农业大学遗传学专业，获博士学位。长期从事禽类遗传学与分子诊断研究，2024 年获相关领域荣誉，持续推动赛鸽遗传学与性能诊断研究。',
+    bio: '毕业于河北农业大学遗传学专业，获博士学位。长期从事禽类遗传学与分子诊断研究，持续推动赛鸽遗传学与性能诊断研究。',
   },
   {
     name: '研发团队',
@@ -98,7 +98,9 @@ const milestones = [
       </div>
       <div>
         <img
-          src="/wp-content/uploads/SENO-Location.jpg"
+          src="/wp-content/uploads/SENO-Location.webp"
+          srcset="/wp-content/uploads/SENO-Location-640.webp 640w, /wp-content/uploads/SENO-Location-1024.webp 1024w, /wp-content/uploads/SENO-Location.webp 1576w"
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt="赛诺生物实验室位置"
           class="w-full rounded-2xl shadow-lg"
           width="1576"
@@ -123,7 +125,7 @@ const milestones = [
         <div class="card text-center">
           <div class="text-3xl">💎</div>
           <h3 class="mt-3 text-xl font-bold text-brand-700">100 万美元</h3>
-          <p class="mt-2 text-sm text-gray-600">先进设备总价值，保障检测的准确性与分析能力。</p>
+          <p class="mt-2 text-sm text-gray-600">先进设备投入，支撑核酸提取、qPCR 与测序分析；设备清单可应要求提供。</p>
         </div>
         <div class="card text-center">
           <div class="text-3xl">👨‍🔬</div>
@@ -133,7 +135,7 @@ const milestones = [
         <div class="card text-center">
           <div class="text-3xl">📄</div>
           <h3 class="mt-3 text-xl font-bold text-brand-700">20+ 专利</h3>
-          <p class="mt-2 text-sm text-gray-600">生物检测与试剂研发相关专利，彰显自主创新能力。</p>
+          <p class="mt-2 text-sm text-gray-600">生物检测与试剂研发相关专利/申请，清单可应要求提供。</p>
         </div>
       </div>
     </div>
@@ -151,6 +153,10 @@ const milestones = [
           <p class="mt-2 text-sm leading-relaxed text-gray-600">{c.desc}</p>
         </div>
       ))}
+    </div>
+    <div class="mx-auto mt-8 max-w-3xl rounded-xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-relaxed text-gray-700">
+      <p><strong>资质核验说明：</strong>证书编号、认证范围与有效期可应要求提供；本页不展示未核验的证书编号，也不声称 ISO/IEC 17025 认可。如检测项目需要特定认可范围，请在委托前书面确认。</p>
+      <p class="mt-2">需要资质文件或方法学资料，请<a href="/lianxi/" class="font-semibold text-brand-700 underline">联系我们</a>。</p>
     </div>
   </section>
 

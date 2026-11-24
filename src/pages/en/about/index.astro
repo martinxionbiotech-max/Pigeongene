@@ -33,15 +33,15 @@ const aboutJsonLd = [
 const certifications = [
   { icon: '🏆', name: 'National High-Tech Enterprise', desc: 'Jointly recognised by the Ministry of Science and Technology, the Ministry of Finance and the State Taxation Administration, with core independent intellectual property and sustained R&D capability.' },
   { icon: '🔬', name: 'Municipal Key Gene-Testing Laboratory', desc: 'Designated a key laboratory of Zhangjiakou in 2021, responsible for regional gene-testing technology development and application.' },
-  { icon: '📋', name: 'ISO 9001 Quality Management System', desc: 'Laboratory testing workflows follow ISO 9001 quality-management standards to keep reports accurate and reliable.' },
-  { icon: '🧬', name: '20+ independent patents', desc: 'More than 20 patents in biological testing and reagent development, reflecting our in-house innovation capability.' },
+  { icon: '📋', name: 'ISO 9001 Quality Management System', desc: 'Testing workflows refer to ISO 9001 quality-management principles; certification scope, certificate number and expiry are available on request.' },
+  { icon: '🧬', name: '20+ independent patents', desc: 'More than 20 patents/applications in biological testing and reagent development; a schedule is available on request.' },
 ];
 
 const team = [
   {
     name: 'Dr. Zhang Yiwen',
     role: 'Chief Scientific Expert',
-    bio: 'Holds a PhD in genetics from Hebei Agricultural University. Long engaged in avian genetics and molecular diagnostics research, recognised in the field in 2024, and continues to advance racing pigeon genetics and performance-diagnostics research.',
+    bio: 'Holds a PhD in genetics from Hebei Agricultural University. Long engaged in avian genetics and molecular diagnostics research, and continues to advance racing pigeon genetics and performance-diagnostics research.',
   },
   {
     name: 'R&D Team',
@@ -106,7 +106,9 @@ const hreflang = [
       </div>
       <div>
         <img
-          src="/wp-content/uploads/SENO-Location.jpg"
+          src="/wp-content/uploads/SENO-Location.webp"
+          srcset="/wp-content/uploads/SENO-Location-640.webp 640w, /wp-content/uploads/SENO-Location-1024.webp 1024w, /wp-content/uploads/SENO-Location.webp 1576w"
+          sizes="(max-width: 768px) 100vw, 50vw"
           alt="Location of the SENO Biotech laboratory"
           class="w-full rounded-2xl shadow-lg"
           width="1576"
@@ -131,7 +133,7 @@ const hreflang = [
         <div class="card text-center">
           <div class="text-3xl">💎</div>
           <h3 class="mt-3 text-xl font-bold text-brand-700">US$1 million</h3>
-          <p class="mt-2 text-sm text-gray-600">Total value of advanced instrumentation, supporting industry-leading accuracy and analytical capability.</p>
+          <p class="mt-2 text-sm text-gray-600">Advanced equipment for extraction, qPCR and sequencing; an equipment schedule is available on request.</p>
         </div>
         <div class="card text-center">
           <div class="text-3xl">👨‍🔬</div>
@@ -141,7 +143,7 @@ const hreflang = [
         <div class="card text-center">
           <div class="text-3xl">📄</div>
           <h3 class="mt-3 text-xl font-bold text-brand-700">20+ patents</h3>
-          <p class="mt-2 text-sm text-gray-600">Patents relating to biological testing and reagent development, reflecting our in-house innovation capability.</p>
+          <p class="mt-2 text-sm text-gray-600">Patents/applications in biological testing and reagent development; a schedule is available on request.</p>
         </div>
       </div>
     </div>
@@ -159,6 +161,10 @@ const hreflang = [
           <p class="mt-2 text-sm leading-relaxed text-gray-600">{c.desc}</p>
         </div>
       ))}
+    </div>
+    <div class="mx-auto mt-8 max-w-3xl rounded-xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-relaxed text-gray-700">
+      <p><strong>Verification note:</strong> Certificate numbers, certification scope and expiry are available on request. This page does not display unverified certificate numbers and does not claim ISO/IEC 17025 accreditation. If a project requires a specific accredited scope, please confirm in writing before commissioning.</p>
+      <p class="mt-2">To request qualification or method documents, <a href="/en/contact/" class="font-semibold text-brand-700 underline">contact us</a>.</p>
     </div>
   </section>
 

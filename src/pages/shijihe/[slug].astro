@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { dnaKits } from '../../data/kits';
+import { kitDetails } from '../../data/kitDetails';
+import { kitNotes } from '../../data/kitNotes';
 import { KIT_PRICE_TEXT_ZH, kitOffers } from '../../data/pricing';
 
 export function getStaticPaths() {
@@ -52,6 +54,15 @@ const productJsonLd = [
 ];
 
 const related = dnaKits.filter((k) => k.category === kit.category && k.slug !== kit.slug);
+const detail = kitDetails[kit.slug] ?? kit.intro;
+const notes = kitNotes[kit.slug] ?? '';
+const isSexKit = kit.category === '性别鉴定';
+const sampleText = isSexKit
+  ? '羽毛（带完整羽根）、血卡或口腔拭子；DNA 稳定，干燥保存即可，具体以说明书为准。'
+  : '喉/泄殖腔拭子、粪便或病变组织等，按靶标和说明书采集；样本应单独密封、清晰编号并按说明温度尽快寄送。';
+const resultText = isSexKit
+  ? '根据荧光信号与内参判断 Z/W 片段差异；结果应结合样本质量与物种信息解读。具体判读阈值以批次说明书为准；本页不写未经验证的灵敏度/特异性数字。'
+  : '根据荧光曲线、Ct 值与内参判断目标核酸是否存在；阳性不等于临床发病，阴性也不能完全排除感染。具体判读阈值以批次说明书为准；本页不写未经验证的 LoD/灵敏度数字。';
 ---
 
 <BaseLayout {title} {description} canonical={`/shijihe/${kit.slug}/`} jsonLd={productJsonLd}>
@@ -78,37 +89,21 @@ const related = dnaKits.filter((k) => k.category === kit.category && k.slug !== 
         <h2 class="text-2xl font-bold text-gray-900">产品介绍</h2>
         <p class="mt-4 leading-relaxed text-gray-700">{kit.intro}</p>
 
-        <h2 class="mt-10 text-2xl font-bold text-gray-900">技术特点</h2>
-        <div class="mt-4 grid gap-4 sm:grid-cols-2">
-          {[
-            { icon: '🎯', title: '高特异性', desc: '针对病原保守区设计特异性引物与探针，减少非特异扩增。' },
-            { icon: '🔬', title: '高灵敏度', desc: '荧光探针法灵敏度高，可检出低拷贝数的核酸。' },
-            { icon: '🛡️', title: '防污染', desc: '内置 dUTP/UNG 系统，消除 PCR 气溶胶残留导致的假阳性。' },
-            { icon: '📊', title: '结果可靠', desc: '配套内参质控，确保检测过程与结果的可信度。' },
-          ].map((f) => (
-            <div class="card">
-              <div class="text-2xl">{f.icon}</div>
-              <h3 class="mt-2 font-semibold text-gray-900">{f.title}</h3>
-              <p class="mt-1 text-sm text-gray-600">{f.desc}</p>
-            </div>
-          ))}
-        </div>
+        <h2 class="text-2xl font-bold text-gray-900">适用场景与检测价值</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{detail}</p>
+        {notes && <p class="mt-3 leading-relaxed text-gray-700">{notes}</p>}
 
-        <h2 class="mt-10 text-2xl font-bold text-gray-900">检测流程</h2>
-        <ol class="mt-4 space-y-3">
-          {[
-            '样本采集：规范采集喉拭子、泄殖腔拭子或粪便样本',
-            '核酸提取：提取样本中的 DNA/RNA',
-            '加样扩增：加入反应体系，上机扩增',
-            '结果判读：根据荧光信号与内参判读结果',
-          ].map((step, i) => (
-            <li class="flex items-start gap-3">
-              <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">{i + 1}</span>
-              <span class="text-gray-700">{step}</span>
-            </li>
-          ))}
-        </ol>
-      </div>
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">样本类型与保存</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{sampleText}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">结果判读与局限</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">{resultText}</p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          试剂盒仅供科研与专业检测使用，不用于人体诊断；检测结果应由专业兽医或实验室人员结合临床、采样质量与流行病学综合判读。详见
+          <a href="/mianze-shengming/" class="font-semibold text-brand-600 hover:underline">免责声明</a>。
+        </p>
+
+
 
       <aside class="space-y-6">
         <div class="card bg-brand-50/50">

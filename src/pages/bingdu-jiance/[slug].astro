@@ -14,7 +14,7 @@ export function getStaticPaths() {
 const { virus, others } = Astro.props;
 const title = `${virus.name}检测 | 赛鸽病毒检测`;
 const rawDescription = `${virus.desc} 采用${virus.method}检测${virus.sample}，${virus.detectValue}`;
-const description = rawDescription.length > 150 ? rawDescription.slice(0, 150) + '…' : rawDescription;
+const description = rawDescription.length > 140 ? rawDescription.slice(0, 140) + '…' : rawDescription;
 
 const siteUrl = 'https://senopigeon.com';
 const pageUrl = `${siteUrl}/bingdu-jiance/${virus.slug}/`;
@@ -118,6 +118,30 @@ const articleJsonLd = [
 
         <h2 class="mt-10 text-2xl font-bold text-gray-900">预防建议</h2>
         <p class="mt-4 leading-relaxed text-gray-700">{virus.prevention}</p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">检测流程与样本要求</h2>
+        <ol class="mt-4 space-y-2 text-gray-700">
+          <li>1. 采样前确认鸽只编号、症状与用药记录，避免不同鸽只共用一个拭子。</li>
+          <li>2. 按靶标采集 {virus.sample}，单独密封、清晰标注，并按说明温度尽快寄送。</li>
+          <li>3. 实验室进行核酸提取与 {virus.method}，同时设置阳性、阴性及内参对照。</li>
+          <li>4. 报告出具后结合临床症状、流行病学与复查结果判读；必要时重新采样。</li>
+        </ol>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">结果解读与局限</h2>
+        <p class="mt-4 leading-relaxed text-gray-700">
+          阳性表示样本中检出目标核酸，不等于一定发病；阴性也不能完全排除感染，尤其是采样时机、样本量、运输条件不理想时。核酸检测不能替代病毒分离、细菌培养、药敏或病理诊断；具体判读阈值以当前批次说明书与实验室报告为准。
+        </p>
+        <p class="mt-3 leading-relaxed text-gray-700">
+          本页用于专业检测与科研参考，不构成兽医诊断或治疗建议。涉及阳性鸽只的隔离、用药与处置，应由执业兽医结合现场情况决定。详见
+          <a href="/mianze-shengming/" class="font-semibold text-brand-700 underline">免责声明</a>。
+        </p>
+
+        <h2 class="mt-10 text-2xl font-bold text-gray-900">生物安全提示</h2>
+        <ul class="mt-4 space-y-2 text-gray-700">
+          <li>• 处理可疑病鸽与样本时佩戴手套、口罩，工作区与器具分开并消毒。</li>
+          <li>• 阳性鸽只先隔离，避免集鸽、配对和混群；不要自行使用人用药物。</li>
+          <li>• 涉及重要动物疫病时，按当地动物防疫要求报告与处置，不以单次核酸结果替代官方诊断。</li>
+        </ul>
 
         <div class="mt-8 rounded-xl border border-accent-200 bg-accent-50/60 p-6">
           <h2 class="text-lg font-bold text-gray-900">📚 深度阅读：{virus.name} 病原百科</h2>
