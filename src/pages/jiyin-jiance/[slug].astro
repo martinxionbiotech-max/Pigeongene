@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { geneMarkers } from '../../data/genes';
 import { geneEvidence } from '../../data/geneEvidence';
+import { geneDecisions } from '../../data/geneDecisions';
 
 export function getStaticPaths() {
   return geneMarkers.map((g) => ({
@@ -22,6 +23,7 @@ const rawDescription = `${gene.name}（${gene.code}，${gene.en}）：${gene.fun
 const description = rawDescription.length > 150 ? rawDescription.slice(0, 150) + '…' : rawDescription;
 
 const evidence = geneEvidence[gene.code] ?? { grade: 'D', note: '证据有限，需谨慎解读。' };
+const decision = geneDecisions[gene.code] ?? '';
 const pmid = gene.reference.match(/PMID:\s*(\d+)/)?.[1];
 const doiMatch = gene.reference.match(/DOI:\s*([^\s;；|]+)/)?.[1];
 const doi = doiMatch ? doiMatch.replace(/[;；].*$/, '') : undefined;
@@ -101,6 +103,7 @@ const related = geneMarkers.filter((g) => g.code !== gene.code);
           <span class="text-gray-600">（{evidence.grade === 'A' ? '多项独立研究支持' : evidence.grade === 'B' ? '至少一项鸽类同行评审关联' : evidence.grade === 'C' ? '初步/单一研究' : '假设或背景证据'}）</span>
         </div>
         <p class="mt-3 text-sm leading-relaxed text-gray-600">{evidence.note}</p>
+        {decision && <p class="mt-3 rounded-lg border border-brand-100 bg-brand-50/60 p-4 text-sm leading-relaxed text-gray-700">{decision}</p>}
 
         <h2 class="mt-10 text-2xl font-bold text-gray-900">如何解读这个位点</h2>
         <p class="mt-4 leading-relaxed text-gray-700">
